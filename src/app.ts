@@ -21,6 +21,7 @@ export async function bootstrap(): Promise<void> {
   let save = loadSave();
   let state: GameState | null = null;
   let currentLevelIndex = 0;
+  void currentLevelIndex; // retained for potential future stateful navigation
 
   const eras = [
     { name: '1960s Dish', tier: 'dish', levels: levels.filter((l) => l.id.startsWith('dish')) },
@@ -37,8 +38,8 @@ export async function bootstrap(): Promise<void> {
       ui.announce('Complete earlier levels to unlock');
       return;
     }
-    state = createGameState(level.id, level.era, level.capacity, level.towers, level.clearCharges, level.targetMoves, level.colors);
     currentLevelIndex = levels.findIndex((l) => l.id === level.id);
+    state = createGameState(level.id, level.era, level.capacity, level.towers, level.clearCharges, level.targetMoves, level.colors);
     ui.setScreen('game');
     renderGame();
   }
@@ -288,7 +289,7 @@ export async function bootstrap(): Promise<void> {
     if (!state) return;
     ui.showResetConfirm(
       () => {
-        const level = levels[currentLevelIndex];
+        const level = levels.find((l) => l.id === state!.levelId)!;
         resetGame(state!, cloneTowers(level.towers));
         renderGame();
       },
@@ -311,12 +312,13 @@ export async function bootstrap(): Promise<void> {
       stars,
       bestMoves,
       () => {
-        const next = levels[currentLevelIndex + 1];
+        const nextIndex = levels.findIndex((l) => l.id === state!.levelId) + 1;
+        const next = levels[nextIndex];
         if (next) startLevel(next);
         else showMap();
       },
       () => {
-        const level = levels[currentLevelIndex];
+        const level = levels.find((l) => l.id === state!.levelId)!;
         startLevel(level);
       },
       () => showMap()
