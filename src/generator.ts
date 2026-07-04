@@ -16,7 +16,7 @@ interface TierSpec {
 
 const TIER_SPECS: Record<Tier, TierSpec> = {
   dish: {
-    name: '1960s Dish',
+    name: 'Dawn Dish',
     colors: 3,
     towers: 5,
     capacity: 4,
@@ -25,7 +25,7 @@ const TIER_SPECS: Record<Tier, TierSpec> = {
     count: 10
   },
   array: {
-    name: '1980s Array',
+    name: 'VLA Array',
     colors: 4,
     towers: 7,
     capacity: 4,

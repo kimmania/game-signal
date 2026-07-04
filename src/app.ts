@@ -18,14 +18,14 @@ export async function bootstrap(): Promise<void> {
   const res = await fetch('puzzles/levels.json');
   levels = (await res.json()) as LevelData[];
 
-  let save = loadSave();
+  let save = loadSave(levels);
   let state: GameState | null = null;
   let currentLevelIndex = 0;
   void currentLevelIndex; // retained for potential future stateful navigation
 
   const eras = [
-    { name: '1960s Dish', tier: 'dish', levels: levels.filter((l) => l.id.startsWith('dish')) },
-    { name: '1980s Array', tier: 'array', levels: levels.filter((l) => l.id.startsWith('array')) },
+    { name: 'Dawn Dish', tier: 'dish', levels: levels.filter((l) => l.id.startsWith('dish')) },
+    { name: 'VLA Array', tier: 'array', levels: levels.filter((l) => l.id.startsWith('array')) },
     { name: 'Deep Space Network', tier: 'dsn', levels: levels.filter((l) => l.id.startsWith('dsn')) },
     { name: 'Exoplanet Hunter', tier: 'hunter', levels: levels.filter((l) => l.id.startsWith('hunter')) }
   ];
@@ -35,7 +35,7 @@ export async function bootstrap(): Promise<void> {
   function startLevel(level: LevelData): void {
     if (!isUnlocked(level.id)) {
       sound.playInvalid();
-      ui.announce('Complete earlier levels to unlock');
+      ui.announce('Complete earlier levels to restore the signal');
       return;
     }
     currentLevelIndex = levels.findIndex((l) => l.id === level.id);
@@ -45,8 +45,8 @@ export async function bootstrap(): Promise<void> {
   }
 
   function isUnlocked(id: string): boolean {
-    // First level of every tier is always available for challenge/practice
-    if (id.match(/^(dish|array|dsn|hunter)1$/)) return true;
+    // Only the very first receiver is online after the flare.
+    if (id === 'dish1') return true;
     return save.unlocked.includes(id);
   }
 
@@ -303,7 +303,7 @@ export async function bootstrap(): Promise<void> {
     const progressBefore = save.progress[state.levelId];
     const bestMoves = progressBefore?.bestMoves ?? null;
     recordProgress(save, state.levelId, stars, state.moves);
-    unlockNext(save, state.levelId);
+    unlockNext(save, levels, state.levelId);
     saveGame(save);
 
     ui.showVictory(

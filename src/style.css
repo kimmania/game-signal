@@ -424,6 +424,15 @@ button {
   font-size: 0.8rem;
   font-weight: 700;
   position: relative;
+  gap: 2px;
+}
+
+.level-node .node-label {
+  font-size: 0.6rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
 }
 
 .level-node.locked {

@@ -1,4 +1,4 @@
-import type { SaveData, Settings, LevelProgress } from './types.ts';
+import type { SaveData, Settings, LevelProgress, LevelData } from './types.ts';
 import { SAVE_VERSION, SAVE_KEY } from './types.ts';
 
 export function defaultSettings(): Settings {
@@ -23,12 +23,12 @@ export function defaultSave(): SaveData {
   };
 }
 
-export function loadSave(): SaveData {
+export function loadSave(levels?: LevelData[]): SaveData {
   try {
     const raw = localStorage.getItem(SAVE_KEY);
     if (!raw) return defaultSave();
     const parsed = JSON.parse(raw) as Partial<SaveData>;
-    return migrateSave(parsed);
+    return migrateSave(parsed, levels);
   } catch {
     return defaultSave();
   }
@@ -42,7 +42,7 @@ export function saveGame(data: SaveData): void {
   }
 }
 
-function migrateSave(raw: Partial<SaveData>): SaveData {
+function migrateSave(raw: Partial<SaveData>, levels?: LevelData[]): SaveData {
   const defaults = defaultSave();
   const version = raw.version ?? 0;
   const settings = { ...defaults.settings, ...(raw.settings || {}) };
@@ -54,7 +54,21 @@ function migrateSave(raw: Partial<SaveData>): SaveData {
 
   // normalize: any completed level must be unlocked
   const completed = Array.from(new Set<string>(raw.completed || []));
-  const unlockedSet = new Set<string>(completed.concat(raw.unlocked || []));
+  const unlockedSet = new Set<string>(['dish1']);
+
+  // Recompute the linear unlock chain from completed levels.
+  if (levels && levels.length > 0) {
+    for (const completedId of completed) {
+      const idx = levels.findIndex((l) => l.id === completedId);
+      if (idx !== -1) {
+        const next = levels[idx + 1];
+        if (next) unlockedSet.add(next.id);
+      }
+    }
+  } else {
+    // Fallback without levels: keep any existing legitimate unlocks.
+    for (const id of raw.unlocked || []) unlockedSet.add(id);
+  }
 
   return {
     version: SAVE_VERSION,
@@ -96,13 +110,13 @@ export function recordProgress(
   return data;
 }
 
-export function unlockNext(data: SaveData, levelId: string): SaveData {
-  const match = /^([a-z]+)(\d+)$/.exec(levelId);
-  if (!match) return data;
-  const [, prefix, numStr] = match;
-  const nextId = `${prefix}${Number(numStr) + 1}`;
+export function unlockNext(data: SaveData, levels: LevelData[], levelId: string): SaveData {
+  const index = levels.findIndex((l) => l.id === levelId);
+  if (index === -1) return data;
+  const next = levels[index + 1];
+  if (!next) return data;
   const set = new Set(data.unlocked);
-  set.add(nextId);
+  set.add(next.id);
   data.unlocked = Array.from(set);
   return data;
 }

@@ -36,17 +36,17 @@ export class UI {
     el.id = 'story-screen';
     el.innerHTML = `
       <h1>Signal</h1>
-      <div class="sub">Frequency Alignment Puzzle</div>
+      <div class="sub">Radio-Astronomy Spectrum Sort</div>
       <p class="story-text">
-        The year is <strong>1967</strong>. A solar flare has scrambled the telemetry from every dish
-        at the remote observatory. You are the lone radio astronomer left on the night shift,
-        manually retuning each spectrum tower. Align the frequency bands, isolate the signals,
-        and bring the data home before dawn.
+        The year is <strong>1967</strong>. A coronal mass ejection has stripped every dish
+        on Earth down to static. You are the lone radio astronomer on the night shift,
+        retuning each receiver one spectrum tower at a time.
       </p>
       <p class="story-text">
-        <strong>Tap</strong> a tower to select it, then <strong>tap another</strong> to transfer bands.
-        Match colors to <strong>amplify</strong>; mismatches create <strong>interference</strong>.
-        Use your <strong>Clear Signal</strong> charges wisely.
+        <strong>Tap</strong> a tower to select its top frequency band, then <strong>tap another</strong> to transfer it.
+        Match bands of the same color and they <strong>amplify</strong> into one clean signal.
+        Mix colors and you create <strong>interference</strong> — two noisy bands locked in static.
+        Spend a <strong>Clear Signal</strong> charge to burn off a single interference pair.
       </p>
       <button type="button" id="begin-btn" class="btn btn-primary">Enter the Observatory</button>
     `;
@@ -72,7 +72,7 @@ export class UI {
     header.id = 'map-header';
     header.innerHTML = `
       <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;">
-        <h2>Observatory Map</h2>
+        <h2>Receiver Map</h2>
         <div style="display:flex;gap:8px;">
           <button id="map-help" class="icon-btn" aria-label="Help">?</button>
           <button id="map-settings" class="icon-btn" aria-label="Settings">⚙</button>
@@ -98,14 +98,14 @@ export class UI {
 
       for (const level of era.levels) {
         const prog = progress(level.id);
-        const unlocked = isUnlocked(level.id) || level.id.endsWith('1');
+        const unlocked = isUnlocked(level.id);
         const node = document.createElement('button');
         node.type = 'button';
         node.className = 'level-node';
         if (!unlocked) node.classList.add('locked');
         if (prog?.stars === 3) node.classList.add('three-star');
         else if (prog && prog.stars > 0) node.classList.add('completed');
-        node.innerHTML = `<span>${level.id.replace(/[^0-9]/g, '')}</span>`;
+        node.innerHTML = `<span>${level.id.replace(/[^0-9]/g, '')}</span><span class="node-label">${unlocked ? level.name.replace(era.name, '').trim() : '—'}</span>`;
         if (unlocked) {
           node.addEventListener('click', () => onSelect(level));
         } else {
@@ -227,18 +227,18 @@ export class UI {
   }
 
   showVictory(moves: number, targetMoves: number, stars: number, bestMoves: number | null, onNext: () => void, onReplay: () => void, onMap: () => void): void {
-    this.showModal('Level Complete', `
+    this.showModal('Signal Restored', `
       <div class="stars" aria-label="${stars} stars">
         <span class="${stars >= 1 ? 'earned' : ''}">★</span>
         <span class="${stars >= 2 ? 'earned' : ''}">★</span>
         <span class="${stars >= 3 ? 'earned' : ''}">★</span>
       </div>
-      <p>You aligned the signal in <strong>${moves}</strong> moves. Target was <strong>${targetMoves}</strong>.</p>
-      ${bestMoves !== null ? `<p>Best ever: <strong>${bestMoves}</strong> moves</p>` : ''}
+      <p>This receiver is tuned. You aligned the bands in <strong>${moves}</strong> moves. Target was <strong>${targetMoves}</strong>.</p>
+      ${bestMoves !== null ? `<p>Best pass: <strong>${bestMoves}</strong> moves</p>` : ''}
       <div class="modal-actions">
         <button id="victory-map" class="btn btn-secondary">Map</button>
         <button id="victory-replay" class="btn btn-secondary">Replay</button>
-        <button id="victory-next" class="btn btn-primary">Next Level</button>
+        <button id="victory-next" class="btn btn-primary">Next Receiver</button>
       </div>
     `);
     document.getElementById('victory-map')?.addEventListener('click', () => { this.hideModal(); onMap(); });
@@ -247,17 +247,17 @@ export class UI {
   }
 
   showHelp(onClose: () => void): void {
-    this.showModal('How to Play', `
-      <p><strong>Signal</strong> is a spectrum-sorting puzzle. Tap a tower to select it, then tap another tower to move the top block.</p>
+    this.showModal('Signal Guide', `
+      <p><strong>Signal</strong> is a radio-spectrum sorting puzzle. Tap a tower to select its top band, then tap another tower to move it.</p>
 
-      <p class="help-caption">Move matching colors together and they compress into one amplified band, saving space.</p>
+      <p class="help-caption">Stack matching colors and they compress into one amplified band, saving tower space.</p>
       <div class="help-example" aria-label="Matching red bands compress">
         <div class="mini-tower"><div class="mini-band red"></div></div>
         <div class="mini-tower"><div class="mini-band red"></div><div class="mini-band red"></div></div>
         <div class="mini-tower"><div class="mini-band amber"></div></div>
       </div>
 
-      <p class="help-caption">Placing a different color on top creates <strong>interference</strong> (two noisy static bands). Resolve it by placing either matching color on top, or tap <strong>Clear</strong> to spend a charge.</p>
+      <p class="help-caption">Drop a different color on top and it creates <strong>interference</strong> — two noisy static bands. Resolve it by adding either matching color on top, or tap <strong>Clear</strong> to spend one charge.</p>
       <div class="help-example" aria-label="Interference resolved by matching color">
         <div class="mini-tower"><div class="mini-band red"></div><div class="mini-band" style="background:var(--noise)"></div></div>
         <div class="mini-tower" style="height:88px"><div class="mini-band red"></div><div class="mini-band" style="background:var(--noise)"></div><div class="mini-band red"></div></div>
@@ -267,15 +267,15 @@ export class UI {
 
       <ul class="help-list">
         <li>Only the top stretch of matching color is picked up.</li>
-        <li>You can place a band onto a noisy interference pair.</li>
-        <li>When two or more towers have interference, tap <strong>Clear</strong> first, then tap the tower you want to clear.</li>
-        <li>Empty towers are shown with an <strong>Empty</strong> label.</li>
+        <li>You can drop a band onto a noisy interference pair.</li>
+        <li>When two or more towers have interference, tap <strong>Clear</strong> first, then tap the tower to clear.</li>
+        <li>Empty towers show an <strong>Empty</strong> label — useful staging areas.</li>
       </ul>
 
-      <p>Every level has a <strong>target move count</strong>. Beat it without creating interference for 3 stars.</p>
+      <p>Each level has a <strong>target move count</strong>. Hit it without creating any interference for 3 stars.</p>
 
       <div class="modal-actions">
-        <button id="close-help" class="btn btn-primary">Got it</button>
+        <button id="close-help" class="btn btn-primary">Copy that</button>
       </div>
     `);
     document.getElementById('close-help')?.addEventListener('click', () => { this.hideModal(); onClose(); });

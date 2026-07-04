@@ -1,8 +1,8 @@
 [
   {
     "id": "dish1",
-    "name": "1960s Dish 1",
-    "era": "1960s Dish",
+    "name": "Dawn Dish 1",
+    "era": "Dawn Dish",
     "colors": [
       "red",
       "amber",
@@ -100,8 +100,8 @@
   },
   {
     "id": "dish2",
-    "name": "1960s Dish 2",
-    "era": "1960s Dish",
+    "name": "Dawn Dish 2",
+    "era": "Dawn Dish",
     "colors": [
       "red",
       "amber",
@@ -217,8 +217,8 @@
   },
   {
     "id": "dish3",
-    "name": "1960s Dish 3",
-    "era": "1960s Dish",
+    "name": "Dawn Dish 3",
+    "era": "Dawn Dish",
     "colors": [
       "red",
       "amber",
@@ -346,8 +346,8 @@
   },
   {
     "id": "dish4",
-    "name": "1960s Dish 4",
-    "era": "1960s Dish",
+    "name": "Dawn Dish 4",
+    "era": "Dawn Dish",
     "colors": [
       "red",
       "amber",
@@ -439,8 +439,8 @@
   },
   {
     "id": "dish5",
-    "name": "1960s Dish 5",
-    "era": "1960s Dish",
+    "name": "Dawn Dish 5",
+    "era": "Dawn Dish",
     "colors": [
       "red",
       "amber",
@@ -562,8 +562,8 @@
   },
   {
     "id": "dish6",
-    "name": "1960s Dish 6",
-    "era": "1960s Dish",
+    "name": "Dawn Dish 6",
+    "era": "Dawn Dish",
     "colors": [
       "red",
       "amber",
@@ -655,8 +655,8 @@
   },
   {
     "id": "dish7",
-    "name": "1960s Dish 7",
-    "era": "1960s Dish",
+    "name": "Dawn Dish 7",
+    "era": "Dawn Dish",
     "colors": [
       "red",
       "amber",
@@ -778,8 +778,8 @@
   },
   {
     "id": "dish8",
-    "name": "1960s Dish 8",
-    "era": "1960s Dish",
+    "name": "Dawn Dish 8",
+    "era": "Dawn Dish",
     "colors": [
       "red",
       "amber",
@@ -883,8 +883,8 @@
   },
   {
     "id": "dish9",
-    "name": "1960s Dish 9",
-    "era": "1960s Dish",
+    "name": "Dawn Dish 9",
+    "era": "Dawn Dish",
     "colors": [
       "red",
       "amber",
@@ -988,8 +988,8 @@
   },
   {
     "id": "dish10",
-    "name": "1960s Dish 10",
-    "era": "1960s Dish",
+    "name": "Dawn Dish 10",
+    "era": "Dawn Dish",
     "colors": [
       "red",
       "amber",
@@ -1117,8 +1117,8 @@
   },
   {
     "id": "array1",
-    "name": "1980s Array 1",
-    "era": "1980s Array",
+    "name": "VLA Array 1",
+    "era": "VLA Array",
     "colors": [
       "red",
       "amber",
@@ -1299,8 +1299,8 @@
   },
   {
     "id": "array2",
-    "name": "1980s Array 2",
-    "era": "1980s Array",
+    "name": "VLA Array 2",
+    "era": "VLA Array",
     "colors": [
       "red",
       "amber",
@@ -1451,8 +1451,8 @@
   },
   {
     "id": "array3",
-    "name": "1980s Array 3",
-    "era": "1980s Array",
+    "name": "VLA Array 3",
+    "era": "VLA Array",
     "colors": [
       "red",
       "amber",
@@ -1615,8 +1615,8 @@
   },
   {
     "id": "array4",
-    "name": "1980s Array 4",
-    "era": "1980s Array",
+    "name": "VLA Array 4",
+    "era": "VLA Array",
     "colors": [
       "red",
       "amber",
@@ -1761,8 +1761,8 @@
   },
   {
     "id": "array5",
-    "name": "1980s Array 5",
-    "era": "1980s Array",
+    "name": "VLA Array 5",
+    "era": "VLA Array",
     "colors": [
       "red",
       "amber",
@@ -1913,8 +1913,8 @@
   },
   {
     "id": "array6",
-    "name": "1980s Array 6",
-    "era": "1980s Array",
+    "name": "VLA Array 6",
+    "era": "VLA Array",
     "colors": [
       "red",
       "amber",
@@ -2059,8 +2059,8 @@
   },
   {
     "id": "array7",
-    "name": "1980s Array 7",
-    "era": "1980s Array",
+    "name": "VLA Array 7",
+    "era": "VLA Array",
     "colors": [
       "red",
       "amber",
@@ -2217,8 +2217,8 @@
   },
   {
     "id": "array8",
-    "name": "1980s Array 8",
-    "era": "1980s Array",
+    "name": "VLA Array 8",
+    "era": "VLA Array",
     "colors": [
       "red",
       "amber",
@@ -2375,8 +2375,8 @@
   },
   {
     "id": "array9",
-    "name": "1980s Array 9",
-    "era": "1980s Array",
+    "name": "VLA Array 9",
+    "era": "VLA Array",
     "colors": [
       "red",
       "amber",
@@ -2527,8 +2527,8 @@
   },
   {
     "id": "array10",
-    "name": "1980s Array 10",
-    "era": "1980s Array",
+    "name": "VLA Array 10",
+    "era": "VLA Array",
     "colors": [
       "red",
       "amber",
