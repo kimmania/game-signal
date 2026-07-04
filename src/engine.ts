@@ -88,34 +88,26 @@ export function createNoisyPair(topColor: BandColor, bottomColor: BandColor): Ba
 
 function recomputeAfterMove(tower: Tower, justLanded = false): void {
   if (tower.bands.length < 2) {
-    // single band is clean unless already noisy
     const only = tower.bands[0];
     if (only && !only.noisy) only.amplified = false;
     return;
   }
 
-  const top = tower.bands[tower.bands.length - 1];
-  const second = tower.bands[tower.bands.length - 2];
-
-  // 1. Check if a newly-landed clean color matches the bottom color of an existing noisy pair.
-  if (justLanded && !top.noisy && second && second.noisy) {
+  // 1. Resolve interference: a clean top band whose color matches either band of the noisy pair directly beneath it.
+  if (justLanded) {
+    const top = tower.bands[tower.bands.length - 1];
+    const second = tower.bands[tower.bands.length - 2];
     const third = tower.bands[tower.bands.length - 3];
-    if (third && third.noisy) {
-      // top is clean landing color; second and third are noisy pair
-      const pairColors = new Set([second.color, third.color]);
-      if (pairColors.has(top.color)) {
-        // Resolve the pair: remove them, keep one clean band of top color.
-        tower.bands.splice(tower.bands.length - 3, 3, {
-          color: top.color,
-          amplified: false,
-          noisy: false,
-          locked: false
-        });
-        recomputeAfterMove(tower, false);
-        return;
-      }
+    if (top && !top.noisy && second && second.noisy && third && third.noisy && (top.color === second.color || top.color === third.color)) {
+      tower.bands.splice(tower.bands.length - 3, 3, { color: top.color, amplified: false, noisy: false, locked: false });
+      recomputeAfterMove(tower, false);
+      return;
     }
   }
+
+  const top = tower.bands[tower.bands.length - 1];
+  const second = tower.bands[tower.bands.length - 2];
+  if (!top || !second) return;
 
   // 2. Interference: mismatched adjacent clean bands -> turn top two into noisy pair.
   if (!top.noisy && !second.noisy && top.color !== second.color && !tower.dampened) {
