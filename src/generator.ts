@@ -1,7 +1,7 @@
 import type { Tower, LevelData } from './types.ts';
 import { COLORS } from './types.ts';
 
-const TIERS = ['dish', 'array', 'dsn', 'hunter'] as const;
+const TIERS = ['dish', 'array', 'dsn', 'hunter', 'pulsar'] as const;
 type Tier = (typeof TIERS)[number];
 
 interface TierSpec {
@@ -23,7 +23,7 @@ const TIER_SPECS: Record<Tier, TierSpec> = {
     capacity: 4,
     clearCharges: 2,
     scrambleBase: 12,
-    count: 10
+    count: 15
   },
   array: {
     name: 'VLA Array',
@@ -32,7 +32,7 @@ const TIER_SPECS: Record<Tier, TierSpec> = {
     capacity: 4,
     clearCharges: 2,
     scrambleBase: 18,
-    count: 10
+    count: 15
   },
   dsn: {
     name: 'Deep Space Network',
@@ -41,7 +41,7 @@ const TIER_SPECS: Record<Tier, TierSpec> = {
     capacity: 5,
     clearCharges: 1,
     scrambleBase: 28,
-    count: 10
+    count: 15
   },
   hunter: {
     name: 'Exoplanet Hunter',
@@ -50,6 +50,15 @@ const TIER_SPECS: Record<Tier, TierSpec> = {
     capacity: 5,
     clearCharges: 1,
     scrambleBase: 34,
+    count: 15
+  },
+  pulsar: {
+    name: 'Pulsar Core',
+    colors: 6,
+    towers: 13,
+    capacity: 6,
+    clearCharges: 1,
+    scrambleBase: 50,
     count: 10
   }
 };
@@ -65,16 +74,27 @@ interface LevelShape {
 
 function levelShape(tier: Tier, index: number): LevelShape {
   const spec = TIER_SPECS[tier];
-  // Ramp scramble length across the tier: level 10 scrambles ~2x level 1.
+  // Ramp scramble length across the tier: final level scrambles ~2x level 1.
   const scrambleMoves = Math.round(spec.scrambleBase * (1 + index / (spec.count - 1)));
-  // Last three levels of dish/array add a color + tower so tiers do not feel flat.
-  const bump = (tier === 'dish' || tier === 'array') && index >= 7 ? 1 : 0;
+  // Late levels of dish/array add a color + tower so tiers do not feel flat.
+  const bumpTierStart = tier === 'dish' ? 9 : tier === 'array' ? 9 : spec.colors;
+  const bump = index >= bumpTierStart && spec.colors < COLORS.length ? 1 : 0;
   const colors = Math.min(COLORS.length, spec.colors + bump);
   const towers = spec.towers + bump;
-  // DSN introduces dampened (shielded) towers from level 4 onward.
-  const dampenedTowers = tier === 'dsn' && index >= 3 ? 1 : 0;
+  // DSN introduces dampened (shielded) towers from level 4 onward;
+  // Pulsar uses dampened towers from the start, ramping to 2 in the back half.
+  const dampenedTowers = tier === 'pulsar'
+    ? (index >= 5 ? 2 : 1)
+    : tier === 'dsn' && index >= 3
+      ? 1
+      : 0;
   // Hunter introduces encrypted (locked) bands from level 3 onward, two from level 7.
-  const lockedBands = tier === 'hunter' ? (index >= 6 ? 2 : index >= 2 ? 1 : 0) : 0;
+  // Pulsar keeps two locked bands at all times.
+  const lockedBands = tier === 'pulsar'
+    ? 2
+    : tier === 'hunter'
+      ? (index >= 6 ? 2 : index >= 2 ? 1 : 0)
+      : 0;
   return { colors, towers, scrambleMoves, dampenedTowers, lockedBands };
 }
 
@@ -247,7 +267,7 @@ export function generateLevel(tier: Tier, index: number, baseSeed: number): Leve
   const rng = makeRng(seed);
 
   let attempts = 0;
-  while (attempts < 300) {
+  while (attempts < 2000) {
     attempts++;
     const towers = makeSolvedState(shape, spec.capacity);
     // Burn some RNG so each attempt diverges.
@@ -264,7 +284,7 @@ export function generateLevel(tier: Tier, index: number, baseSeed: number): Leve
     if (isTrivial(towers)) continue;
     if (hasCompleteTower(towers, spec.capacity)) continue;
     // Always keep at least one empty staging tower; dampened towers need extra space.
-    if (towers.filter((t) => t.bands.length === 0).length < 1 + shape.dampenedTowers) continue;
+    if (towers.filter((t) => t.bands.length === 0).length < 1 + shape.dampenedTowers + shape.lockedBands) continue;
     // No initially solved monochromatic towers and, ideally, no same-color runs larger than 2.
     if (hasMonochromaticTower(towers)) continue;
 
@@ -297,9 +317,11 @@ export function generateLevel(tier: Tier, index: number, baseSeed: number): Leve
       for (let d = 0; d < Math.min(shape.dampenedTowers, emptyIndices.length); d++) {
         newTowers[emptyIndices[d]].dampened = true;
       }
+      if (newTowers.filter((t) => t.dampened).length < shape.dampenedTowers) continue;
     }
     if (shape.lockedBands > 0) {
-      applyLockedBands(newTowers, shape.lockedBands, spec.capacity, rng);
+      const lockedApplied = applyLockedBands(newTowers, shape.lockedBands, spec.capacity, rng);
+      if (lockedApplied < shape.lockedBands) continue;
     }
 
     // Target derived from the actual scramble length: reversing the scramble solves it,

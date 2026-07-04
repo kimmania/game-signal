@@ -359,8 +359,8 @@ export class UI {
         <li>You may drop a band onto an interference pair if its color matches either noisy band.</li>
         <li>When two or more towers have interference, tap <strong>Clear</strong>, then tap the tower to clear.</li>
         <li>Empty towers show an <strong>Empty</strong> label — useful staging areas.</li>
-        <li><strong>⛨ Shielded</strong> towers (Deep Space Network) never merge or interfere — pure staging space.</li>
-        <li><strong>🔒 Encrypted</strong> bands (Exoplanet Hunter) can't be picked up until you stack their matching color on top.</li>
+        <li><strong>⛨ Shielded</strong> towers (Deep Space Network / Pulsar Core) never merge or interfere — pure staging space.</li>
+        <li><strong>🔒 Encrypted</strong> bands (Exoplanet Hunter / Pulsar Core) can't be picked up until you stack their matching color on top.</li>
       </ul>
 
       <p>Each level has a <strong>target move count</strong>. Hit it without creating any interference for 3 stars.</p>

@@ -1,4 +1,4 @@
-import { generateLevel, TIERS } from '../src/generator.ts';
+import { generateLevel, TIERS, TIER_SPECS } from '../src/generator.ts';
 import type { LevelData } from '../src/types.ts';
 import { writeFileSync, mkdirSync } from 'node:fs';
 import { join } from 'node:path';
@@ -10,7 +10,8 @@ function genSet(): LevelData[] {
   const levels: LevelData[] = [];
   const baseSeed = 1967;
   for (const tier of TIERS) {
-    for (let i = 0; i < 10; i++) {
+    const spec = TIER_SPECS[tier];
+    for (let i = 0; i < spec.count; i++) {
       levels.push(generateLevel(tier, i, baseSeed));
     }
   }

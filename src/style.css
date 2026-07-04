@@ -626,6 +626,7 @@ body.color-blind .band.amplified:not(.noisy)::before {
 .era-array { --era-tint: rgba(57, 255, 20, 0.05); }
 .era-dsn { --era-tint: rgba(57, 196, 255, 0.06); }
 .era-hunter { --era-tint: rgba(168, 85, 255, 0.07); }
+.era-pulsar { --era-tint: rgba(255, 60, 90, 0.08); }
 
 .era-name {
   display: flex;

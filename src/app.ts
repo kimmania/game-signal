@@ -25,7 +25,8 @@ export async function bootstrap(): Promise<void> {
     { name: 'Dawn Dish', tier: 'dish', levels: levels.filter((l) => l.id.startsWith('dish')) },
     { name: 'VLA Array', tier: 'array', levels: levels.filter((l) => l.id.startsWith('array')) },
     { name: 'Deep Space Network', tier: 'dsn', levels: levels.filter((l) => l.id.startsWith('dsn')) },
-    { name: 'Exoplanet Hunter', tier: 'hunter', levels: levels.filter((l) => l.id.startsWith('hunter')) }
+    { name: 'Exoplanet Hunter', tier: 'hunter', levels: levels.filter((l) => l.id.startsWith('hunter')) },
+    { name: 'Pulsar Core', tier: 'pulsar', levels: levels.filter((l) => l.id.startsWith('pulsar')) }
   ];
 
   sound.setMuted(!save.settings.sound);
