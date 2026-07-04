@@ -161,6 +161,11 @@ export class UI {
     `;
     wrap.appendChild(header);
 
+    const goal = document.createElement('div');
+    goal.id = 'goal-panel';
+    goal.innerHTML = `<span class="goal-label">Receiver Objective</span><span class="goal-text">Each tower must contain only one clean signal color.</span>`;
+    wrap.appendChild(goal);
+
     const board = document.createElement('div');
     board.id = 'board';
 
