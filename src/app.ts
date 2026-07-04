@@ -182,16 +182,15 @@ export async function bootstrap(): Promise<void> {
       return;
     }
 
-    // potential interference preview handling
-    if (save.settings.interferencePreview && dst.bands.length > 0 && !dst.bands[dst.bands.length - 1].noisy && src.bands[src.bands.length - 1].color !== dst.bands[dst.bands.length - 1].color) {
-      // Player is attempting invalid matching; engine canTransfer will reject, so just clear selection
-      sound.playInvalid();
-      ui.announce('Colors do not match');
-      state.selectedTower = null;
-      state.previewInterference = null;
-      state.previewWarning = false;
-      renderGame();
-      return;
+    // Player is allowed to deliberately mismatch to create interference.
+    if (dst.bands.length > 0 && !dst.bands[dst.bands.length - 1].noisy && src.bands[src.bands.length - 1].color !== dst.bands[dst.bands.length - 1].color) {
+      if (save.settings.interferencePreview && !window.confirm('This move will create interference. Continue?')) {
+        state.selectedTower = null;
+        state.previewInterference = null;
+        state.previewWarning = false;
+        renderGame();
+        return;
+      }
     }
 
     const beforeInterference = hasAnyClearablePair(state);

@@ -40,10 +40,11 @@ export function canTransfer(src: Tower, dst: Tower, dstCapacity: number): boolea
   if (srcTop.noisy) return false;
   const room = dstCapacity - dst.bands.length;
   if (room <= 0) return false;
+  // mismatch intentionally allowed to create interference
   if (dst.bands.length === 0) return true;
   const dstTop = dst.bands[dst.bands.length - 1];
   if (dstTop.noisy) return false;
-  return srcTop.color === dstTop.color;
+  return true;
 }
 
 export function willCreateInterference(src: Tower, dst: Tower): boolean {
@@ -74,7 +75,7 @@ export function transferBands(
 
   dst.bands.push(...moving);
   recomputeAfterMove(src);
-  recomputeAfterMove(dst);
+  recomputeAfterMove(dst, true);
   return { moved: count, interference };
 }
 
@@ -89,22 +90,23 @@ function recomputeAfterMove(tower: Tower, justLanded = false): void {
   if (tower.bands.length < 2) {
     // single band is clean unless already noisy
     const only = tower.bands[0];
-    if (only) only.amplified = false;
+    if (only && !only.noisy) only.amplified = false;
     return;
   }
 
   const top = tower.bands[tower.bands.length - 1];
   const second = tower.bands[tower.bands.length - 2];
 
-  // 1. Check if a newly-landed clean color matches the top of an existing noisy pair.
+  // 1. Check if a newly-landed clean color matches the bottom color of an existing noisy pair.
   if (justLanded && !top.noisy && second && second.noisy) {
-    // The band under the just-landed band should be noisy; pair is the two below landing.
     const third = tower.bands[tower.bands.length - 3];
     if (third && third.noisy) {
       // top is clean landing color; second and third are noisy pair
-      if (second.color === top.color || third.color === top.color) {
+      const pairColors = new Set([second.color, third.color]);
+      if (pairColors.has(top.color)) {
+        // Resolve the pair: remove them, keep one clean band of top color.
         tower.bands.splice(tower.bands.length - 3, 3, {
-          color: third.color,
+          color: top.color,
           amplified: false,
           noisy: false,
           locked: false
