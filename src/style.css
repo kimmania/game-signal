@@ -454,10 +454,20 @@ button {
   animation: band-land 0.22s ease-out, amplify-flash 0.7s ease-out 0.1s;
 }
 
+.band.just-resonance {
+  animation: band-land 0.22s ease-out, resonance-flash 0.8s ease-out 0.1s;
+}
+
 @keyframes amplify-flash {
   0% { filter: brightness(1); }
   25% { filter: brightness(2.1) saturate(1.4); }
   100% { filter: brightness(1); }
+}
+
+@keyframes resonance-flash {
+  0%, 100% { box-shadow: inset 0 0 0 0 transparent; }
+  30% { box-shadow: inset 0 0 12px 3px rgba(255, 255, 255, 0.65); }
+  60% { box-shadow: inset 0 0 0 0 transparent; }
 }
 
 .band.noisy {

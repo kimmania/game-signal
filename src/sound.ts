@@ -55,6 +55,12 @@ export function playInvalid(): void {
   playTone(140, 0.16, 'sawtooth', 0.1, 80);
 }
 
+export function playResonance(): void {
+  playTone(523, 0.12, 'square');
+  setTimeout(() => playTone(659, 0.14, 'square'), 90);
+  setTimeout(() => playTone(784, 0.18, 'square'), 180);
+}
+
 export function playAmplify(): void {
   playTone(523, 0.22, 'sine', 0.12, 784);
   setTimeout(() => playTone(784, 0.3, 'sine', 0.12, 1046), 90);

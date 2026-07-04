@@ -1,6 +1,6 @@
 import type { Band, BandColor, Tower } from './types.ts';
 
-export type MoveEvent = 'amplified' | 'interference' | 'resolved' | 'unlocked' | null;
+export type MoveEvent = 'amplified' | 'interference' | 'resolved' | 'unlocked' | 'resonance' | null;
 
 export interface TransferResult {
   moved: number;
@@ -88,7 +88,8 @@ export function destinationHint(src: Tower, dst: Tower, dstCapacity: number): De
 export function transferBands(
   src: Tower,
   dst: Tower,
-  dstCapacity: number
+  dstCapacity: number,
+  allTowers?: Tower[]
 ): TransferResult {
   if (!canTransfer(src, dst, dstCapacity)) return { moved: 0, interference: false, event: null };
   const blockLen = topBlockLength(src);
@@ -104,8 +105,31 @@ export function transferBands(
   }
 
   dst.bands.push(...moving);
+  // Capture whether this landing created a 2+ clean stack before compression happens,
+  // so the resonance unlock below can trigger on that color.
+  const landingRunLength = topCleanRunLength(dst, moving[0].color);
+
   recomputeAfterMove(src);
-  const event = recomputeAfterMove(dst, true);
+  let event = recomputeAfterMove(dst, true);
+
+  // Resonance unlock: whenever a move lands 2+ matching clean bands of color X,
+  // all locked bands of color X anywhere unlock.
+  if (allTowers && landingRunLength >= 2) {
+    const color = moving[0].color;
+    let unlockedAny = false;
+    for (const tower of allTowers) {
+      for (const b of tower.bands) {
+        if (b.locked && b.color === color) {
+          b.locked = false;
+          unlockedAny = true;
+        }
+      }
+    }
+    if (unlockedAny) {
+      event = 'resonance';
+    }
+  }
+
   return { moved: count, interference, event };
 }
 
@@ -158,6 +182,19 @@ function recomputeAfterMove(tower: Tower, justLanded = false): MoveEvent {
     if (compressSameColorTop(tower)) return 'amplified';
   }
   return null;
+}
+
+function topCleanRunLength(tower: Tower, color: BandColor): number {
+  if (tower.bands.length === 0) return 0;
+  const top = tower.bands[tower.bands.length - 1];
+  if (top.noisy || top.locked || top.color !== color) return 0;
+  let count = 1;
+  for (let i = tower.bands.length - 2; i >= 0; i--) {
+    const b = tower.bands[i];
+    if (b.noisy || b.locked || b.color !== color) break;
+    count++;
+  }
+  return count;
 }
 
 function compressSameColorTop(tower: Tower): boolean {

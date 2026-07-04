@@ -216,6 +216,9 @@ export async function bootstrap(): Promise<void> {
         } else if (outcome.event === 'interference') {
           sound.playInterference();
           ui.announce('Interference created');
+        } else if (outcome.event === 'resonance') {
+          sound.playResonance();
+          ui.announce('Resonance unlock');
         } else if (outcome.event === 'amplified') {
           sound.playAmplify();
           ui.announce('Signal amplified');

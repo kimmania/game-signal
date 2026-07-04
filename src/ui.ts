@@ -225,6 +225,7 @@ export class UI {
           if (state.lastMoveTarget === i && bi === tower.bands.length - 1) {
             b.classList.add('just-landed');
             if (state.lastMoveEvent === 'amplified') b.classList.add('just-amplified');
+            if (state.lastMoveEvent === 'resonance') b.classList.add('just-resonance');
           }
           t.appendChild(b);
         });
@@ -361,6 +362,7 @@ export class UI {
         <li>Empty towers show an <strong>Empty</strong> label — useful staging areas.</li>
         <li><strong>⛨ Shielded</strong> towers (Deep Space Network / Pulsar Core) never merge or interfere — pure staging space.</li>
         <li><strong>🔒 Encrypted</strong> bands (Exoplanet Hunter / Pulsar Core) can't be picked up until you stack their matching color on top.</li>
+        <li><strong>⚡ Resonance</strong>: any tower ending with 2 matching clean bands will instantly unlock every encrypted band of that color across the board.</li>
       </ul>
 
       <p>Each level has a <strong>target move count</strong>. Hit it without creating any interference for 3 stars.</p>

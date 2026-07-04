@@ -112,7 +112,7 @@ export function selectTower(state: GameState, index: number): MoveOutcome {
   }
 
   pushUndo(state);
-  const result = transferBands(src, dst, state.capacity);
+  const result = transferBands(src, dst, state.capacity, state.towers);
   if (result.moved === 0) {
     // Should not happen after canTransfer, but never count a non-move.
     state.undoStack.pop();
