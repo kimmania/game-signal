@@ -41,7 +41,6 @@ export interface SaveData {
 
 export interface Settings {
   sound: boolean;
-  music: boolean;
   reducedMotion: boolean;
   colorBlind: boolean;
   interferencePreview: boolean;
@@ -55,7 +54,7 @@ export interface GameStateSnapshot {
 }
 
 export const SAVE_VERSION = 1;
-export const SAVE_KEY = 'catalyst-save';
+export const SAVE_KEY = 'signal-save';
 export const COLORS: BandColor[] = ['red', 'amber', 'green', 'cyan', 'violet', 'white'];
 export const COLOR_NAMES: Record<BandColor, string> = {
   red: 'Infrared Red',

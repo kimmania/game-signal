@@ -1,7 +1,8 @@
-import type { BandColor, LevelData } from './types.ts';
+import type { BandColor, LevelData, LevelProgress } from './types.ts';
 import { COLOR_NAMES } from './types.ts';
 import type { GameState } from './state.ts';
-import { canClearPair } from './engine.ts';
+import { canClearPair, destinationHint } from './engine.ts';
+import { canUndo } from './state.ts';
 
 export type ScreenName = 'story' | 'map' | 'game' | 'help' | 'settings';
 
@@ -60,7 +61,7 @@ export class UI {
   renderMap(
     eras: { name: string; tier: string; levels: LevelData[] }[],
     isUnlocked: (id: string) => boolean,
-    progress: (id: string) => { stars: number } | undefined,
+    progress: (id: string) => LevelProgress | undefined,
     onSelect: (level: LevelData) => void,
     onSettings: () => void,
     onHelp: () => void
@@ -69,12 +70,23 @@ export class UI {
     const screen = document.createElement('div');
     screen.id = 'map-screen';
 
+    // Total star count across all levels.
+    let totalStars = 0;
+    let maxStars = 0;
+    for (const era of eras) {
+      for (const level of era.levels) {
+        totalStars += progress(level.id)?.stars ?? 0;
+        maxStars += 3;
+      }
+    }
+
     const header = document.createElement('div');
     header.id = 'map-header';
     header.innerHTML = `
-      <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;">
+      <div class="map-header-row">
         <h2>Receiver Map</h2>
-        <div style="display:flex;gap:8px;">
+        <div class="map-header-actions">
+          <span class="total-stars" aria-label="${totalStars} of ${maxStars} stars earned">★ ${totalStars}/${maxStars}</span>
           <button id="map-help" class="icon-btn" aria-label="Help">?</button>
           <button id="map-settings" class="icon-btn" aria-label="Settings">⚙</button>
         </div>
@@ -87,11 +99,17 @@ export class UI {
 
     for (const era of eras) {
       const eraEl = document.createElement('div');
-      eraEl.className = 'era';
+      eraEl.className = `era era-${era.tier}`;
+
+      const eraStars = era.levels.reduce((n, l) => n + (progress(l.id)?.stars ?? 0), 0);
+      const eraDone = era.levels.filter((l) => progress(l.id)?.completed).length;
 
       const name = document.createElement('div');
       name.className = 'era-name';
-      name.textContent = era.name;
+      name.innerHTML = `
+        <span class="era-title">${era.name}</span>
+        <span class="era-progress">${eraDone}/${era.levels.length} · ★ ${eraStars}</span>
+      `;
       eraEl.appendChild(name);
 
       const grid = document.createElement('div');
@@ -100,13 +118,17 @@ export class UI {
       for (const level of era.levels) {
         const prog = progress(level.id);
         const unlocked = isUnlocked(level.id);
+        const stars = prog?.stars ?? 0;
         const node = document.createElement('button');
         node.type = 'button';
         node.className = 'level-node';
         if (!unlocked) node.classList.add('locked');
-        if (prog?.stars === 3) node.classList.add('three-star');
-        else if (prog && prog.stars > 0) node.classList.add('completed');
-        node.innerHTML = `<span>${level.id.replace(/[^0-9]/g, '')}</span><span class="node-label">${unlocked ? level.name.replace(era.name, '').trim() : '—'}</span>`;
+        if (stars === 3) node.classList.add('three-star');
+        else if (stars > 0) node.classList.add('completed');
+        const pips = prog?.completed
+          ? `<span class="node-stars" aria-label="${stars} of 3 stars">${'★'.repeat(stars)}${'☆'.repeat(3 - stars)}</span>`
+          : `<span class="node-stars empty" aria-hidden="true"></span>`;
+        node.innerHTML = `<span class="node-num">${unlocked ? level.id.replace(/[^0-9]/g, '') : '🔒'}</span>${pips}`;
         if (unlocked) {
           node.addEventListener('click', () => onSelect(level));
         } else {
@@ -128,8 +150,8 @@ export class UI {
 
   renderGame(
     state: GameState,
+    showHints: boolean,
     onTowerTap: (index: number) => void,
-    onTowerHover: (index: number) => void,
     onUndo: () => void,
     onReset: () => void,
     onClear: () => void,
@@ -140,14 +162,14 @@ export class UI {
     this.clear();
 
     const wrap = document.createElement('div');
-    wrap.style.cssText = 'display:flex;flex-direction:column;min-height:100%;min-height:100dvh;';
+    wrap.id = 'game-screen';
 
     const top = document.createElement('div');
     top.id = 'top-bar';
     top.innerHTML = `
       <button id="back-btn" class="icon-btn" aria-label="Map">←</button>
       <h1>${state.era}</h1>
-      <div style="display:flex;gap:8px;">
+      <div class="top-bar-actions">
         <button id="help-btn" class="icon-btn" aria-label="Help">?</button>
         <button id="settings-btn" class="icon-btn" aria-label="Settings">⚙</button>
       </div>
@@ -171,6 +193,7 @@ export class UI {
     board.id = 'board';
 
     const maxCap = state.capacity;
+    const selectedSrc = state.selectedTower !== null ? state.towers[state.selectedTower] : null;
     state.towers.forEach((tower, i) => {
       const t = document.createElement('div');
       t.className = 'tower';
@@ -178,19 +201,50 @@ export class UI {
       if (state.selectedTower === i) t.classList.add('selected');
       if (state.clearSelectedTower === i) t.classList.add('clear-target');
       if (tower.dampened) t.classList.add('dampened');
+
+      // Destination hints while a source tower is selected.
+      if (showHints && selectedSrc && state.selectedTower !== i) {
+        const hint = destinationHint(selectedSrc, tower, maxCap);
+        if (hint === 'good') t.classList.add('dest-good');
+        else if (hint === 'warn') t.classList.add('dest-warn');
+        else if (hint === 'full') t.classList.add('dest-full');
+      }
+
       if (tower.bands.length === 0) {
         t.innerHTML = `<span class="tower-empty-label">Empty</span>`;
       } else {
-        tower.bands.forEach((band) => {
+        tower.bands.forEach((band, bi) => {
           const b = document.createElement('div');
           b.className = `band ${band.color}`;
           if (band.noisy) b.classList.add('noisy');
           if (band.amplified) b.classList.add('amplified');
           if (band.locked) b.classList.add('locked');
+          // Lift the top block visually when this tower is selected.
+          if (state.selectedTower === i && bi === tower.bands.length - 1) b.classList.add('lifted');
+          // Landing / event animation on the most recent move target.
+          if (state.lastMoveTarget === i && bi === tower.bands.length - 1) {
+            b.classList.add('just-landed');
+            if (state.lastMoveEvent === 'amplified') b.classList.add('just-amplified');
+          }
           t.appendChild(b);
         });
       }
-      t.addEventListener('pointerenter', () => onTowerHover(i));
+
+      // Status badges as child elements so the dish silhouette (::before/::after) persists.
+      if (tower.dampened) {
+        const badge = document.createElement('span');
+        badge.className = 'tower-badge badge-dampened';
+        badge.textContent = '⛨';
+        badge.title = 'Shielded: bands never merge or interfere here';
+        t.appendChild(badge);
+      }
+      if (state.clearSelectedTower === i) {
+        const badge = document.createElement('span');
+        badge.className = 'tower-badge badge-clear';
+        badge.textContent = 'Clear';
+        t.appendChild(badge);
+      }
+
       t.addEventListener('click', () => onTowerTap(i));
       board.appendChild(t);
     });
@@ -201,11 +255,12 @@ export class UI {
 
     const hasClearable = state.towers.some((t) => canClearPair(t));
     const clearSelectable = state.clearChargesRemaining > 0 && hasClearable;
+    const undoable = canUndo(state);
 
     controls.innerHTML = `
-      <button id="undo-btn" class="icon-btn" aria-label="Undo">↶ Undo</button>
+      <button id="undo-btn" class="icon-btn" aria-label="Undo" ${undoable ? '' : 'disabled'}>↶ Undo</button>
       <button id="clear-btn" class="icon-btn ${clearSelectable ? 'active' : 'inactive'}" aria-label="Clear interference" ${clearSelectable ? '' : 'disabled'}>
-        Clear ${state.clearChargesRemaining}/${state.clearChargesTotal}
+        ⌁ Clear ${state.clearChargesRemaining}/${state.clearChargesTotal}
       </button>
       <button id="reset-btn" class="icon-btn" aria-label="Reset">↻ Reset</button>
     `;
@@ -218,22 +273,37 @@ export class UI {
     document.getElementById('back-btn')?.addEventListener('click', onMap);
     document.getElementById('help-btn')?.addEventListener('click', onHelp);
     document.getElementById('settings-btn')?.addEventListener('click', onSettings);
-
-    const clearBtn = document.getElementById('clear-btn');
-    if (clearBtn) {
-      clearBtn.addEventListener('click', () => {
-        onClear();
-      });
-    }
+    document.getElementById('clear-btn')?.addEventListener('click', onClear);
   }
 
-  showVictory(moves: number, targetMoves: number, stars: number, bestMoves: number | null, onNext: () => void, onReplay: () => void, onMap: () => void): void {
+  showVictory(
+    moves: number,
+    targetMoves: number,
+    stars: number,
+    interferenceCreated: number,
+    bestMoves: number | null,
+    onNext: () => void,
+    onReplay: () => void,
+    onMap: () => void
+  ): void {
+    let starHint = '';
+    if (stars === 1) {
+      starHint = `Finish in ${targetMoves} moves or fewer for more stars.`;
+    } else if (stars === 2) {
+      starHint = interferenceCreated > 0
+        ? 'Finish under target without creating any interference for ★★★.'
+        : `Finish in ${targetMoves} moves or fewer for ★★★.`;
+    } else {
+      starHint = 'A flawless pass — clean signal, no interference.';
+    }
     this.showModal('Signal Restored', `
+      <div class="victory-wave" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
       <div class="stars" aria-label="${stars} stars">
         <span class="${stars >= 1 ? 'earned' : ''}">★</span>
         <span class="${stars >= 2 ? 'earned' : ''}">★</span>
         <span class="${stars >= 3 ? 'earned' : ''}">★</span>
       </div>
+      <p class="star-hint">${starHint}</p>
       <p>This receiver is tuned. You aligned the bands in <strong>${moves}</strong> moves. Target was <strong>${targetMoves}</strong>.</p>
       ${bestMoves !== null ? `<p>Best pass: <strong>${bestMoves}</strong> moves</p>` : ''}
       <div class="modal-actions">
@@ -273,12 +343,24 @@ export class UI {
         <div class="mini-tower"><div class="mini-band amber"></div><div class="mini-band red amplified"></div></div>
       </div>
 
+      <p class="help-caption">While a tower is selected, the other receivers show what a move there would do.</p>
+      <div class="help-example help-example-hints" aria-label="Green outline means a safe merge, amber outline means interference, dim means full">
+        <div class="mini-tower hint-good" style="height:44px;"><div class="mini-band red"></div></div>
+        <div class="mini-hint-label good">merge</div>
+        <div class="mini-tower hint-warn" style="height:44px;"><div class="mini-band amber"></div></div>
+        <div class="mini-hint-label warn">static</div>
+        <div class="mini-tower hint-full" style="height:44px;"><div class="mini-band cyan"></div><div class="mini-band cyan"></div><div class="mini-band violet"></div></div>
+        <div class="mini-hint-label full">full</div>
+      </div>
+
       <ul class="help-list">
         <li>Only the top run of matching color is picked up as one block.</li>
         <li>You can deliberately mismatch to free space; that creates interference.</li>
         <li>You may drop a band onto an interference pair if its color matches either noisy band.</li>
         <li>When two or more towers have interference, tap <strong>Clear</strong>, then tap the tower to clear.</li>
         <li>Empty towers show an <strong>Empty</strong> label — useful staging areas.</li>
+        <li><strong>⛨ Shielded</strong> towers (Deep Space Network) never merge or interfere — pure staging space.</li>
+        <li><strong>🔒 Encrypted</strong> bands (Exoplanet Hunter) can't be picked up until you stack their matching color on top.</li>
       </ul>
 
       <p>Each level has a <strong>target move count</strong>. Hit it without creating any interference for 3 stars.</p>
@@ -311,7 +393,7 @@ export class UI {
           <input type="checkbox" id="setting-colorblind" ${settings.colorBlind ? 'checked' : ''} />
         </div>
         <div class="toggle-row">
-          <label for="setting-preview">Interference Preview</label>
+          <label for="setting-preview">Move Preview Hints</label>
           <input type="checkbox" id="setting-preview" ${settings.interferencePreview ? 'checked' : ''} />
         </div>
       </div>

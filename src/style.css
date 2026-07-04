@@ -1,3 +1,11 @@
+@font-face {
+  font-family: 'Share Tech Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/share-tech-mono.woff2') format('woff2');
+}
+
 :root {
   --bg: #0B0D14;
   --bg-panel: #121626;
@@ -20,11 +28,11 @@
   --cyan: #39C4FF;
   --violet: #A855FF;
   --white: #F0F2FA;
-  --noise: #6B708A;
 
   --bezel: #4A516E;
   --bezel-selected: #39FF14;
-  --bezel-dampener: #FFC700;
+
+  --font-display: 'Share Tech Mono', 'Courier New', Courier, monospace;
 
   font-family: 'Courier New', Courier, monospace;
   color: var(--text);
@@ -53,12 +61,27 @@ body {
     var(--bg);
 }
 
+/* Reduced motion: kill all animation/transition when enabled (setting or OS preference). */
+body.reduced-motion *,
+body.reduced-motion *::before,
+body.reduced-motion *::after {
+  animation: none !important;
+  transition: none !important;
+}
+
 #app {
   min-height: 100vh;
   min-height: 100dvh;
   display: flex;
   flex-direction: column;
   padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+}
+
+#game-screen {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  min-height: 100dvh;
 }
 
 button {
@@ -129,9 +152,17 @@ button {
 
 #top-bar h1 {
   margin: 0;
+  font-family: var(--font-display);
   font-size: 1.15rem;
   letter-spacing: 1px;
   text-transform: uppercase;
+}
+
+.top-bar-actions,
+.map-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .icon-btn {
@@ -149,6 +180,11 @@ button {
   font-weight: 700;
   padding: 0 12px;
   color: var(--text);
+}
+
+.icon-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
 }
 
 /* Level header */
@@ -198,12 +234,14 @@ button {
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  gap: 8px;
-  padding: 8px 12px 12px;
+  flex-wrap: wrap;
+  gap: 24px 8px;
+  padding: 14px 12px 12px;
   overflow: visible;
   min-height: 0;
 }
 
+/* Controls */
 #controls {
   flex: 1;
   display: flex;
@@ -213,6 +251,31 @@ button {
   padding: 10px 16px calc(10px + env(safe-area-inset-bottom));
   background: var(--bg-panel);
   border-top: 1px solid var(--grid-line);
+}
+
+#controls .icon-btn {
+  flex: 0 0 auto;
+}
+
+#clear-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 96px;
+  padding: 0 14px;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--grid-line);
+}
+
+#clear-btn.active {
+  border-color: var(--info);
+  color: var(--info);
+  box-shadow: 0 0 10px rgba(57, 196, 255, 0.18);
+}
+
+#clear-btn.inactive {
+  opacity: 0.45;
 }
 
 .tower {
@@ -239,6 +302,7 @@ button {
   transition: border-color 0.15s ease, box-shadow 0.15s ease;
 }
 
+/* Dish silhouette (kept intact in all tower states — badges are child elements). */
 .tower::after {
   content: '';
   position: absolute;
@@ -279,26 +343,56 @@ button {
   box-shadow: 0 0 14px rgba(59, 214, 255, 0.28), inset 0 0 10px rgba(59, 214, 255, 0.08);
 }
 
-.tower.clear-target::before {
-  content: 'Clear';
+/* Destination hints while a source tower is selected */
+.tower.dest-good {
+  border-color: var(--accent-dim);
+  box-shadow: 0 0 10px rgba(57, 255, 20, 0.16);
+}
+
+.tower.dest-good::before {
+  background: var(--accent-dim);
+}
+
+.tower.dest-warn {
+  border-color: var(--warning);
+  box-shadow: 0 0 10px rgba(255, 199, 0, 0.16);
+}
+
+.tower.dest-warn::before {
+  background: var(--warning);
+}
+
+.tower.dest-full {
+  opacity: 0.55;
+}
+
+.tower.dampened {
+  border-left-style: dashed;
+  border-right-style: dashed;
+}
+
+/* Status badges — real child elements so the dish ::before/::after silhouette persists. */
+.tower-badge {
   position: absolute;
-  top: -18px;
   left: 0;
   right: 0;
   text-align: center;
+  pointer-events: none;
+}
+
+.badge-dampened {
+  top: -26px;
+  font-size: 0.75rem;
+  color: var(--warning);
+  text-shadow: 0 0 6px rgba(255, 199, 0, 0.45);
+}
+
+.badge-clear {
+  top: -24px;
   font-size: 0.65rem;
   color: var(--cyan);
   text-transform: uppercase;
   letter-spacing: 0.05em;
-}
-
-.tower.dampened::after {
-  content: '⚡';
-  position: absolute;
-  top: -22px;
-  font-size: 0.75rem;
-  color: var(--warning);
-  text-shadow: 0 0 6px rgba(255, 199, 0, 0.45);
 }
 
 .tower-empty-label {
@@ -317,6 +411,7 @@ button {
   position: relative;
   overflow: hidden;
   box-shadow: inset 0 1px 0 rgba(255,255,255,0.15), inset 0 -1px 0 rgba(0,0,0,0.3);
+  transition: transform 0.15s ease;
 }
 
 .band::after {
@@ -332,6 +427,37 @@ button {
   );
   opacity: 0.55;
   pointer-events: none;
+}
+
+/* Selected tower: lift the top band so the pick-up reads visually. */
+.band.lifted {
+  transform: translateY(-6px);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.15),
+    inset 0 -1px 0 rgba(0,0,0,0.3),
+    0 6px 10px rgba(0,0,0,0.45);
+}
+
+/* Most recent move destination: quick drop-in settle. */
+.band.just-landed {
+  animation: band-land 0.22s ease-out;
+}
+
+@keyframes band-land {
+  0% { transform: translateY(-10px); opacity: 0.6; }
+  70% { transform: translateY(1px); }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+/* Amplification celebration: bright flash + expanding pulse. */
+.band.just-amplified {
+  animation: band-land 0.22s ease-out, amplify-flash 0.7s ease-out 0.1s;
+}
+
+@keyframes amplify-flash {
+  0% { filter: brightness(1); }
+  25% { filter: brightness(2.1) saturate(1.4); }
+  100% { filter: brightness(1); }
 }
 
 .band.noisy {
@@ -366,6 +492,34 @@ button {
 .band.violet { background: linear-gradient(180deg, #C88FFF 0%, var(--violet) 55%, #4A1E82 100%); }
 .band.white { background: linear-gradient(180deg, #FFFFFF 0%, var(--white) 55%, #80849A 100%); }
 
+/* Color-blind patterns: distinct glyph per color, on live bands and help mini-bands. */
+body.color-blind .band::before,
+body.color-blind .mini-band::before {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 0.62rem;
+  font-weight: 700;
+  color: rgba(0, 0, 0, 0.75);
+  text-shadow: 0 0 2px rgba(255, 255, 255, 0.5);
+  pointer-events: none;
+  z-index: 1;
+}
+
+body.color-blind .band.red:not(.noisy)::before,
+body.color-blind .mini-band.red::before { content: '▲'; }
+body.color-blind .band.amber:not(.noisy)::before,
+body.color-blind .mini-band.amber::before { content: '●'; }
+body.color-blind .band.green:not(.noisy)::before,
+body.color-blind .mini-band.green::before { content: '■'; }
+body.color-blind .band.cyan:not(.noisy)::before,
+body.color-blind .mini-band.cyan::before { content: '◆'; }
+body.color-blind .band.violet:not(.noisy)::before,
+body.color-blind .mini-band.violet::before { content: '✚'; }
+body.color-blind .band.white:not(.noisy)::before,
+body.color-blind .mini-band.white::before { content: '─'; }
+
 .band.amplified {
   box-shadow:
     inset 0 1px 0 rgba(255,255,255,0.25),
@@ -386,13 +540,23 @@ button {
   text-shadow: 0 0 4px rgba(255,255,255,0.7);
 }
 
+/* Amplified marker must survive in color-blind mode (glyph moves center; dot stays left). */
+body.color-blind .band.amplified:not(.noisy)::before {
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.band.locked {
+  filter: saturate(0.45) brightness(0.75);
+}
+
 .band.locked::after {
   content: '🔒';
   position: absolute;
-  right: 12px;
+  right: 10px;
   top: 50%;
   transform: translateY(-50%);
-  font-size: 0.55rem;
+  font-size: 0.6rem;
   background: none;
 }
 
@@ -404,72 +568,6 @@ button {
 @keyframes static-noise {
   0% { background-position: 0 0; }
   100% { background-position: 12px 0; }
-}
-
-/* Controls */
-#controls {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-  padding: 10px 16px calc(10px + env(safe-area-inset-bottom));
-  background: var(--bg-panel);
-  border-top: 1px solid var(--grid-line);
-}
-
-#clear-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 96px;
-  padding: 0 14px;
-  color: var(--text);
-  background: var(--surface);
-  border: 1px solid var(--grid-line);
-}
-
-#clear-btn.active {
-  border-color: var(--info);
-  color: var(--info);
-  box-shadow: 0 0 10px rgba(57, 196, 255, 0.18);
-}
-
-#clear-btn.inactive {
-  opacity: 0.45;
-}
-
-#controls .icon-btn {
-  flex: 0 0 auto;
-}
-
-#clear-charges {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 0.9rem;
-  color: var(--text-muted);
-  padding: 6px 10px;
-  border-radius: 8px;
-  border: 1px solid var(--grid-line);
-  background: var(--surface);
-}
-
-#clear-charges.inactive {
-  opacity: 0.5;
-}
-
-.charge {
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  background: var(--text-muted);
-  opacity: 0.35;
-}
-
-.charge.active {
-  background: var(--info);
-  box-shadow: 0 0 8px var(--info);
-  opacity: 1;
 }
 
 /* Map */
@@ -484,11 +582,30 @@ button {
   padding: 16px;
 }
 
+.map-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
 #map-header h2 {
   margin: 0;
+  font-family: var(--font-display);
   font-size: 1.1rem;
   text-transform: uppercase;
   letter-spacing: 1px;
+}
+
+.total-stars {
+  color: var(--warning);
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid var(--grid-line);
+  background: var(--surface);
+  white-space: nowrap;
 }
 
 #map-scroll {
@@ -499,11 +616,21 @@ button {
 
 .era {
   margin-bottom: 18px;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid var(--grid-line);
+  background: linear-gradient(180deg, var(--era-tint, transparent) 0%, transparent 65%);
 }
+
+.era-dish { --era-tint: rgba(255, 184, 0, 0.06); }
+.era-array { --era-tint: rgba(57, 255, 20, 0.05); }
+.era-dsn { --era-tint: rgba(57, 196, 255, 0.06); }
+.era-hunter { --era-tint: rgba(168, 85, 255, 0.07); }
 
 .era-name {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 8px;
   color: var(--text-muted);
   font-size: 0.75rem;
@@ -512,6 +639,17 @@ button {
   margin-bottom: 10px;
   border-bottom: 1px solid var(--grid-line);
   padding-bottom: 6px;
+}
+
+.era-name .era-title {
+  font-family: var(--font-display);
+  color: var(--text);
+}
+
+.era-name .era-progress {
+  color: var(--warning);
+  letter-spacing: 0.5px;
+  white-space: nowrap;
 }
 
 .level-grid {
@@ -529,18 +667,27 @@ button {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: 0.8rem;
+  font-size: 0.95rem;
   font-weight: 700;
   position: relative;
-  gap: 2px;
+  gap: 3px;
 }
 
-.level-node .node-label {
+.level-node .node-num {
+  font-family: var(--font-display);
+}
+
+.level-node .node-stars {
   font-size: 0.6rem;
-  font-weight: 500;
-  color: var(--text-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 1px;
+  color: var(--warning);
+  min-height: 0.7em;
+}
+
+.level-node .node-stars.empty::after {
+  content: '· · ·';
+  color: var(--grid-line);
+  letter-spacing: 2px;
 }
 
 .level-node.locked {
@@ -553,13 +700,10 @@ button {
   color: var(--accent);
 }
 
-.level-node.three-star::after {
-  content: '★';
-  position: absolute;
-  top: 2px;
-  right: 3px;
-  font-size: 0.55rem;
-  color: var(--warning);
+.level-node.three-star {
+  border-color: var(--warning);
+  color: var(--accent);
+  box-shadow: 0 0 8px rgba(255, 199, 0, 0.18);
 }
 
 /* Modals */
@@ -589,6 +733,7 @@ button {
 
 .modal h2 {
   margin: 0 0 12px;
+  font-family: var(--font-display);
   font-size: 1.2rem;
   letter-spacing: 0.5px;
 }
@@ -613,10 +758,50 @@ button {
   font-size: 1.8rem;
   color: var(--text-muted);
   letter-spacing: 4px;
-  margin: 8px 0 14px;
+  margin: 8px 0 6px;
 }
 
 .stars .earned { color: var(--warning); text-shadow: 0 0 8px rgba(255,199,0,0.35); }
+
+.star-hint {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin: 0 0 12px;
+}
+
+/* Victory waveform settling animation */
+.victory-wave {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  height: 26px;
+  margin: 2px 0 4px;
+}
+
+.victory-wave span {
+  width: 4px;
+  border-radius: 2px;
+  background: var(--accent);
+  box-shadow: 0 0 8px rgba(57, 255, 20, 0.4);
+  animation: wave-settle 1.6s ease-out forwards;
+}
+
+.victory-wave span:nth-child(1) { animation-delay: 0s; }
+.victory-wave span:nth-child(2) { animation-delay: 0.12s; }
+.victory-wave span:nth-child(3) { animation-delay: 0.24s; }
+.victory-wave span:nth-child(4) { animation-delay: 0.36s; }
+.victory-wave span:nth-child(5) { animation-delay: 0.48s; }
+
+@keyframes wave-settle {
+  0% { height: 24px; }
+  25% { height: 8px; }
+  50% { height: 18px; }
+  75% { height: 5px; }
+  100% { height: 3px; }
+}
+
+body.reduced-motion .victory-wave span { height: 3px; }
 
 /* Help / story */
 .help-example {
@@ -631,6 +816,36 @@ button {
   border: 1px solid var(--grid-line);
   min-height: 90px;
   flex-wrap: wrap;
+}
+
+.help-example-hints {
+  align-items: center;
+  gap: 6px 10px;
+}
+
+.mini-hint-label {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  align-self: center;
+}
+
+.mini-hint-label.good { color: var(--accent-dim); }
+.mini-hint-label.warn { color: var(--warning); }
+.mini-hint-label.full { color: var(--text-muted); }
+
+.mini-tower.hint-good {
+  border-color: var(--accent-dim);
+  box-shadow: 0 0 6px rgba(57, 255, 20, 0.25);
+}
+
+.mini-tower.hint-warn {
+  border-color: var(--warning);
+  box-shadow: 0 0 6px rgba(255, 199, 0, 0.25);
+}
+
+.mini-tower.hint-full {
+  opacity: 0.55;
 }
 
 .help-list {
@@ -712,6 +927,11 @@ button {
   text-shadow: 0 0 2px rgba(255,255,255,0.7);
 }
 
+body.color-blind .mini-band.amplified::before {
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 .help-caption {
   font-size: 0.85rem;
   color: var(--text-muted);
@@ -747,9 +967,27 @@ button {
   justify-content: center;
   text-align: center;
   padding: 24px;
+  position: relative;
+}
+
+/* CRT scanlines over the intro */
+#story-screen::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.45) 0px,
+    rgba(0, 0, 0, 0.45) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  pointer-events: none;
+  opacity: 0.75;
 }
 
 #story-screen h1 {
+  font-family: var(--font-display);
   font-size: 2.4rem;
   margin: 0 0 8px;
   letter-spacing: 4px;
@@ -772,5 +1010,4 @@ button {
 
 .story-text strong { color: var(--text); }
 
-/* utility */
-.hide { display: none !important; }
+#story-screen .btn { position: relative; z-index: 1; }

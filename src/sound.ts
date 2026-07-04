@@ -56,8 +56,8 @@ export function playInvalid(): void {
 }
 
 export function playAmplify(): void {
-  playTone(523, 0.25, 'sine', 0.12);
-  setTimeout(() => playTone(659, 0.3, 'sine', 0.12), 100);
+  playTone(523, 0.22, 'sine', 0.12, 784);
+  setTimeout(() => playTone(784, 0.3, 'sine', 0.12, 1046), 90);
 }
 
 export function playInterference(): void {

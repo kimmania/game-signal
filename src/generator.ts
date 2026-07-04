@@ -10,7 +10,8 @@ interface TierSpec {
   towers: number;
   capacity: number;
   clearCharges: number;
-  targetMoves: number;
+  /** Base scramble length for level 1; ramps up across the tier. */
+  scrambleBase: number;
   count: number;
 }
 
@@ -21,7 +22,7 @@ const TIER_SPECS: Record<Tier, TierSpec> = {
     towers: 5,
     capacity: 4,
     clearCharges: 2,
-    targetMoves: 12,
+    scrambleBase: 8,
     count: 10
   },
   array: {
@@ -30,7 +31,7 @@ const TIER_SPECS: Record<Tier, TierSpec> = {
     towers: 7,
     capacity: 4,
     clearCharges: 2,
-    targetMoves: 24,
+    scrambleBase: 14,
     count: 10
   },
   dsn: {
@@ -39,7 +40,7 @@ const TIER_SPECS: Record<Tier, TierSpec> = {
     towers: 9,
     capacity: 5,
     clearCharges: 1,
-    targetMoves: 45,
+    scrambleBase: 24,
     count: 10
   },
   hunter: {
@@ -48,10 +49,34 @@ const TIER_SPECS: Record<Tier, TierSpec> = {
     towers: 11,
     capacity: 5,
     clearCharges: 1,
-    targetMoves: 70,
+    scrambleBase: 34,
     count: 10
   }
 };
+
+/** Per-level shape within a tier: late levels gain an extra color + tower. */
+interface LevelShape {
+  colors: number;
+  towers: number;
+  scrambleMoves: number;
+  dampenedTowers: number;
+  lockedBands: number;
+}
+
+function levelShape(tier: Tier, index: number): LevelShape {
+  const spec = TIER_SPECS[tier];
+  // Ramp scramble length across the tier: level 10 scrambles ~2x level 1.
+  const scrambleMoves = Math.round(spec.scrambleBase * (1 + index / (spec.count - 1)));
+  // Last three levels of dish/array add a color + tower so tiers do not feel flat.
+  const bump = (tier === 'dish' || tier === 'array') && index >= 7 ? 1 : 0;
+  const colors = Math.min(COLORS.length, spec.colors + bump);
+  const towers = spec.towers + bump;
+  // DSN introduces dampened (shielded) towers from level 4 onward.
+  const dampenedTowers = tier === 'dsn' && index >= 3 ? 1 : 0;
+  // Hunter introduces encrypted (locked) bands from level 3 onward, two from level 7.
+  const lockedBands = tier === 'hunter' ? (index >= 6 ? 2 : index >= 2 ? 1 : 0) : 0;
+  return { colors, towers, scrambleMoves, dampenedTowers, lockedBands };
+}
 
 function makeRng(seed: number) {
   let s = seed >>> 0;
@@ -72,12 +97,14 @@ function cloneTower(t: Tower): Tower {
   };
 }
 
-function makeSolvedState(spec: TierSpec): Tower[] {
+function makeSolvedState(shape: LevelShape, capacity: number): Tower[] {
   const towers: Tower[] = [];
-  const colors = COLORS.slice(0, spec.colors);
+  const colors = COLORS.slice(0, shape.colors);
   for (const color of colors) {
     towers.push({
-      bands: Array.from({ length: spec.capacity - 1 }, () => ({
+      // amplified:true during scrambling forces single-band moves (rawTopBlock
+      // stops at amplified bands); flags are stripped before the level is returned.
+      bands: Array.from({ length: capacity - 1 }, () => ({
         color,
         amplified: true,
         noisy: false,
@@ -86,7 +113,7 @@ function makeSolvedState(spec: TierSpec): Tower[] {
       dampened: false
     });
   }
-  while (towers.length < spec.towers) {
+  while (towers.length < shape.towers) {
     towers.push({ bands: [], dampened: false });
   }
   return towers;
@@ -101,15 +128,19 @@ function shuffle<T>(array: T[], rng: () => number): T[] {
   return arr;
 }
 
+/** Scramble transfer (inverse of the forward pour): a block may move onto an empty
+ * tower or onto a tower whose top color differs, ensuring colors get mixed. */
 function canRawTransfer(src: Tower, dst: Tower, capacity: number): boolean {
   if (src.bands.length === 0) return false;
-  if (src.bands[src.bands.length - 1].noisy) return false;
+  const srcTop = src.bands[src.bands.length - 1];
+  if (srcTop.noisy || srcTop.locked) return false;
   if (dst.bands.length >= capacity) return false;
   if (dst.bands.length === 0) return true;
   const dstTop = dst.bands[dst.bands.length - 1];
-  if (dstTop.noisy) return false;
-  const srcTop = src.bands[src.bands.length - 1];
-  return srcTop.color === dstTop.color;
+  if (dstTop.noisy || dstTop.locked) return false;
+  // Inverse rule: place onto a different color. Same-color moves would simply
+  // re-merge solved clusters and leave the board trivial.
+  return srcTop.color !== dstTop.color;
 }
 
 function validMove(towers: Tower[], capacity: number, rng: () => number): [number, number] | null {
@@ -137,13 +168,14 @@ function rawTopBlock(tower: Tower): number {
   return count;
 }
 
-function rawTransfer(towers: Tower[], src: number, dst: number, capacity: number): void {
+function rawTransfer(towers: Tower[], src: number, dst: number, capacity: number): number {
   const s = towers[src];
   const d = towers[dst];
   const count = Math.min(rawTopBlock(s), capacity - d.bands.length);
-  if (count <= 0) return;
+  if (count <= 0) return 0;
   const moving = s.bands.splice(s.bands.length - count, count);
   d.bands.push(...moving);
+  return count;
 }
 
 function isTrivial(towers: Tower[]): boolean {
@@ -159,9 +191,34 @@ function isTrivial(towers: Tower[]): boolean {
 function hasCompleteTower(towers: Tower[], capacity: number): boolean {
   return towers.some((t) => t.bands.length === capacity && t.bands.every((b, _, arr) => b.color === arr[0].color));
 }
+/** Lock band(s) that are safe to lock: bottom of a mixed tower, never the top band,
+ *  never two locks in one tower, only colors with 2+ other free bands in play,
+ *  and only towers with headroom above the lock for staging unlock moves. */
+function applyLockedBands(towers: Tower[], lockCount: number, capacity: number, rng: () => number): number {
+  let applied = 0;
+  const candidates: { tower: number }[] = [];
+  for (let i = 0; i < towers.length; i++) {
+    const t = towers[i];
+    // Must be mixed, with headroom for a matching band to unlock it.
+    if (t.bands.length < 2 || t.bands.length >= capacity) continue;
+    const bottom = t.bands[0];
+    const freeSameColor = towers.reduce(
+      (n, tw) => n + tw.bands.filter((b) => b.color === bottom.color && !b.locked && b !== bottom).length,
+      0
+    );
+    if (freeSameColor >= 2) candidates.push({ tower: i });
+  }
+  const picked = shuffle(candidates, rng).slice(0, lockCount);
+  for (const c of picked) {
+    towers[c.tower].bands[0].locked = true;
+    applied++;
+  }
+  return applied;
+}
 
 export function generateLevel(tier: Tier, index: number, baseSeed: number): LevelData {
   const spec = TIER_SPECS[tier];
+  const shape = levelShape(tier, index);
   // Deterministic but unique seed per level.
   const seed = baseSeed + index * 7919 + tier.length * 53 + tier.charCodeAt(0);
   const rng = makeRng(seed);
@@ -169,19 +226,22 @@ export function generateLevel(tier: Tier, index: number, baseSeed: number): Leve
   let attempts = 0;
   while (attempts < 300) {
     attempts++;
-    const towers = makeSolvedState(spec);
+    const towers = makeSolvedState(shape, spec.capacity);
     // Burn some RNG so each attempt diverges.
     rng();
-    const moves = Math.max(10, Math.floor(rng() * spec.targetMoves * 0.7) + Math.floor(spec.targetMoves * 0.3));
 
-    for (let m = 0; m < moves; m++) {
+    let performed = 0;
+    for (let m = 0; m < shape.scrambleMoves; m++) {
       const pair = validMove(towers, spec.capacity, rng);
       if (!pair) break;
-      rawTransfer(towers, pair[0], pair[1], spec.capacity);
+      if (rawTransfer(towers, pair[0], pair[1], spec.capacity) > 0) performed++;
     }
 
+    if (performed < shape.scrambleMoves * 0.6) continue;
     if (isTrivial(towers)) continue;
     if (hasCompleteTower(towers, spec.capacity)) continue;
+    // Always keep at least one empty staging tower; dampened towers need extra space.
+    if (towers.filter((t) => t.bands.length === 0).length < 1 + shape.dampenedTowers) continue;
 
     // Scramble which physical tower each cluster lives in.
     const nonEmpty = towers.filter((t) => t.bands.length > 0).map(cloneTower);
@@ -194,15 +254,36 @@ export function generateLevel(tier: Tier, index: number, baseSeed: number): Leve
       newTowers[i] = towers[i].bands.length > 0 ? shuffledNonEmpty[nonEmptyIdx++] : empty[emptyIdx++];
     }
 
+    // Strip the scramble-only amplified flags; boards start with plain bands.
+    for (const t of newTowers) {
+      for (const b of t.bands) b.amplified = false;
+    }
+
+    // Tier mechanics: shielded (dampened) staging towers and encrypted (locked) bands.
+    if (shape.dampenedTowers > 0) {
+      const emptyIndices = newTowers.map((t, i) => (t.bands.length === 0 ? i : -1)).filter((i) => i !== -1);
+      for (let d = 0; d < Math.min(shape.dampenedTowers, emptyIndices.length); d++) {
+        newTowers[emptyIndices[d]].dampened = true;
+      }
+    }
+    if (shape.lockedBands > 0) {
+      applyLockedBands(newTowers, shape.lockedBands, spec.capacity, rng);
+    }
+
+    // Target derived from the actual scramble length: reversing the scramble solves it,
+    // with slack for staging moves. Locked bands need an extra placement each.
+    const lockedApplied = newTowers.reduce((n, t) => n + t.bands.filter((b) => b.locked).length, 0);
+    const targetMoves = Math.max(8, Math.round(performed * 1.25) + lockedApplied * 2);
+
     return {
       id: `${tier}${index + 1}`,
       name: `${spec.name} ${index + 1}`,
       era: spec.name,
-      colors: COLORS.slice(0, spec.colors),
+      colors: COLORS.slice(0, shape.colors),
       towers: newTowers,
       capacity: spec.capacity,
       clearCharges: spec.clearCharges,
-      targetMoves: spec.targetMoves
+      targetMoves
     };
   }
 
@@ -211,11 +292,12 @@ export function generateLevel(tier: Tier, index: number, baseSeed: number): Leve
 
 function fallbackLevel(tier: Tier, index: number, baseSeed: number): LevelData {
   const spec = TIER_SPECS[tier];
-  const colors = COLORS.slice(0, spec.colors);
+  const shape = levelShape(tier, index);
+  const colors = COLORS.slice(0, shape.colors);
   const rng = makeRng(baseSeed + index * 7919 + tier.length * 53 + 9999);
-  const towers: Tower[] = Array.from({ length: spec.towers }, () => ({ bands: [], dampened: false }));
+  const towers: Tower[] = Array.from({ length: shape.towers }, () => ({ bands: [], dampened: false }));
   let colorIdx = Math.floor(rng() * colors.length);
-  for (let t = 0; t < spec.towers - 1; t++) {
+  for (let t = 0; t < shape.towers - 1; t++) {
     const towerLen = 2 + Math.floor(rng() * (spec.capacity - 1));
     for (let i = 0; i < towerLen; i++) {
       const color = colors[colorIdx % colors.length];
@@ -231,7 +313,7 @@ function fallbackLevel(tier: Tier, index: number, baseSeed: number): LevelData {
     towers,
     capacity: spec.capacity,
     clearCharges: spec.clearCharges,
-    targetMoves: spec.targetMoves
+    targetMoves: Math.max(8, shape.scrambleMoves)
   };
 }
 

@@ -1,6 +1,6 @@
 import type { BandColor, GameStateSnapshot, Tower } from './types.ts';
-import { hasInterference, isWin, canClearPair, clearPair, canTransfer, transferBands } from './engine.ts';
-import { cloneTowers } from './engine.ts';
+import type { MoveEvent } from './engine.ts';
+import { isWin, canClearPair, clearPair, canTransfer, transferBands, cloneTowers } from './engine.ts';
 
 export interface GameState {
   levelId: string;
@@ -15,11 +15,17 @@ export interface GameState {
   interferenceCreated: number;
   selectedTower: number | null;
   clearSelectedTower: number | null;
-  previewInterference: number | null;
-  previewWarning: boolean;
+  lastMoveTarget: number | null;
+  lastMoveEvent: MoveEvent;
   completed: boolean;
   colors: BandColor[];
 }
+
+export type MoveOutcome =
+  | { kind: 'selected' }
+  | { kind: 'deselected' }
+  | { kind: 'rejected' }
+  | { kind: 'moved'; event: MoveEvent; interference: boolean };
 
 export function createGameState(
   levelId: string,
@@ -43,8 +49,8 @@ export function createGameState(
     interferenceCreated: 0,
     selectedTower: null,
     clearSelectedTower: null,
-    previewInterference: null,
-    previewWarning: false,
+    lastMoveTarget: null,
+    lastMoveEvent: null,
     completed: false,
     colors
   };
@@ -76,67 +82,52 @@ export function undo(state: GameState): boolean {
   state.moves = prev.moves;
   state.interferenceCreated = prev.interferenceCreated;
   state.selectedTower = null;
-  state.previewInterference = null;
-  state.previewWarning = false;
+  state.clearSelectedTower = null;
+  state.lastMoveTarget = null;
+  state.lastMoveEvent = null;
   state.completed = isWin(state.towers);
   return true;
 }
 
-export function selectTower(state: GameState, index: number): void {
-  if (state.completed) return;
+export function selectTower(state: GameState, index: number): MoveOutcome {
+  if (state.completed) return { kind: 'rejected' };
   if (state.selectedTower === null) {
-    if (state.towers[index].bands.length === 0) return;
-    const top = state.towers[index].bands[state.towers[index].bands.length - 1];
-    if (top.noisy) return;
+    const tower = state.towers[index];
+    if (tower.bands.length === 0) return { kind: 'rejected' };
+    const top = tower.bands[tower.bands.length - 1];
+    if (top.noisy || top.locked) return { kind: 'rejected' };
     state.selectedTower = index;
-    return;
+    return { kind: 'selected' };
   }
   if (state.selectedTower === index) {
     state.selectedTower = null;
-    state.previewInterference = null;
-    state.previewWarning = false;
-    return;
+    return { kind: 'deselected' };
   }
   const src = state.towers[state.selectedTower];
   const dst = state.towers[index];
 
   if (!canTransfer(src, dst, state.capacity)) {
     state.selectedTower = null;
-    state.previewInterference = null;
-    state.previewWarning = false;
-    return;
+    return { kind: 'rejected' };
   }
 
   pushUndo(state);
   const result = transferBands(src, dst, state.capacity);
+  if (result.moved === 0) {
+    // Should not happen after canTransfer, but never count a non-move.
+    state.undoStack.pop();
+    state.selectedTower = null;
+    return { kind: 'rejected' };
+  }
   state.moves++;
   if (result.interference) {
     state.interferenceCreated++;
   }
   state.selectedTower = null;
-  state.previewInterference = null;
-  state.previewWarning = false;
+  state.lastMoveTarget = index;
+  state.lastMoveEvent = result.event;
   state.completed = isWin(state.towers);
-}
-
-export function previewInterference(state: GameState, dstIndex: number): void {
-  if (state.selectedTower === null) {
-    state.previewInterference = null;
-    state.previewWarning = false;
-    return;
-  }
-  const src = state.towers[state.selectedTower];
-  const dst = state.towers[dstIndex];
-  if (dst.bands.length === 0) {
-    state.previewInterference = null;
-    state.previewWarning = false;
-  } else if (src.bands.length > 0 && src.bands[src.bands.length - 1].color !== dst.bands[dst.bands.length - 1].color) {
-    state.previewInterference = dstIndex;
-    state.previewWarning = true;
-  } else {
-    state.previewInterference = null;
-    state.previewWarning = false;
-  }
+  return { kind: 'moved', event: result.event, interference: result.interference };
 }
 
 export function clearableTowerIndex(state: GameState): number | null {
@@ -144,13 +135,6 @@ export function clearableTowerIndex(state: GameState): number | null {
     if (canClearPair(state.towers[i])) return i;
   }
   return null;
-}
-
-export function trySelectClearTower(state: GameState, index: number): boolean {
-  if (state.completed) return false;
-  if (!canClearPair(state.towers[index])) return false;
-  state.clearSelectedTower = index;
-  return true;
 }
 
 export function useClearSignal(state: GameState): boolean {
@@ -162,6 +146,8 @@ export function useClearSignal(state: GameState): boolean {
   clearPair(state.towers[index]);
   state.clearChargesRemaining--;
   state.moves++;
+  state.lastMoveTarget = index;
+  state.lastMoveEvent = 'resolved';
   state.completed = isWin(state.towers);
   return true;
 }
@@ -173,8 +159,9 @@ export function resetGame(state: GameState, initialTowers: Tower[]): void {
   state.interferenceCreated = 0;
   state.undoStack = [];
   state.selectedTower = null;
-  state.previewInterference = null;
-  state.previewWarning = false;
+  state.clearSelectedTower = null;
+  state.lastMoveTarget = null;
+  state.lastMoveEvent = null;
   state.completed = false;
 }
 
@@ -187,8 +174,4 @@ export function calculateStars(state: GameState): number {
   if (state.moves > state.targetMoves) return 1;
   if (state.interferenceCreated === 0) return 3;
   return 2;
-}
-
-export function hasInterferenceNow(state: GameState): boolean {
-  return hasInterference(state.towers);
 }

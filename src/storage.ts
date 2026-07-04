@@ -4,7 +4,6 @@ import { SAVE_VERSION, SAVE_KEY } from './types.ts';
 export function defaultSettings(): Settings {
   return {
     sound: true,
-    music: true,
     reducedMotion: false,
     colorBlind: false,
     interferencePreview: true
@@ -25,6 +24,13 @@ export function defaultSave(): SaveData {
 
 export function loadSave(levels?: LevelData[]): SaveData {
   try {
+    // One-time migration from the old (copy-pasted) save key. Copy only — the
+    // key name collides with game-catalyst on the same GitHub Pages origin,
+    // so never delete it. migrateSave() discards any foreign level ids.
+    const legacy = localStorage.getItem('catalyst-save');
+    if (legacy && !localStorage.getItem(SAVE_KEY)) {
+      localStorage.setItem(SAVE_KEY, legacy);
+    }
     const raw = localStorage.getItem(SAVE_KEY);
     if (!raw) return defaultSave();
     const parsed = JSON.parse(raw) as Partial<SaveData>;

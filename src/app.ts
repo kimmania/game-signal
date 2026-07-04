@@ -1,8 +1,8 @@
 import type { LevelData } from './types.ts';
 import { COLORS } from './types.ts';
-import { createGameState, calculateStars, selectTower, previewInterference, useClearSignal, undo, resetGame, hasAnyClearablePair } from './state.ts';
+import { createGameState, calculateStars, selectTower, useClearSignal, undo, resetGame, hasAnyClearablePair } from './state.ts';
 import type { GameState } from './state.ts';
-import { isWin, cloneTowers, canClearPair } from './engine.ts';
+import { cloneTowers, canClearPair } from './engine.ts';
 import { loadSave, saveGame, resetSave, recordProgress, unlockNext } from './storage.ts';
 import { UI } from './ui.ts';
 import * as sound from './sound.ts';
@@ -20,8 +20,6 @@ export async function bootstrap(): Promise<void> {
 
   let save = loadSave(levels);
   let state: GameState | null = null;
-  let currentLevelIndex = 0;
-  void currentLevelIndex; // retained for potential future stateful navigation
 
   const eras = [
     { name: 'Dawn Dish', tier: 'dish', levels: levels.filter((l) => l.id.startsWith('dish')) },
@@ -31,6 +29,13 @@ export async function bootstrap(): Promise<void> {
   ];
 
   sound.setMuted(!save.settings.sound);
+  applyBodySettings();
+
+  function applyBodySettings(): void {
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    document.body.classList.toggle('reduced-motion', save.settings.reducedMotion || prefersReduced);
+    document.body.classList.toggle('color-blind', save.settings.colorBlind);
+  }
 
   function startLevel(level: LevelData): void {
     if (!isUnlocked(level.id)) {
@@ -38,7 +43,6 @@ export async function bootstrap(): Promise<void> {
       ui.announce('Complete earlier levels to restore the signal');
       return;
     }
-    currentLevelIndex = levels.findIndex((l) => l.id === level.id);
     state = createGameState(level.id, level.era, level.capacity, level.towers, level.clearCharges, level.targetMoves, level.colors);
     ui.setScreen('game');
     renderGame();
@@ -101,10 +105,12 @@ export async function bootstrap(): Promise<void> {
             break;
         }
         saveGame(save);
+        applyBodySettings();
         renderGame();
       },
       () => {
         save = resetSave();
+        applyBodySettings();
         showMap();
       },
       () => {
@@ -134,8 +140,8 @@ export async function bootstrap(): Promise<void> {
     if (!state) return;
     ui.renderGame(
       state,
+      save.settings.interferencePreview,
       (i) => handleTowerTap(i),
-      (i) => handleTowerHover(i),
       () => handleUndo(),
       () => handleReset(),
       () => handleClear(),
@@ -159,9 +165,6 @@ export async function bootstrap(): Promise<void> {
         if (useClearSignal(state)) {
           sound.playClear();
           renderGame();
-          if (state.completed) {
-            setTimeout(() => handleWin(), 800);
-          }
         }
         return;
       }
@@ -185,69 +188,49 @@ export async function bootstrap(): Promise<void> {
       return;
     }
 
-    if (state.selectedTower === null) {
-      const tower = state.towers[index];
-      if (tower.bands.length === 0) {
+    const wasSelecting = state.selectedTower === null;
+    const outcome = selectTower(state, index);
+
+    switch (outcome.kind) {
+      case 'selected':
+        sound.playButton();
+        break;
+      case 'deselected':
+        break;
+      case 'rejected': {
         sound.playInvalid();
-        ui.announce('Cannot select empty tower');
-        return;
+        if (wasSelecting) {
+          const tower = state.towers[index];
+          if (tower.bands.length === 0) ui.announce('Cannot select empty tower');
+          else if (tower.bands[tower.bands.length - 1].locked) ui.announce('Encrypted band — stack its matching color on top to unlock');
+          else ui.announce('Noisy bands are locked');
+        } else {
+          ui.announce('Receiver full');
+        }
+        break;
       }
-      const top = tower.bands[tower.bands.length - 1];
-      if (top.noisy) {
-        sound.playInvalid();
-        ui.announce('Noisy bands are locked');
-        return;
-      }
-      sound.playButton();
-      state.selectedTower = index;
-      renderGame();
-      return;
-    }
-
-    const src = state.towers[state.selectedTower];
-    const dst = state.towers[index];
-
-    if (index === state.selectedTower) {
-      state.selectedTower = null;
-      state.previewInterference = null;
-      state.previewWarning = false;
-      renderGame();
-      return;
-    }
-
-    if (src.bands.length === 0) {
-      state.selectedTower = null;
-      return;
-    }
-
-    // Player is allowed to deliberately mismatch colors; that creates interference.
-    // Flash a warning instead of blocking or using a browser confirm dialog.
-    if (dst.bands.length > 0 && !dst.bands[dst.bands.length - 1].noisy && src.bands[src.bands.length - 1].color !== dst.bands[dst.bands.length - 1].color) {
-      ui.announce('Interference incoming');
-    }
-
-    const beforeInterference = hasAnyClearablePair(state);
-    selectTower(state, index);
-    const createdInterference = !beforeInterference && hasAnyClearablePair(state) && !isWin(state.towers);
-
-    if (state.moves > 0 && state.completed) {
-      sound.playWin();
-    } else if (createdInterference) {
-      sound.playInterference();
-    } else {
-      sound.playTransfer();
+      case 'moved':
+        if (state.completed) {
+          sound.playWin();
+        } else if (outcome.event === 'interference') {
+          sound.playInterference();
+          ui.announce('Interference created');
+        } else if (outcome.event === 'amplified') {
+          sound.playAmplify();
+          ui.announce('Signal amplified');
+        } else if (outcome.event === 'resolved') {
+          sound.playClear();
+          ui.announce('Interference resolved');
+        } else if (outcome.event === 'unlocked') {
+          sound.playClear();
+          ui.announce('Band decrypted');
+        } else {
+          sound.playTransfer();
+        }
+        break;
     }
 
     renderGame();
-  }
-
-  function handleTowerHover(index: number): void {
-    if (!state) return;
-    if (save.settings.interferencePreview && state.selectedTower !== null) {
-      previewInterference(state, index);
-      // We don't re-render the whole board on hover; rely on cursor / subtle CSS if needed.
-      // For now preview is internal; visual shake could be added here.
-    }
   }
 
   function handleClear(): void {
@@ -267,12 +250,9 @@ export async function bootstrap(): Promise<void> {
     sound.unlockAudio();
     ui.announce('Tap a tower with interference to target');
     state.selectedTower = null;
-    state.previewInterference = null;
-    state.previewWarning = false;
     state.clearSelectedTower = null;
     renderGame();
   }
-
 
   function handleUndo(): void {
     if (!state) return;
@@ -309,6 +289,7 @@ export async function bootstrap(): Promise<void> {
       state.moves,
       state.targetMoves,
       stars,
+      state.interferenceCreated,
       bestMoves,
       () => {
         const nextIndex = levels.findIndex((l) => l.id === state!.levelId) + 1;
