@@ -1,6 +1,7 @@
 import type { BandColor, LevelData } from './types.ts';
 import { COLOR_NAMES } from './types.ts';
 import type { GameState } from './state.ts';
+import { canClearPair } from './engine.ts';
 
 export type ScreenName = 'story' | 'map' | 'game' | 'help' | 'settings';
 
@@ -198,17 +199,14 @@ export class UI {
     const controls = document.createElement('div');
     controls.id = 'controls';
 
-    const charges = Array.from({ length: state.clearChargesTotal }, (_, i) => {
-      const active = i < state.clearChargesRemaining;
-      return `<span class="charge ${active ? 'active' : ''}" aria-hidden="true"></span>`;
-    }).join('');
+    const hasClearable = state.towers.some((t) => canClearPair(t));
+    const clearSelectable = state.clearChargesRemaining > 0 && hasClearable;
 
     controls.innerHTML = `
       <button id="undo-btn" class="icon-btn" aria-label="Undo">↶ Undo</button>
-      <div id="clear-charges" aria-label="Clear signal charges">
-        <span>Clear</span>
-        ${charges}
-      </div>
+      <button id="clear-btn" class="icon-btn ${clearSelectable ? 'active' : 'inactive'}" aria-label="Clear interference" ${clearSelectable ? '' : 'disabled'}>
+        Clear ${state.clearChargesRemaining}/${state.clearChargesTotal}
+      </button>
       <button id="reset-btn" class="icon-btn" aria-label="Reset">↻ Reset</button>
     `;
     wrap.appendChild(controls);
@@ -221,12 +219,10 @@ export class UI {
     document.getElementById('help-btn')?.addEventListener('click', onHelp);
     document.getElementById('settings-btn')?.addEventListener('click', onSettings);
 
-    const clearEl = document.getElementById('clear-charges');
-    if (clearEl) {
-      const hasClearable = state.towers.some((t) => t.bands.some((b, idx, arr) => b.noisy && idx > 0 && arr[idx - 1].noisy));
-      clearEl.classList.toggle('inactive', state.clearChargesRemaining === 0 || !hasClearable);
-      clearEl.addEventListener('click', () => {
-        if (state.clearChargesRemaining > 0) onClear();
+    const clearBtn = document.getElementById('clear-btn');
+    if (clearBtn) {
+      clearBtn.addEventListener('click', () => {
+        onClear();
       });
     }
   }

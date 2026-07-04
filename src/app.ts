@@ -1,6 +1,6 @@
 import type { LevelData } from './types.ts';
 import { COLORS } from './types.ts';
-import { createGameState, calculateStars, selectTower, previewInterference, useClearSignal, trySelectClearTower, undo, resetGame, hasAnyClearablePair } from './state.ts';
+import { createGameState, calculateStars, selectTower, previewInterference, useClearSignal, undo, resetGame, hasAnyClearablePair } from './state.ts';
 import type { GameState } from './state.ts';
 import { isWin, cloneTowers, canClearPair } from './engine.ts';
 import { loadSave, saveGame, resetSave, recordProgress, unlockNext } from './storage.ts';
@@ -152,26 +152,36 @@ export async function bootstrap(): Promise<void> {
     if (!state || state.completed) return;
     sound.unlockAudio();
 
-    // If a target for Clear Signal is expected, consume it.
-    if (state.clearSelectedTower === null && state.towers.some((t) => canClearPair(t)) && state.selectedTower === null) {
-      const clearableCount = state.towers.filter((t) => canClearPair(t)).length;
-      if (clearableCount > 1) {
-        if (trySelectClearTower(state, index)) {
-          sound.playButton();
+    // Clear Signal target selection mode: tap a clearable tower to clear it, or tap the same tower to cancel.
+    if (state.clearSelectedTower !== null) {
+      if (index === state.clearSelectedTower) {
+        // Confirm the selected tower and spend the charge.
+        if (useClearSignal(state)) {
+          sound.playClear();
           renderGame();
-          return;
+          if (state.completed) {
+            setTimeout(() => handleWin(), 800);
+          }
         }
+        return;
       }
-    } else if (state.clearSelectedTower !== null) {
-      // Re-tapping the selected clear target cancels; tapping any valid target clears it.
-      if (trySelectClearTower(state, index)) {
+      if (canClearPair(state.towers[index])) {
+        state.clearSelectedTower = index;
         sound.playButton();
         renderGame();
         return;
       }
+      // Invalid tower tapped while selecting: cancel the selection.
       state.clearSelectedTower = null;
       renderGame();
-      // fall through to normal tower selection only if desired
+      return;
+    }
+
+    // Directly tapping a clearable tower when no band is selected also enters clear selection.
+    if (state.clearChargesRemaining > 0 && canClearPair(state.towers[index]) && state.selectedTower === null) {
+      state.clearSelectedTower = index;
+      sound.playButton();
+      renderGame();
       return;
     }
 
@@ -253,27 +263,16 @@ export async function bootstrap(): Promise<void> {
       return;
     }
 
-    // If multiple towers have clearable interference, enter selection mode.
-    const clearableCount = state.towers.filter((t) => canClearPair(t)).length;
-    if (clearableCount > 1 && state.clearSelectedTower === null) {
-      sound.unlockAudio();
-      ui.announce('Tap a tower with interference to target');
-      state.selectedTower = null;
-      state.previewInterference = null;
-      state.previewWarning = false;
-      renderGame();
-      return;
-    }
-
+    // Always enter target-selection mode. The player taps a clearable tower to confirm.
     sound.unlockAudio();
-    if (useClearSignal(state)) {
-      sound.playClear();
-      renderGame();
-      if (state.completed) {
-        setTimeout(() => handleWin(), 800);
-      }
-    }
+    ui.announce('Tap a tower with interference to target');
+    state.selectedTower = null;
+    state.previewInterference = null;
+    state.previewWarning = false;
+    state.clearSelectedTower = null;
+    renderGame();
   }
+
 
   function handleUndo(): void {
     if (!state) return;
