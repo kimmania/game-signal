@@ -143,7 +143,7 @@ export async function bootstrap(): Promise<void> {
       () => showSettings()
     );
     if (state.completed) {
-      handleWin();
+      setTimeout(() => handleWin(), 800);
     }
   }
 

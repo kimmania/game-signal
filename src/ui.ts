@@ -198,12 +198,12 @@ export class UI {
     }).join('');
 
     controls.innerHTML = `
-      <button id="undo-btn" class="icon-btn" aria-label="Undo">↶</button>
+      <button id="undo-btn" class="icon-btn" aria-label="Undo">↶ Undo</button>
       <div id="clear-charges" aria-label="Clear signal charges">
         <span>Clear</span>
         ${charges}
       </div>
-      <button id="reset-btn" class="icon-btn" aria-label="Reset">↻</button>
+      <button id="reset-btn" class="icon-btn" aria-label="Reset">↻ Reset</button>
     `;
     wrap.appendChild(controls);
 
@@ -217,7 +217,8 @@ export class UI {
 
     const clearEl = document.getElementById('clear-charges');
     if (clearEl) {
-      clearEl.style.cursor = state.clearChargesRemaining > 0 && state.towers.some((t) => t.bands.some((b, idx, arr) => b.noisy && idx > 0 && arr[idx - 1].noisy)) ? 'pointer' : 'default';
+      const hasClearable = state.towers.some((t) => t.bands.some((b, idx, arr) => b.noisy && idx > 0 && arr[idx - 1].noisy));
+      clearEl.classList.toggle('inactive', state.clearChargesRemaining === 0 || !hasClearable);
       clearEl.addEventListener('click', () => {
         if (state.clearChargesRemaining > 0) onClear();
       });
