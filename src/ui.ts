@@ -252,26 +252,32 @@ export class UI {
       <p><strong>Signal</strong> is a radio-spectrum sorting puzzle. Tap a tower to select its top band, then tap another tower to move it.</p>
 
       <p class="help-caption">Stack matching colors and they compress into one amplified band, saving tower space.</p>
-      <div class="help-example" aria-label="Matching red bands compress into one amplified band">
-        <div class="mini-tower"><div class="mini-band red amplified"></div></div>
-        <div class="mini-tower"><div class="mini-band red"></div><div class="mini-band red"></div></div>
+      <div class="help-example" aria-label="Matching red bands compress into one amplified red band">
+        <div class="mini-tower" style="height:44px;"><div class="mini-band red"></div><div class="mini-band red"></div></div>
+        <div class="mini-arrow">+</div>
+        <div class="mini-tower" style="height:44px;"><div class="mini-band red"></div></div>
         <div class="mini-arrow">→</div>
-        <div class="mini-tower"><div class="mini-band red"></div></div>
         <div class="mini-tower"><div class="mini-band red amplified"></div></div>
       </div>
 
-      <p class="help-caption">Drop a different color on top and it creates <strong>interference</strong> — two noisy static bands. Add either matching color on top to resolve it.</p>
-      <div class="help-example" aria-label="Interference resolved by matching color">
-        <div class="mini-tower"><div class="mini-band red"></div><div class="mini-band noisy"></div></div>
-        <div class="mini-tower"><div class="mini-band red noisy"></div><div class="mini-band noisy"></div><div class="mini-band red"></div></div>
+      <p class="help-caption">Drop any color onto an existing color and it creates <strong>interference</strong> — two noisy static bands. Add either matching color on top to resolve it.</p>
+      <div class="help-example" aria-label="Red dropped on amber makes two noisy bands, then resolving red on top turns it into an amplified red band">
+        <div class="mini-tower" style="height:40px;"><div class="mini-band amber"></div></div>
+        <div class="mini-arrow">+</div>
+        <div class="mini-tower" style="height:40px;"><div class="mini-band red"></div></div>
         <div class="mini-arrow">→</div>
-        <div class="mini-tower"><div class="mini-band red amplified"></div></div>
+        <div class="mini-tower" style="height:54px;"><div class="mini-band amber"></div><div class="mini-band noisy"></div><div class="mini-band noisy"></div></div>
+        <div class="mini-arrow">+</div>
+        <div class="mini-tower" style="height:40px;"><div class="mini-band red"></div></div>
+        <div class="mini-arrow">→</div>
+        <div class="mini-tower"><div class="mini-band amber"></div><div class="mini-band red amplified"></div></div>
       </div>
 
       <ul class="help-list">
-        <li>Only the top stretch of matching color is picked up.</li>
-        <li>You can drop a band onto a noisy interference pair.</li>
-        <li>When two or more towers have interference, tap <strong>Clear</strong> first, then tap the tower to clear.</li>
+        <li>Only the top run of matching color is picked up as one block.</li>
+        <li>You can deliberately mismatch to free space; that creates interference.</li>
+        <li>You may drop a band onto an interference pair if its color matches either noisy band.</li>
+        <li>When two or more towers have interference, tap <strong>Clear</strong>, then tap the tower to clear.</li>
         <li>Empty towers show an <strong>Empty</strong> label — useful staging areas.</li>
       </ul>
 
