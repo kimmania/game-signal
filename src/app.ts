@@ -1,8 +1,8 @@
 import type { LevelData } from './types.ts';
 import { COLORS } from './types.ts';
-import { createGameState, calculateStars, selectTower, previewInterference, useClearSignal, undo, resetGame, hasAnyClearablePair } from './state.ts';
+import { createGameState, calculateStars, selectTower, previewInterference, useClearSignal, trySelectClearTower, undo, resetGame, hasAnyClearablePair } from './state.ts';
 import type { GameState } from './state.ts';
-import { isWin, cloneTowers } from './engine.ts';
+import { isWin, cloneTowers, canClearPair } from './engine.ts';
 import { loadSave, saveGame, resetSave, recordProgress, unlockNext } from './storage.ts';
 import { UI } from './ui.ts';
 import * as sound from './sound.ts';
@@ -150,6 +150,30 @@ export async function bootstrap(): Promise<void> {
   function handleTowerTap(index: number): void {
     if (!state || state.completed) return;
     sound.unlockAudio();
+
+    // If a target for Clear Signal is expected, consume it.
+    if (state.clearSelectedTower === null && state.towers.some((t) => canClearPair(t)) && state.selectedTower === null) {
+      const clearableCount = state.towers.filter((t) => canClearPair(t)).length;
+      if (clearableCount > 1) {
+        if (trySelectClearTower(state, index)) {
+          sound.playButton();
+          renderGame();
+          return;
+        }
+      }
+    } else if (state.clearSelectedTower !== null) {
+      // Re-tapping the selected clear target cancels; tapping any valid target clears it.
+      if (trySelectClearTower(state, index)) {
+        sound.playButton();
+        renderGame();
+        return;
+      }
+      state.clearSelectedTower = null;
+      renderGame();
+      // fall through to normal tower selection only if desired
+      return;
+    }
+
     if (state.selectedTower === null) {
       const tower = state.towers[index];
       if (tower.bands.length === 0) {
@@ -227,12 +251,25 @@ export async function bootstrap(): Promise<void> {
       ui.announce('No interference pair available to clear');
       return;
     }
+
+    // If multiple towers have clearable interference, enter selection mode.
+    const clearableCount = state.towers.filter((t) => canClearPair(t)).length;
+    if (clearableCount > 1 && state.clearSelectedTower === null) {
+      sound.unlockAudio();
+      ui.announce('Tap a tower with interference to target');
+      state.selectedTower = null;
+      state.previewInterference = null;
+      state.previewWarning = false;
+      renderGame();
+      return;
+    }
+
     sound.unlockAudio();
     if (useClearSignal(state)) {
       sound.playClear();
       renderGame();
       if (state.completed) {
-        handleWin();
+        setTimeout(() => handleWin(), 800);
       }
     }
   }

@@ -14,6 +14,7 @@ export interface GameState {
   undoStack: GameStateSnapshot[];
   interferenceCreated: number;
   selectedTower: number | null;
+  clearSelectedTower: number | null;
   previewInterference: number | null;
   previewWarning: boolean;
   completed: boolean;
@@ -41,6 +42,7 @@ export function createGameState(
     undoStack: [],
     interferenceCreated: 0,
     selectedTower: null,
+    clearSelectedTower: null,
     previewInterference: null,
     previewWarning: false,
     completed: false,
@@ -137,21 +139,31 @@ export function previewInterference(state: GameState, dstIndex: number): void {
   }
 }
 
+export function clearableTowerIndex(state: GameState): number | null {
+  for (let i = 0; i < state.towers.length; i++) {
+    if (canClearPair(state.towers[i])) return i;
+  }
+  return null;
+}
+
+export function trySelectClearTower(state: GameState, index: number): boolean {
+  if (state.completed) return false;
+  if (!canClearPair(state.towers[index])) return false;
+  state.clearSelectedTower = index;
+  return true;
+}
+
 export function useClearSignal(state: GameState): boolean {
   if (state.completed) return false;
-  let used = false;
-  for (let i = 0; i < state.towers.length; i++) {
-    if (canClearPair(state.towers[i])) {
-      pushUndo(state);
-      clearPair(state.towers[i]);
-      state.clearChargesRemaining--;
-      state.moves++;
-      used = true;
-      break;
-    }
-  }
-  if (used) state.completed = isWin(state.towers);
-  return used;
+  const index = state.clearSelectedTower ?? clearableTowerIndex(state);
+  if (index === null || !canClearPair(state.towers[index])) return false;
+  state.clearSelectedTower = null;
+  pushUndo(state);
+  clearPair(state.towers[index]);
+  state.clearChargesRemaining--;
+  state.moves++;
+  state.completed = isWin(state.towers);
+  return true;
 }
 
 export function resetGame(state: GameState, initialTowers: Tower[]): void {

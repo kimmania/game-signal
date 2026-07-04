@@ -218,6 +218,24 @@ button {
   box-shadow: 0 0 14px rgba(57, 255, 20, 0.28), inset 0 0 10px rgba(57, 255, 20, 0.08);
 }
 
+.tower.clear-target {
+  border-color: var(--cyan);
+  box-shadow: 0 0 14px rgba(59, 214, 255, 0.28), inset 0 0 10px rgba(59, 214, 255, 0.08);
+}
+
+.tower.clear-target::before {
+  content: 'Clear';
+  position: absolute;
+  top: -18px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: 0.65rem;
+  color: var(--cyan);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
 .tower.dampened::after {
   content: '⚡';
   position: absolute;

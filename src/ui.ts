@@ -170,6 +170,7 @@ export class UI {
       t.className = 'tower';
       t.style.setProperty('--tower-cap', String(maxCap));
       if (state.selectedTower === i) t.classList.add('selected');
+      if (state.clearSelectedTower === i) t.classList.add('clear-target');
       if (tower.dampened) t.classList.add('dampened');
       if (tower.bands.length === 0) {
         t.innerHTML = `<span class="tower-empty-label">Empty</span>`;
