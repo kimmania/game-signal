@@ -18,29 +18,29 @@ interface TierSpec {
 const TIER_SPECS: Record<Tier, TierSpec> = {
   dish: {
     name: 'Dawn Dish',
-    colors: 3,
-    towers: 5,
+    colors: 4,
+    towers: 6,
     capacity: 4,
     clearCharges: 2,
-    scrambleBase: 8,
+    scrambleBase: 12,
     count: 10
   },
   array: {
     name: 'VLA Array',
-    colors: 4,
-    towers: 7,
+    colors: 5,
+    towers: 8,
     capacity: 4,
     clearCharges: 2,
-    scrambleBase: 14,
+    scrambleBase: 18,
     count: 10
   },
   dsn: {
     name: 'Deep Space Network',
-    colors: 5,
-    towers: 9,
+    colors: 6,
+    towers: 10,
     capacity: 5,
     clearCharges: 1,
-    scrambleBase: 24,
+    scrambleBase: 28,
     count: 10
   },
   hunter: {

@@ -6,19 +6,14 @@
     "colors": [
       "red",
       "amber",
-      "green"
+      "green",
+      "cyan"
     ],
     "towers": [
       {
         "bands": [
           {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "red",
+            "color": "amber",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -31,6 +26,35 @@
           },
           {
             "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "cyan",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -49,9 +73,32 @@
             "amplified": false,
             "noisy": false,
             "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
           },
           {
-            "color": "red",
+            "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "green",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -61,35 +108,12 @@
       },
       {
         "bands": [],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "green",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "green",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "amber",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
         "dampened": false
       }
     ],
     "capacity": 4,
     "clearCharges": 2,
-    "targetMoves": 10
+    "targetMoves": 15
   },
   {
     "id": "dish2",
@@ -98,289 +122,18 @@
     "colors": [
       "red",
       "amber",
-      "green"
+      "green",
+      "cyan"
     ],
     "towers": [
       {
         "bands": [
           {
-            "color": "green",
+            "color": "cyan",
             "amplified": false,
             "noisy": false,
             "locked": false
           },
-          {
-            "color": "green",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "amber",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "amber",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "green",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "amber",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      }
-    ],
-    "capacity": 4,
-    "clearCharges": 2,
-    "targetMoves": 11
-  },
-  {
-    "id": "dish3",
-    "name": "Dawn Dish 3",
-    "era": "Dawn Dish",
-    "colors": [
-      "red",
-      "amber",
-      "green"
-    ],
-    "towers": [
-      {
-        "bands": [
-          {
-            "color": "amber",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "amber",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "green",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "green",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "amber",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "green",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [],
-        "dampened": false
-      }
-    ],
-    "capacity": 4,
-    "clearCharges": 2,
-    "targetMoves": 13
-  },
-  {
-    "id": "dish4",
-    "name": "Dawn Dish 4",
-    "era": "Dawn Dish",
-    "colors": [
-      "red",
-      "amber",
-      "green"
-    ],
-    "towers": [
-      {
-        "bands": [
-          {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "green",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "amber",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "green",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "amber",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "green",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "amber",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [],
-        "dampened": false
-      }
-    ],
-    "capacity": 4,
-    "clearCharges": 2,
-    "targetMoves": 14
-  },
-  {
-    "id": "dish5",
-    "name": "Dawn Dish 5",
-    "era": "Dawn Dish",
-    "colors": [
-      "red",
-      "amber",
-      "green"
-    ],
-    "towers": [
-      {
-        "bands": [
           {
             "color": "green",
             "amplified": false,
@@ -401,214 +154,13 @@
         "dampened": false
       },
       {
-        "bands": [
-          {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "amber",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "green",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "green",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "amber",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      }
-    ],
-    "capacity": 4,
-    "clearCharges": 2,
-    "targetMoves": 15
-  },
-  {
-    "id": "dish6",
-    "name": "Dawn Dish 6",
-    "era": "Dawn Dish",
-    "colors": [
-      "red",
-      "amber",
-      "green"
-    ],
-    "towers": [
-      {
-        "bands": [
-          {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "amber",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "green",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "green",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "green",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "amber",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "amber",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
         "bands": [],
         "dampened": false
-      }
-    ],
-    "capacity": 4,
-    "clearCharges": 2,
-    "targetMoves": 15
-  },
-  {
-    "id": "dish7",
-    "name": "Dawn Dish 7",
-    "era": "Dawn Dish",
-    "colors": [
-      "red",
-      "amber",
-      "green"
-    ],
-    "towers": [
-      {
-        "bands": [
-          {
-            "color": "amber",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
       },
       {
         "bands": [
           {
-            "color": "amber",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "green",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "green",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "green",
+            "color": "cyan",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -631,7 +183,19 @@
             "locked": false
           },
           {
+            "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
             "color": "amber",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "green",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -640,7 +204,26 @@
         "dampened": false
       },
       {
-        "bands": [],
+        "bands": [
+          {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "amber",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
         "dampened": false
       }
     ],
@@ -649,8 +232,8 @@
     "targetMoves": 16
   },
   {
-    "id": "dish8",
-    "name": "Dawn Dish 8",
+    "id": "dish3",
+    "name": "Dawn Dish 3",
     "era": "Dawn Dish",
     "colors": [
       "red",
@@ -660,152 +243,6 @@
     ],
     "towers": [
       {
-        "bands": [
-          {
-            "color": "cyan",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "green",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "cyan",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "amber",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "green",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "amber",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "green",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "amber",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "cyan",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      }
-    ],
-    "capacity": 4,
-    "clearCharges": 2,
-    "targetMoves": 18
-  },
-  {
-    "id": "dish9",
-    "name": "Dawn Dish 9",
-    "era": "Dawn Dish",
-    "colors": [
-      "red",
-      "amber",
-      "green",
-      "cyan"
-    ],
-    "towers": [
-      {
-        "bands": [
-          {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "cyan",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "amber",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "green",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
         "bands": [],
         "dampened": false
       },
@@ -816,6 +253,18 @@
             "amplified": false,
             "noisy": false,
             "locked": false
+          },
+          {
+            "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
           }
         ],
         "dampened": false
@@ -824,6 +273,52 @@
         "bands": [
           {
             "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "amber",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "amber",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "amber",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "green",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -845,35 +340,6 @@
       },
       {
         "bands": [],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "amber",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "green",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "amber",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
         "dampened": false
       }
     ],
@@ -882,8 +348,8 @@
     "targetMoves": 19
   },
   {
-    "id": "dish10",
-    "name": "Dawn Dish 10",
+    "id": "dish4",
+    "name": "Dawn Dish 4",
     "era": "Dawn Dish",
     "colors": [
       "red",
@@ -893,88 +359,36 @@
     ],
     "towers": [
       {
-        "bands": [
-          {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "amber",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "green",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "cyan",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "cyan",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "amber",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "green",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
         "bands": [],
         "dampened": false
       },
       {
         "bands": [
           {
-            "color": "amber",
+            "color": "cyan",
             "amplified": false,
             "noisy": false,
             "locked": false
           },
           {
             "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "amber",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "red",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -986,6 +400,58 @@
         "bands": [
           {
             "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "amber",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "amber",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "cyan",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -999,9 +465,9 @@
     "targetMoves": 20
   },
   {
-    "id": "array1",
-    "name": "VLA Array 1",
-    "era": "VLA Array",
+    "id": "dish5",
+    "name": "Dawn Dish 5",
+    "era": "Dawn Dish",
     "colors": [
       "red",
       "amber",
@@ -1010,300 +476,6 @@
     ],
     "towers": [
       {
-        "bands": [
-          {
-            "color": "green",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "green",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "cyan",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "green",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "amber",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "cyan",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "amber",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "cyan",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "amber",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [],
-        "dampened": false
-      }
-    ],
-    "capacity": 4,
-    "clearCharges": 2,
-    "targetMoves": 18
-  },
-  {
-    "id": "array2",
-    "name": "VLA Array 2",
-    "era": "VLA Array",
-    "colors": [
-      "red",
-      "amber",
-      "green",
-      "cyan"
-    ],
-    "towers": [
-      {
-        "bands": [
-          {
-            "color": "cyan",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "cyan",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "green",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "amber",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "green",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "cyan",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "amber",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "green",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "amber",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [],
-        "dampened": false
-      }
-    ],
-    "capacity": 4,
-    "clearCharges": 2,
-    "targetMoves": 20
-  },
-  {
-    "id": "array3",
-    "name": "VLA Array 3",
-    "era": "VLA Array",
-    "colors": [
-      "red",
-      "amber",
-      "green",
-      "cyan"
-    ],
-    "towers": [
-      {
-        "bands": [
-          {
-            "color": "green",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "amber",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "green",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "cyan",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
         "bands": [],
         "dampened": false
       },
@@ -1314,6 +486,12 @@
             "amplified": false,
             "noisy": false,
             "locked": false
+          },
+          {
+            "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
           }
         ],
         "dampened": false
@@ -1339,7 +517,7 @@
             "locked": false
           },
           {
-            "color": "green",
+            "color": "amber",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -1351,6 +529,46 @@
         "bands": [
           {
             "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "green",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -1364,9 +582,9 @@
     "targetMoves": 21
   },
   {
-    "id": "array4",
-    "name": "VLA Array 4",
-    "era": "VLA Array",
+    "id": "dish6",
+    "name": "Dawn Dish 6",
+    "era": "Dawn Dish",
     "colors": [
       "red",
       "amber",
@@ -1377,7 +595,7 @@
       {
         "bands": [
           {
-            "color": "cyan",
+            "color": "amber",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -1387,88 +605,31 @@
             "amplified": false,
             "noisy": false,
             "locked": false
-          },
-          {
-            "color": "green",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
           {
             "color": "amber",
             "amplified": false,
             "noisy": false,
             "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "cyan",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
           },
-          {
-            "color": "amber",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "green",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
           {
             "color": "red",
             "amplified": false,
             "noisy": false,
             "locked": false
-          },
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
           {
             "color": "amber",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "green",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "cyan",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "red",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -1478,6 +639,58 @@
       },
       {
         "bands": [],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
         "dampened": false
       }
     ],
@@ -1486,9 +699,9 @@
     "targetMoves": 24
   },
   {
-    "id": "array5",
-    "name": "VLA Array 5",
-    "era": "VLA Array",
+    "id": "dish7",
+    "name": "Dawn Dish 7",
+    "era": "Dawn Dish",
     "colors": [
       "red",
       "amber",
@@ -1497,81 +710,36 @@
     ],
     "towers": [
       {
-        "bands": [
-          {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "amber",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "green",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "cyan",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "amber",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "cyan",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "cyan",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
         "bands": [],
         "dampened": false
       },
       {
         "bands": [
           {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
             "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "amber",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -1588,13 +756,53 @@
             "locked": false
           },
           {
-            "color": "green",
+            "color": "amber",
             "amplified": false,
             "noisy": false,
             "locked": false
           },
           {
+            "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
             "color": "amber",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "green",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -1608,14 +816,725 @@
     "targetMoves": 25
   },
   {
-    "id": "array6",
-    "name": "VLA Array 6",
+    "id": "dish8",
+    "name": "Dawn Dish 8",
+    "era": "Dawn Dish",
+    "colors": [
+      "red",
+      "amber",
+      "green",
+      "cyan",
+      "violet"
+    ],
+    "towers": [
+      {
+        "bands": [],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "amber",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "amber",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "amber",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "violet",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "violet",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "violet",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      }
+    ],
+    "capacity": 4,
+    "clearCharges": 2,
+    "targetMoves": 26
+  },
+  {
+    "id": "dish9",
+    "name": "Dawn Dish 9",
+    "era": "Dawn Dish",
+    "colors": [
+      "red",
+      "amber",
+      "green",
+      "cyan",
+      "violet"
+    ],
+    "towers": [
+      {
+        "bands": [
+          {
+            "color": "violet",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "amber",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "amber",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "amber",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "violet",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "violet",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      }
+    ],
+    "capacity": 4,
+    "clearCharges": 2,
+    "targetMoves": 29
+  },
+  {
+    "id": "dish10",
+    "name": "Dawn Dish 10",
+    "era": "Dawn Dish",
+    "colors": [
+      "red",
+      "amber",
+      "green",
+      "cyan",
+      "violet"
+    ],
+    "towers": [
+      {
+        "bands": [
+          {
+            "color": "violet",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "violet",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "violet",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "amber",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "amber",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "amber",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      }
+    ],
+    "capacity": 4,
+    "clearCharges": 2,
+    "targetMoves": 30
+  },
+  {
+    "id": "array1",
+    "name": "VLA Array 1",
     "era": "VLA Array",
     "colors": [
       "red",
       "amber",
       "green",
-      "cyan"
+      "cyan",
+      "violet"
+    ],
+    "towers": [
+      {
+        "bands": [
+          {
+            "color": "amber",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "violet",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "violet",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "amber",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "amber",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "violet",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [],
+        "dampened": false
+      }
+    ],
+    "capacity": 4,
+    "clearCharges": 2,
+    "targetMoves": 23
+  },
+  {
+    "id": "array2",
+    "name": "VLA Array 2",
+    "era": "VLA Array",
+    "colors": [
+      "red",
+      "amber",
+      "green",
+      "cyan",
+      "violet"
+    ],
+    "towers": [
+      {
+        "bands": [
+          {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "amber",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "violet",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "amber",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "violet",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "amber",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "violet",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [],
+        "dampened": false
+      }
+    ],
+    "capacity": 4,
+    "clearCharges": 2,
+    "targetMoves": 25
+  },
+  {
+    "id": "array3",
+    "name": "VLA Array 3",
+    "era": "VLA Array",
+    "colors": [
+      "red",
+      "amber",
+      "green",
+      "cyan",
+      "violet"
     ],
     "towers": [
       {
@@ -1627,34 +1546,13 @@
             "locked": false
           },
           {
-            "color": "amber",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "cyan",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
             "color": "red",
             "amplified": false,
             "noisy": false,
             "locked": false
           },
           {
-            "color": "amber",
+            "color": "violet",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -1669,30 +1567,8 @@
             "amplified": false,
             "noisy": false,
             "locked": false
-          },
-          {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "amber",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "cyan",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
           }
         ],
-        "dampened": false
-      },
-      {
-        "bands": [],
         "dampened": false
       },
       {
@@ -1710,7 +1586,74 @@
             "locked": false
           },
           {
+            "color": "violet",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "amber",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "amber",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "amber",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
             "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "violet",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -1728,14 +1671,15 @@
     "targetMoves": 28
   },
   {
-    "id": "array7",
-    "name": "VLA Array 7",
+    "id": "array4",
+    "name": "VLA Array 4",
     "era": "VLA Array",
     "colors": [
       "red",
       "amber",
       "green",
-      "cyan"
+      "cyan",
+      "violet"
     ],
     "towers": [
       {
@@ -1745,29 +1689,6 @@
             "amplified": false,
             "noisy": false,
             "locked": false
-          },
-          {
-            "color": "cyan",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "amber",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
           }
         ],
         "dampened": false
@@ -1785,20 +1706,14 @@
       },
       {
         "bands": [
+          {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
           {
             "color": "green",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "cyan",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "red",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -1817,6 +1732,18 @@
             "amplified": false,
             "noisy": false,
             "locked": false
+          },
+          {
+            "color": "violet",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "amber",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
           }
         ],
         "dampened": false
@@ -1830,53 +1757,13 @@
             "locked": false
           },
           {
-            "color": "amber",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "green",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      }
-    ],
-    "capacity": 4,
-    "clearCharges": 2,
-    "targetMoves": 29
-  },
-  {
-    "id": "array8",
-    "name": "VLA Array 8",
-    "era": "VLA Array",
-    "colors": [
-      "red",
-      "amber",
-      "green",
-      "cyan",
-      "violet"
-    ],
-    "towers": [
-      {
-        "bands": [
-          {
-            "color": "amber",
+            "color": "red",
             "amplified": false,
             "noisy": false,
             "locked": false
           },
           {
             "color": "amber",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "cyan",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -1897,14 +1784,9 @@
             "amplified": false,
             "noisy": false,
             "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
+          },
           {
-            "color": "green",
+            "color": "cyan",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -1914,71 +1796,9 @@
             "amplified": false,
             "noisy": false,
             "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "green",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "cyan",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "cyan",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "amber",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
           },
           {
             "color": "green",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "violet",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -1993,11 +1813,11 @@
     ],
     "capacity": 4,
     "clearCharges": 2,
-    "targetMoves": 31
+    "targetMoves": 30
   },
   {
-    "id": "array9",
-    "name": "VLA Array 9",
+    "id": "array5",
+    "name": "VLA Array 5",
     "era": "VLA Array",
     "colors": [
       "red",
@@ -2008,6 +1828,92 @@
     ],
     "towers": [
       {
+        "bands": [
+          {
+            "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "violet",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "amber",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "amber",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "amber",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
         "bands": [],
         "dampened": false
       },
@@ -2026,7 +1932,7 @@
             "locked": false
           },
           {
-            "color": "amber",
+            "color": "violet",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -2037,35 +1943,7 @@
       {
         "bands": [
           {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "amber",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "red",
+            "color": "violet",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -2075,64 +1953,6 @@
       },
       {
         "bands": [],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "violet",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "green",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "cyan",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "violet",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "cyan",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "cyan",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "violet",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "amber",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
         "dampened": false
       }
     ],
@@ -2141,8 +1961,8 @@
     "targetMoves": 33
   },
   {
-    "id": "array10",
-    "name": "VLA Array 10",
+    "id": "array6",
+    "name": "VLA Array 6",
     "era": "VLA Array",
     "colors": [
       "red",
@@ -2159,6 +1979,17 @@
             "amplified": false,
             "noisy": false,
             "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
           },
           {
             "color": "amber",
@@ -2173,7 +2004,7 @@
             "locked": false
           },
           {
-            "color": "green",
+            "color": "red",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -2183,6 +2014,12 @@
       },
       {
         "bands": [
+          {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
           {
             "color": "violet",
             "amplified": false,
@@ -2190,18 +2027,7 @@
             "locked": false
           },
           {
-            "color": "amber",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "cyan",
+            "color": "green",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -2222,19 +2048,7 @@
       {
         "bands": [
           {
-            "color": "cyan",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "green",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "red",
+            "color": "violet",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -2245,13 +2059,19 @@
       {
         "bands": [
           {
-            "color": "red",
+            "color": "green",
             "amplified": false,
             "noisy": false,
             "locked": false
           },
           {
             "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "amber",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -2273,7 +2093,7 @@
       {
         "bands": [
           {
-            "color": "violet",
+            "color": "red",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -2287,9 +2107,9 @@
     "targetMoves": 35
   },
   {
-    "id": "dsn1",
-    "name": "Deep Space Network 1",
-    "era": "Deep Space Network",
+    "id": "array7",
+    "name": "VLA Array 7",
+    "era": "VLA Array",
     "colors": [
       "red",
       "amber",
@@ -2307,6 +2127,806 @@
             "locked": false
           },
           {
+            "color": "violet",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "violet",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "amber",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "amber",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "amber",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      }
+    ],
+    "capacity": 4,
+    "clearCharges": 2,
+    "targetMoves": 38
+  },
+  {
+    "id": "array8",
+    "name": "VLA Array 8",
+    "era": "VLA Array",
+    "colors": [
+      "red",
+      "amber",
+      "green",
+      "cyan",
+      "violet",
+      "white"
+    ],
+    "towers": [
+      {
+        "bands": [
+          {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "amber",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "amber",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "white",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "violet",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "amber",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "white",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "violet",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "white",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "violet",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      }
+    ],
+    "capacity": 4,
+    "clearCharges": 2,
+    "targetMoves": 40
+  },
+  {
+    "id": "array9",
+    "name": "VLA Array 9",
+    "era": "VLA Array",
+    "colors": [
+      "red",
+      "amber",
+      "green",
+      "cyan",
+      "violet",
+      "white"
+    ],
+    "towers": [
+      {
+        "bands": [
+          {
+            "color": "amber",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "white",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "white",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "violet",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "amber",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "amber",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "white",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "violet",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "violet",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      }
+    ],
+    "capacity": 4,
+    "clearCharges": 2,
+    "targetMoves": 43
+  },
+  {
+    "id": "array10",
+    "name": "VLA Array 10",
+    "era": "VLA Array",
+    "colors": [
+      "red",
+      "amber",
+      "green",
+      "cyan",
+      "violet",
+      "white"
+    ],
+    "towers": [
+      {
+        "bands": [],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "white",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "amber",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "white",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "violet",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "amber",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "violet",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "amber",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "white",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "violet",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      }
+    ],
+    "capacity": 4,
+    "clearCharges": 2,
+    "targetMoves": 45
+  },
+  {
+    "id": "dsn1",
+    "name": "Deep Space Network 1",
+    "era": "Deep Space Network",
+    "colors": [
+      "red",
+      "amber",
+      "green",
+      "cyan",
+      "violet",
+      "white"
+    ],
+    "towers": [
+      {
+        "bands": [
+          {
+            "color": "white",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "white",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "violet",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "amber",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "white",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "violet",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "amber",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "violet",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "white",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "amber",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
             "color": "amber",
             "amplified": false,
             "noisy": false,
@@ -2334,58 +2954,6 @@
             "amplified": false,
             "noisy": false,
             "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "violet",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "green",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "violet",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "cyan",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
           },
           {
             "color": "red",
@@ -2394,76 +2962,12 @@
             "locked": false
           }
         ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "green",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "green",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "amber",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "amber",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "amber",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "green",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "cyan",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [],
-        "dampened": false
-      },
-      {
-        "bands": [],
-        "dampened": false
-      },
-      {
-        "bands": [],
         "dampened": false
       }
     ],
     "capacity": 5,
     "clearCharges": 1,
-    "targetMoves": 30
+    "targetMoves": 35
   },
   {
     "id": "dsn2",
@@ -2474,176 +2978,249 @@
       "amber",
       "green",
       "cyan",
-      "violet"
+      "violet",
+      "white"
     ],
     "towers": [
       {
+        "bands": [
+          {
+            "color": "amber",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "violet",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "white",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "amber",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "violet",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "white",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "amber",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "violet",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "white",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "amber",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "violet",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "white",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "amber",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "violet",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "white",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "amber",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
         "bands": [],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "amber",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "cyan",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "violet",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "green",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "amber",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "cyan",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "green",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "green",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "amber",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "cyan",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "amber",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "violet",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "violet",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "violet",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "green",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "cyan",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
         "dampened": false
       }
     ],
     "capacity": 5,
     "clearCharges": 1,
-    "targetMoves": 34
+    "targetMoves": 31
   },
   {
     "id": "dsn3",
@@ -2654,65 +3231,14 @@
       "amber",
       "green",
       "cyan",
-      "violet"
+      "violet",
+      "white"
     ],
     "towers": [
       {
         "bands": [
           {
-            "color": "green",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "amber",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "cyan",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "violet",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "green",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "amber",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "amber",
+            "color": "white",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -2725,6 +3251,18 @@
           },
           {
             "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "white",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "green",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -2743,6 +3281,76 @@
             "amplified": false,
             "noisy": false,
             "locked": false
+          },
+          {
+            "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "amber",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "violet",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "violet",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "amber",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "white",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
           }
         ],
         "dampened": false
@@ -2766,64 +3374,63 @@
             "amplified": false,
             "noisy": false,
             "locked": false
-          },
-          {
-            "color": "violet",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "cyan",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "cyan",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "violet",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "violet",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
           }
         ],
         "dampened": false
       },
       {
         "bands": [],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "white",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "amber",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "violet",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "violet",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
         "dampened": false
       }
     ],
     "capacity": 5,
     "clearCharges": 1,
-    "targetMoves": 36
+    "targetMoves": 43
   },
   {
     "id": "dsn4",
@@ -2834,11 +3441,41 @@
       "amber",
       "green",
       "cyan",
-      "violet"
+      "violet",
+      "white"
     ],
     "towers": [
       {
         "bands": [
+          {
+            "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "white",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "white",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
           {
             "color": "violet",
             "amplified": false,
@@ -2852,30 +3489,7 @@
             "locked": false
           },
           {
-            "color": "amber",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "green",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "amber",
+            "color": "cyan",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -2896,13 +3510,19 @@
             "locked": false
           },
           {
-            "color": "cyan",
+            "color": "amber",
             "amplified": false,
             "noisy": false,
             "locked": false
           },
           {
-            "color": "green",
+            "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "amber",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -2913,13 +3533,42 @@
       {
         "bands": [
           {
-            "color": "red",
+            "color": "green",
             "amplified": false,
             "noisy": false,
             "locked": false
           },
           {
-            "color": "violet",
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "white",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "white",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -2938,29 +3587,12 @@
             "amplified": false,
             "noisy": false,
             "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
+          },
           {
             "color": "amber",
             "amplified": false,
             "noisy": false,
             "locked": false
-          },
-          {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "green",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
           }
         ],
         "dampened": false
@@ -2968,31 +3600,36 @@
       {
         "bands": [
           {
-            "color": "cyan",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "cyan",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "green",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "cyan",
+            "color": "violet",
             "amplified": false,
             "noisy": false,
             "locked": false
           },
           {
             "color": "violet",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "red",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -3003,7 +3640,7 @@
     ],
     "capacity": 5,
     "clearCharges": 1,
-    "targetMoves": 40
+    "targetMoves": 46
   },
   {
     "id": "dsn5",
@@ -3014,9 +3651,68 @@
       "amber",
       "green",
       "cyan",
-      "violet"
+      "violet",
+      "white"
     ],
     "towers": [
+      {
+        "bands": [
+          {
+            "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "white",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "violet",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "violet",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "violet",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
       {
         "bands": [],
         "dampened": true
@@ -3024,13 +3720,30 @@
       {
         "bands": [
           {
-            "color": "violet",
+            "color": "red",
             "amplified": false,
             "noisy": false,
             "locked": false
           },
           {
-            "color": "green",
+            "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "amber",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "amber",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -3049,6 +3762,17 @@
           },
           {
             "color": "violet",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "green",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -3063,7 +3787,13 @@
       {
         "bands": [
           {
-            "color": "amber",
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "white",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -3075,7 +3805,13 @@
             "locked": false
           },
           {
-            "color": "red",
+            "color": "white",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "cyan",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -3092,13 +3828,7 @@
             "locked": false
           },
           {
-            "color": "green",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "amber",
+            "color": "cyan",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -3109,70 +3839,7 @@
       {
         "bands": [
           {
-            "color": "green",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "cyan",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "cyan",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "violet",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "cyan",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "cyan",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "violet",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "red",
+            "color": "white",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -3183,7 +3850,7 @@
     ],
     "capacity": 5,
     "clearCharges": 1,
-    "targetMoves": 44
+    "targetMoves": 50
   },
   {
     "id": "dsn6",
@@ -3194,19 +3861,30 @@
       "amber",
       "green",
       "cyan",
-      "violet"
+      "violet",
+      "white"
     ],
     "towers": [
       {
+        "bands": [],
+        "dampened": true
+      },
+      {
         "bands": [
           {
-            "color": "cyan",
+            "color": "red",
             "amplified": false,
             "noisy": false,
             "locked": false
           },
           {
-            "color": "amber",
+            "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "red",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -3223,7 +3901,7 @@
       {
         "bands": [
           {
-            "color": "amber",
+            "color": "cyan",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -3251,64 +3929,6 @@
       },
       {
         "bands": [],
-        "dampened": true
-      },
-      {
-        "bands": [
-          {
-            "color": "amber",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "cyan",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "green",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "violet",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "violet",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "violet",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "green",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
         "dampened": false
       },
       {
@@ -3318,12 +3938,13 @@
             "amplified": false,
             "noisy": false,
             "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
+          },
+          {
+            "color": "amber",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
           {
             "color": "cyan",
             "amplified": false,
@@ -3336,7 +3957,7 @@
       {
         "bands": [
           {
-            "color": "red",
+            "color": "green",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -3348,7 +3969,82 @@
             "locked": false
           },
           {
+            "color": "violet",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "violet",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "white",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "violet",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "white",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "white",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "amber",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "white",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
             "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "amber",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -3363,7 +4059,7 @@
     ],
     "capacity": 5,
     "clearCharges": 1,
-    "targetMoves": 46
+    "targetMoves": 55
   },
   {
     "id": "dsn7",
@@ -3374,12 +4070,65 @@
       "amber",
       "green",
       "cyan",
-      "violet"
+      "violet",
+      "white"
     ],
     "towers": [
       {
         "bands": [
           {
+            "color": "white",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "violet",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "white",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
             "color": "green",
             "amplified": false,
             "noisy": false,
@@ -3391,36 +4140,7 @@
       {
         "bands": [
           {
-            "color": "violet",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "amber",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "violet",
+            "color": "white",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -3432,65 +4152,13 @@
             "locked": false
           },
           {
-            "color": "violet",
+            "color": "cyan",
             "amplified": false,
             "noisy": false,
             "locked": false
           },
           {
             "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "cyan",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "amber",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "cyan",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "cyan",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "green",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "amber",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "cyan",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -3505,7 +4173,80 @@
       {
         "bands": [
           {
+            "color": "amber",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "amber",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
             "color": "violet",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "violet",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "amber",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "amber",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "violet",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "red",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -3517,33 +4258,18 @@
             "locked": false
           },
           {
-            "color": "green",
+            "color": "white",
             "amplified": false,
             "noisy": false,
             "locked": false
           }
         ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "amber",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [],
         "dampened": false
       }
     ],
     "capacity": 5,
     "clearCharges": 1,
-    "targetMoves": 50
+    "targetMoves": 59
   },
   {
     "id": "dsn8",
@@ -3554,7 +4280,8 @@
       "amber",
       "green",
       "cyan",
-      "violet"
+      "violet",
+      "white"
     ],
     "towers": [
       {
@@ -3564,59 +4291,24 @@
       {
         "bands": [
           {
-            "color": "amber",
+            "color": "cyan",
             "amplified": false,
             "noisy": false,
             "locked": false
-          },
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
           {
-            "color": "amber",
+            "color": "white",
             "amplified": false,
             "noisy": false,
             "locked": false
           },
           {
             "color": "green",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "cyan",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "violet",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "cyan",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "violet",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -3639,13 +4331,30 @@
       {
         "bands": [
           {
-            "color": "green",
+            "color": "violet",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "cyan",
             "amplified": false,
             "noisy": false,
             "locked": false
           },
           {
             "color": "violet",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "green",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -3660,13 +4369,59 @@
       {
         "bands": [
           {
-            "color": "cyan",
+            "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "amber",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "white",
             "amplified": false,
             "noisy": false,
             "locked": false
           },
           {
             "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "violet",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -3688,6 +4443,12 @@
             "amplified": false,
             "noisy": false,
             "locked": false
+          },
+          {
+            "color": "white",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
           }
         ],
         "dampened": false
@@ -3699,20 +4460,15 @@
             "amplified": false,
             "noisy": false,
             "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
+          },
           {
-            "color": "green",
+            "color": "amber",
             "amplified": false,
             "noisy": false,
             "locked": false
           },
           {
-            "color": "red",
+            "color": "white",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -3723,7 +4479,7 @@
     ],
     "capacity": 5,
     "clearCharges": 1,
-    "targetMoves": 54
+    "targetMoves": 63
   },
   {
     "id": "dsn9",
@@ -3734,31 +4490,20 @@
       "amber",
       "green",
       "cyan",
-      "violet"
+      "violet",
+      "white"
     ],
     "towers": [
       {
         "bands": [
           {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "violet",
+            "color": "cyan",
             "amplified": false,
             "noisy": false,
             "locked": false
           },
           {
             "color": "amber",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "cyan",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -3769,25 +4514,25 @@
       {
         "bands": [
           {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
             "color": "violet",
             "amplified": false,
             "noisy": false,
             "locked": false
           },
           {
-            "color": "amber",
+            "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "white",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "cyan",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -3802,7 +4547,36 @@
       {
         "bands": [
           {
-            "color": "green",
+            "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "white",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "violet",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "red",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -3819,46 +4593,7 @@
       {
         "bands": [
           {
-            "color": "amber",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "cyan",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "green",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "cyan",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "green",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "amber",
+            "color": "white",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -3870,17 +4605,6 @@
             "locked": false
           },
           {
-            "color": "cyan",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
             "color": "violet",
             "amplified": false,
             "noisy": false,
@@ -3896,13 +4620,76 @@
         "dampened": false
       },
       {
+        "bands": [
+          {
+            "color": "amber",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
         "bands": [],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "amber",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "white",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "amber",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
         "dampened": false
       }
     ],
     "capacity": 5,
     "clearCharges": 1,
-    "targetMoves": 56
+    "targetMoves": 66
   },
   {
     "id": "dsn10",
@@ -3913,17 +4700,29 @@
       "amber",
       "green",
       "cyan",
-      "violet"
+      "violet",
+      "white"
     ],
     "towers": [
       {
         "bands": [
           {
-            "color": "red",
+            "color": "green",
             "amplified": false,
             "noisy": false,
             "locked": false
           },
+          {
+            "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
           {
             "color": "red",
             "amplified": false,
@@ -3943,7 +4742,13 @@
             "locked": false
           },
           {
-            "color": "green",
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "amber",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -3954,16 +4759,11 @@
       {
         "bands": [
           {
-            "color": "cyan",
+            "color": "white",
             "amplified": false,
             "noisy": false,
             "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
+          },
           {
             "color": "green",
             "amplified": false,
@@ -3977,7 +4777,7 @@
             "locked": false
           },
           {
-            "color": "red",
+            "color": "green",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -3990,25 +4790,9 @@
         "dampened": true
       },
       {
-        "bands": [],
-        "dampened": false
-      },
-      {
         "bands": [
           {
-            "color": "green",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "cyan",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "violet",
+            "color": "red",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -4023,7 +4807,12 @@
             "amplified": false,
             "noisy": false,
             "locked": false
-          },
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
           {
             "color": "red",
             "amplified": false,
@@ -4031,23 +4820,6 @@
             "locked": false
           },
           {
-            "color": "cyan",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "amber",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
             "color": "violet",
             "amplified": false,
             "noisy": false,
@@ -4060,7 +4832,52 @@
             "locked": false
           },
           {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
             "color": "violet",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "white",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "white",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "violet",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "white",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "amber",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -4071,7 +4888,7 @@
       {
         "bands": [
           {
-            "color": "amber",
+            "color": "cyan",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -4082,7 +4899,7 @@
     ],
     "capacity": 5,
     "clearCharges": 1,
-    "targetMoves": 60
+    "targetMoves": 70
   },
   {
     "id": "hunter1",
