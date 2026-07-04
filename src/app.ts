@@ -185,15 +185,10 @@ export async function bootstrap(): Promise<void> {
       return;
     }
 
-    // Player is allowed to deliberately mismatch to create interference.
+    // Player is allowed to deliberately mismatch colors; that creates interference.
+    // Flash a warning instead of blocking or using a browser confirm dialog.
     if (dst.bands.length > 0 && !dst.bands[dst.bands.length - 1].noisy && src.bands[src.bands.length - 1].color !== dst.bands[dst.bands.length - 1].color) {
-      if (save.settings.interferencePreview && !window.confirm('This move will create interference. Continue?')) {
-        state.selectedTower = null;
-        state.previewInterference = null;
-        state.previewWarning = false;
-        renderGame();
-        return;
-      }
+      ui.announce('Interference incoming');
     }
 
     const beforeInterference = hasAnyClearablePair(state);

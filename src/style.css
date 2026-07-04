@@ -243,11 +243,12 @@ button {
 .band.noisy {
   background: repeating-linear-gradient(
     90deg,
-    #555868 0px,
-    #8B8FA6 2px,
-    #555868 4px
+    #2C2F3D 0px,
+    #A0A5B8 4px,
+    #2C2F3D 8px
   );
-  animation: static-noise 0.22s steps(4) infinite;
+  animation: static-noise 0.25s steps(5) infinite;
+  border: 1px solid #6B708A;
 }
 
 .band.noisy::after {
@@ -258,6 +259,7 @@ button {
   transform: translateY(-50%);
   font-size: 0.65rem;
   color: var(--warning);
+  text-shadow: 0 0 4px rgba(0,0,0,0.8);
 }
 
 .band.red { background: linear-gradient(180deg, #FF6B6B 0%, var(--red) 60%, #B00 100%); }

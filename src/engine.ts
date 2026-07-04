@@ -40,10 +40,9 @@ export function canTransfer(src: Tower, dst: Tower, dstCapacity: number): boolea
   if (srcTop.noisy) return false;
   const room = dstCapacity - dst.bands.length;
   if (room <= 0) return false;
-  // mismatch intentionally allowed to create interference
-  if (dst.bands.length === 0) return true;
-  const dstTop = dst.bands[dst.bands.length - 1];
-  if (dstTop.noisy) return false;
+  // Empty towers and towers topped by interference are both valid destinations.
+  if (dst.bands.length === 0 || dst.bands[dst.bands.length - 1].noisy) return true;
+  // Mismatch intentionally allowed to create interference.
   return true;
 }
 

@@ -255,10 +255,10 @@ export class UI {
         <div class="mini-tower"><div class="mini-band amber"></div></div>
       </div>
 
-      <p class="help-caption">Mismatched colors cause <strong>interference</strong> (grey static). Resolve it with a matching color on top or spend a <strong>Clear Signal</strong> charge.</p>
+      <p class="help-caption">Mismatched colors cause <strong>interference</strong> (two bands of static). Resolve it by placing a matching color on top, or spend a <strong>Clear Signal</strong> charge.</p>
       <div class="help-example">
         <div class="mini-tower"><div class="mini-band" style="background:var(--noise)"></div></div>
-        <div class="mini-tower" style="height:80px"><div class="mini-band red"></div><div class="mini-band" style="background:var(--noise)"></div></div>
+        <div class="mini-tower" style="height:80px"><div class="mini-band red"></div><div class="mini-band" style="background:var(--noise)"></div><div class="mini-band red"></div></div>
       </div>
 
       <p>Every level has a <strong>target move count</strong>. Finish within target moves with <strong>no interference</strong> created to earn 3 stars.</p>
