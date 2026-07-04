@@ -256,18 +256,20 @@ export class UI {
       <p><strong>Signal</strong> is a radio-spectrum sorting puzzle. Tap a tower to select its top band, then tap another tower to move it.</p>
 
       <p class="help-caption">Stack matching colors and they compress into one amplified band, saving tower space.</p>
-      <div class="help-example" aria-label="Matching red bands compress">
-        <div class="mini-tower"><div class="mini-band red"></div></div>
+      <div class="help-example" aria-label="Matching red bands compress into one amplified band">
+        <div class="mini-tower"><div class="mini-band red amplified"></div></div>
         <div class="mini-tower"><div class="mini-band red"></div><div class="mini-band red"></div></div>
-        <div class="mini-tower"><div class="mini-band amber"></div></div>
+        <div class="mini-arrow">→</div>
+        <div class="mini-tower"><div class="mini-band red"></div></div>
+        <div class="mini-tower"><div class="mini-band red amplified"></div></div>
       </div>
 
-      <p class="help-caption">Drop a different color on top and it creates <strong>interference</strong> — two noisy static bands. Resolve it by adding either matching color on top, or tap <strong>Clear</strong> to spend one charge.</p>
+      <p class="help-caption">Drop a different color on top and it creates <strong>interference</strong> — two noisy static bands. Add either matching color on top to resolve it.</p>
       <div class="help-example" aria-label="Interference resolved by matching color">
-        <div class="mini-tower"><div class="mini-band red"></div><div class="mini-band" style="background:var(--noise)"></div></div>
-        <div class="mini-tower" style="height:88px"><div class="mini-band red"></div><div class="mini-band" style="background:var(--noise)"></div><div class="mini-band red"></div></div>
+        <div class="mini-tower"><div class="mini-band red"></div><div class="mini-band noisy"></div></div>
+        <div class="mini-tower"><div class="mini-band red noisy"></div><div class="mini-band noisy"></div><div class="mini-band red"></div></div>
         <div class="mini-arrow">→</div>
-        <div class="mini-tower" style="height:88px"><div class="mini-band red"></div><div class="mini-band red"></div></div>
+        <div class="mini-tower"><div class="mini-band red amplified"></div></div>
       </div>
 
       <ul class="help-list">
