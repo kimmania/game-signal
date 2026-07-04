@@ -197,28 +197,11 @@
       {
         "bands": [
           {
-            "color": "green",
+            "color": "amber",
             "amplified": false,
             "noisy": false,
             "locked": false
           },
-          {
-            "color": "green",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "green",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
           {
             "color": "amber",
             "amplified": false,
@@ -226,13 +209,7 @@
             "locked": false
           },
           {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "amber",
+            "color": "green",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -255,6 +232,23 @@
             "locked": false
           },
           {
+            "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
             "color": "amber",
             "amplified": false,
             "noisy": false,
@@ -264,7 +258,14 @@
         "dampened": false
       },
       {
-        "bands": [],
+        "bands": [
+          {
+            "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
         "dampened": false
       },
       {
@@ -287,25 +288,59 @@
     ],
     "towers": [
       {
+        "bands": [
+          {
+            "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "amber",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "amber",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
         "bands": [],
         "dampened": false
       },
       {
         "bands": [
           {
-            "color": "amber",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "amber",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "amber",
+            "color": "red",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -315,43 +350,9 @@
             "amplified": false,
             "noisy": false,
             "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "green",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
           },
           {
-            "color": "green",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "green",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "red",
+            "color": "amber",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -474,16 +475,22 @@
       {
         "bands": [
           {
+            "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
             "color": "amber",
             "amplified": false,
             "noisy": false,
             "locked": false
-          },
-          {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
           }
         ],
         "dampened": false
@@ -491,13 +498,7 @@
       {
         "bands": [
           {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "red",
+            "color": "green",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -520,7 +521,18 @@
             "locked": false
           },
           {
-            "color": "green",
+            "color": "amber",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "red",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -536,17 +548,6 @@
       },
       {
         "bands": [],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "amber",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
         "dampened": false
       }
     ],
@@ -573,7 +574,58 @@
             "locked": false
           },
           {
+            "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "amber",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
             "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "red",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -589,57 +641,6 @@
       },
       {
         "bands": [],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "amber",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "green",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "green",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
         "dampened": false
       }
     ],
@@ -665,6 +666,17 @@
             "amplified": false,
             "noisy": false,
             "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
           },
           {
             "color": "cyan",
@@ -678,18 +690,7 @@
       {
         "bands": [
           {
-            "color": "green",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "green",
+            "color": "amber",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -712,42 +713,13 @@
             "locked": false
           },
           {
-            "color": "cyan",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "amber",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "amber",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "amber",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
             "color": "green",
             "amplified": false,
             "noisy": false,
             "locked": false
           },
           {
-            "color": "red",
+            "color": "amber",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -757,6 +729,35 @@
       },
       {
         "bands": [],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "amber",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
         "dampened": false
       }
     ],
@@ -778,56 +779,49 @@
       {
         "bands": [
           {
-            "color": "green",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "green",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
             "color": "red",
             "amplified": false,
             "noisy": false,
             "locked": false
           },
-          {
-            "color": "green",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
           {
             "color": "cyan",
             "amplified": false,
             "noisy": false,
             "locked": false
           },
+          {
+            "color": "amber",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
           {
             "color": "cyan",
             "amplified": false,
@@ -856,13 +850,19 @@
       {
         "bands": [
           {
-            "color": "amber",
+            "color": "red",
             "amplified": false,
             "noisy": false,
             "locked": false
           },
           {
             "color": "amber",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "green",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -901,6 +901,23 @@
             "locked": false
           },
           {
+            "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "amber",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
             "color": "green",
             "amplified": false,
             "noisy": false,
@@ -911,18 +928,18 @@
             "amplified": false,
             "noisy": false,
             "locked": false
-          },
-          {
-            "color": "green",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
           }
         ],
         "dampened": false
       },
       {
         "bands": [
+          {
+            "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
           {
             "color": "cyan",
             "amplified": false,
@@ -930,51 +947,11 @@
             "locked": false
           },
           {
-            "color": "cyan",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
             "color": "amber",
             "amplified": false,
             "noisy": false,
             "locked": false
           },
-          {
-            "color": "amber",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "amber",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
           {
             "color": "green",
             "amplified": false,
@@ -989,7 +966,31 @@
         "dampened": false
       },
       {
-        "bands": [],
+        "bands": [
+          {
+            "color": "amber",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
         "dampened": false
       }
     ],
@@ -1011,19 +1012,19 @@
       {
         "bands": [
           {
-            "color": "amber",
+            "color": "green",
             "amplified": false,
             "noisy": false,
             "locked": false
           },
           {
-            "color": "amber",
+            "color": "green",
             "amplified": false,
             "noisy": false,
             "locked": false
           },
           {
-            "color": "amber",
+            "color": "cyan",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -1038,6 +1039,18 @@
             "amplified": false,
             "noisy": false,
             "locked": false
+          },
+          {
+            "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
           }
         ],
         "dampened": false
@@ -1045,7 +1058,7 @@
       {
         "bands": [
           {
-            "color": "green",
+            "color": "amber",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -1055,25 +1068,15 @@
             "amplified": false,
             "noisy": false,
             "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
+          },
           {
-            "color": "green",
+            "color": "cyan",
             "amplified": false,
             "noisy": false,
             "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
+          },
           {
-            "color": "green",
+            "color": "amber",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -1088,21 +1091,18 @@
             "amplified": false,
             "noisy": false,
             "locked": false
-          },
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [],
+        "dampened": false
+      },
+      {
+        "bands": [
           {
-            "color": "cyan",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "cyan",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "red",
+            "color": "amber",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -1133,6 +1133,29 @@
       {
         "bands": [
           {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
             "color": "green",
             "amplified": false,
             "noisy": false,
@@ -1150,7 +1173,7 @@
             "locked": false
           },
           {
-            "color": "amber",
+            "color": "green",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -1160,6 +1183,12 @@
       },
       {
         "bands": [
+          {
+            "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
           {
             "color": "cyan",
             "amplified": false,
@@ -1171,6 +1200,12 @@
       },
       {
         "bands": [
+          {
+            "color": "amber",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
           {
             "color": "green",
             "amplified": false,
@@ -1178,12 +1213,6 @@
             "locked": false
           },
           {
-            "color": "cyan",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
             "color": "amber",
             "amplified": false,
             "noisy": false,
@@ -1195,7 +1224,7 @@
       {
         "bands": [
           {
-            "color": "cyan",
+            "color": "red",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -1205,35 +1234,6 @@
       },
       {
         "bands": [],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "green",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
         "dampened": false
       }
     ],
@@ -1499,25 +1499,36 @@
       {
         "bands": [
           {
-            "color": "cyan",
+            "color": "red",
             "amplified": false,
             "noisy": false,
             "locked": false
           },
           {
-            "color": "cyan",
+            "color": "amber",
             "amplified": false,
             "noisy": false,
             "locked": false
-          },
-          {
-            "color": "cyan",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
           {
             "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "red",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -1534,13 +1545,18 @@
             "locked": false
           },
           {
-            "color": "red",
+            "color": "cyan",
             "amplified": false,
             "noisy": false,
             "locked": false
-          },
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
           {
-            "color": "amber",
+            "color": "cyan",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -1555,22 +1571,12 @@
       {
         "bands": [
           {
-            "color": "amber",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
             "color": "red",
             "amplified": false,
             "noisy": false,
             "locked": false
           }
         ],
-        "dampened": false
-      },
-      {
-        "bands": [],
         "dampened": false
       },
       {
@@ -1582,22 +1588,18 @@
             "locked": false
           },
           {
-            "color": "red",
+            "color": "green",
             "amplified": false,
             "noisy": false,
             "locked": false
           },
           {
-            "color": "green",
+            "color": "amber",
             "amplified": false,
             "noisy": false,
             "locked": false
           }
         ],
-        "dampened": false
-      },
-      {
-        "bands": [],
         "dampened": false
       }
     ],
@@ -1619,13 +1621,40 @@
       {
         "bands": [
           {
+            "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "amber",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
             "color": "red",
             "amplified": false,
             "noisy": false,
             "locked": false
           },
           {
-            "color": "green",
+            "color": "amber",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -1635,6 +1664,24 @@
       },
       {
         "bands": [
+          {
+            "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "amber",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
           {
             "color": "cyan",
             "amplified": false,
@@ -1651,23 +1698,6 @@
       {
         "bands": [
           {
-            "color": "amber",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "amber",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
             "color": "green",
             "amplified": false,
             "noisy": false,
@@ -1680,46 +1710,16 @@
             "locked": false
           },
           {
-            "color": "amber",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "cyan",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
             "color": "green",
             "amplified": false,
             "noisy": false,
             "locked": false
           }
         ],
+        "dampened": false
+      },
+      {
+        "bands": [],
         "dampened": false
       }
     ],
@@ -1864,6 +1864,18 @@
       {
         "bands": [
           {
+            "color": "amber",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "amber",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
             "color": "cyan",
             "amplified": false,
             "noisy": false,
@@ -1871,6 +1883,102 @@
           },
           {
             "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "violet",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "violet",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "amber",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "violet",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -1880,113 +1988,6 @@
       },
       {
         "bands": [],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "amber",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "amber",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "green",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "cyan",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "cyan",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "green",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "violet",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "violet",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "violet",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "green",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "amber",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
         "dampened": false
       }
     ],
@@ -2007,27 +2008,25 @@
     ],
     "towers": [
       {
+        "bands": [],
+        "dampened": false
+      },
+      {
         "bands": [
           {
-            "color": "violet",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "violet",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "amber",
+            "color": "green",
             "amplified": false,
             "noisy": false,
             "locked": false
           },
           {
             "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "amber",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -2049,27 +2048,16 @@
       {
         "bands": [
           {
-            "color": "green",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "amber",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
             "color": "red",
             "amplified": false,
             "noisy": false,
             "locked": false
+          },
+          {
+            "color": "amber",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
           }
         ],
         "dampened": false
@@ -2077,25 +2065,7 @@
       {
         "bands": [
           {
-            "color": "amber",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "cyan",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "green",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "violet",
+            "color": "red",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -2110,13 +2080,25 @@
       {
         "bands": [
           {
-            "color": "cyan",
+            "color": "violet",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "green",
             "amplified": false,
             "noisy": false,
             "locked": false
           },
           {
             "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "violet",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -2127,7 +2109,25 @@
       {
         "bands": [
           {
-            "color": "red",
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "violet",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "amber",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -2167,6 +2167,29 @@
             "locked": false
           },
           {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "violet",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
             "color": "amber",
             "amplified": false,
             "noisy": false,
@@ -2184,13 +2207,7 @@
             "locked": false
           },
           {
-            "color": "cyan",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "green",
+            "color": "red",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -2205,35 +2222,6 @@
       {
         "bands": [
           {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "violet",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "green",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
             "color": "cyan",
             "amplified": false,
             "noisy": false,
@@ -2244,18 +2232,9 @@
             "amplified": false,
             "noisy": false,
             "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [],
-        "dampened": false
-      },
-      {
-        "bands": [
+          },
           {
-            "color": "violet",
+            "color": "red",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -2266,13 +2245,35 @@
       {
         "bands": [
           {
-            "color": "violet",
+            "color": "red",
             "amplified": false,
             "noisy": false,
             "locked": false
           },
           {
-            "color": "red",
+            "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "violet",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "violet",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -2300,7 +2301,13 @@
       {
         "bands": [
           {
-            "color": "cyan",
+            "color": "violet",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "amber",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -2311,7 +2318,30 @@
       {
         "bands": [
           {
-            "color": "red",
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "violet",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "violet",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -2321,6 +2351,18 @@
             "amplified": false,
             "noisy": false,
             "locked": false
+          },
+          {
+            "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "violet",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
           }
         ],
         "dampened": false
@@ -2332,17 +2374,24 @@
             "amplified": false,
             "noisy": false,
             "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
+          },
+          {
+            "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
           {
             "color": "cyan",
             "amplified": false,
             "noisy": false,
             "locked": false
+          },
+          {
+            "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
           }
         ],
         "dampened": false
@@ -2350,25 +2399,42 @@
       {
         "bands": [
           {
-            "color": "violet",
+            "color": "green",
             "amplified": false,
             "noisy": false,
             "locked": false
           },
           {
-            "color": "violet",
+            "color": "green",
             "amplified": false,
             "noisy": false,
             "locked": false
           },
           {
-            "color": "violet",
+            "color": "amber",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "amber",
             "amplified": false,
             "noisy": false,
             "locked": false
           },
           {
-            "color": "red",
+            "color": "amber",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "green",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -2387,78 +2453,11 @@
         "dampened": false
       },
       {
-        "bands": [
-          {
-            "color": "amber",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "amber",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "amber",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
+        "bands": [],
         "dampened": false
       },
       {
-        "bands": [
-          {
-            "color": "green",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "violet",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "green",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "green",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "cyan",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "amber",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
+        "bands": [],
         "dampened": false
       }
     ],
@@ -2479,121 +2478,6 @@
     ],
     "towers": [
       {
-        "bands": [
-          {
-            "color": "amber",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "cyan",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "amber",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "cyan",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "cyan",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "violet",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "violet",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "violet",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "green",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "green",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "green",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "green",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "cyan",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
         "bands": [],
         "dampened": false
       },
@@ -2611,13 +2495,88 @@
       {
         "bands": [
           {
-            "color": "red",
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "violet",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "amber",
             "amplified": false,
             "noisy": false,
             "locked": false
           },
           {
             "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "amber",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "amber",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -2629,7 +2588,7 @@
             "locked": false
           },
           {
-            "color": "amber",
+            "color": "red",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -2639,6 +2598,46 @@
       },
       {
         "bands": [],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "violet",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "violet",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
         "dampened": false
       }
     ],
@@ -2661,38 +2660,11 @@
       {
         "bands": [
           {
-            "color": "violet",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "violet",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "violet",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
             "color": "green",
             "amplified": false,
             "noisy": false,
             "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [],
-        "dampened": false
-      },
-      {
-        "bands": [
+          },
           {
             "color": "amber",
             "amplified": false,
@@ -2711,7 +2683,25 @@
       {
         "bands": [
           {
-            "color": "cyan",
+            "color": "violet",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "amber",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "red",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -2722,6 +2712,12 @@
       {
         "bands": [
           {
+            "color": "amber",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
             "color": "red",
             "amplified": false,
             "noisy": false,
@@ -2729,12 +2725,6 @@
           },
           {
             "color": "cyan",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "green",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -2753,18 +2743,6 @@
             "amplified": false,
             "noisy": false,
             "locked": false
-          },
-          {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "cyan",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
           }
         ],
         "dampened": false
@@ -2796,7 +2774,7 @@
             "locked": false
           },
           {
-            "color": "amber",
+            "color": "cyan",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -2807,18 +2785,39 @@
       {
         "bands": [
           {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "amber",
+            "color": "cyan",
             "amplified": false,
             "noisy": false,
             "locked": false
           }
         ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "violet",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "violet",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [],
         "dampened": false
       }
     ],
@@ -2839,10 +2838,6 @@
     ],
     "towers": [
       {
-        "bands": [],
-        "dampened": true
-      },
-      {
         "bands": [
           {
             "color": "violet",
@@ -2851,63 +2846,7 @@
             "locked": false
           },
           {
-            "color": "green",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "cyan",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "cyan",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "cyan",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "cyan",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "violet",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "violet",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "green",
+            "color": "red",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -2924,51 +2863,10 @@
       {
         "bands": [
           {
-            "color": "amber",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "amber",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "amber",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
             "color": "green",
             "amplified": false,
             "noisy": false,
             "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "violet",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
           },
           {
             "color": "red",
@@ -2977,18 +2875,7 @@
             "locked": false
           },
           {
-            "color": "green",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "red",
+            "color": "amber",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -2998,6 +2885,119 @@
       },
       {
         "bands": [],
+        "dampened": true
+      },
+      {
+        "bands": [
+          {
+            "color": "amber",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "violet",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "violet",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "amber",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "violet",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
         "dampened": false
       }
     ],
@@ -3024,31 +3024,31 @@
       {
         "bands": [
           {
-            "color": "amber",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "amber",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "amber",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
             "color": "violet",
             "amplified": false,
             "noisy": false,
             "locked": false
           },
           {
-            "color": "cyan",
+            "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "amber",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "violet",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -3063,6 +3063,12 @@
       {
         "bands": [
           {
+            "color": "amber",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
             "color": "green",
             "amplified": false,
             "noisy": false,
@@ -3073,12 +3079,6 @@
             "amplified": false,
             "noisy": false,
             "locked": false
-          },
-          {
-            "color": "cyan",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
           }
         ],
         "dampened": false
@@ -3086,13 +3086,13 @@
       {
         "bands": [
           {
-            "color": "violet",
+            "color": "amber",
             "amplified": false,
             "noisy": false,
             "locked": false
           },
           {
-            "color": "red",
+            "color": "green",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -3102,57 +3102,6 @@
             "amplified": false,
             "noisy": false,
             "locked": false
-          },
-          {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "green",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "violet",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "violet",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "green",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "cyan",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
           }
         ],
         "dampened": false
@@ -3172,6 +3121,58 @@
         "bands": [
           {
             "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "violet",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "violet",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "red",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -3199,6 +3200,12 @@
       {
         "bands": [
           {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
             "color": "amber",
             "amplified": false,
             "noisy": false,
@@ -3206,6 +3213,35 @@
           },
           {
             "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "amber",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "violet",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "cyan",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -3220,24 +3256,13 @@
       {
         "bands": [
           {
-            "color": "cyan",
+            "color": "amber",
             "amplified": false,
             "noisy": false,
             "locked": false
           },
           {
-            "color": "green",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "cyan",
+            "color": "red",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -3255,18 +3280,7 @@
             "locked": false
           },
           {
-            "color": "amber",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "amber",
+            "color": "violet",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -3284,41 +3298,6 @@
           },
           {
             "color": "violet",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "violet",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "cyan",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "violet",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "amber",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -3335,13 +3314,35 @@
       {
         "bands": [
           {
+            "color": "amber",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
             "color": "red",
             "amplified": false,
             "noisy": false,
             "locked": false
           },
           {
-            "color": "red",
+            "color": "green",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -3557,137 +3558,82 @@
     ],
     "towers": [
       {
-        "bands": [
-          {
-            "color": "amber",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "cyan",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "violet",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "violet",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "violet",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "green",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "violet",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "amber",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "cyan",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "cyan",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "cyan",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "amber",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
         "bands": [],
         "dampened": true
       },
       {
-        "bands": [],
+        "bands": [
+          {
+            "color": "amber",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "amber",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "violet",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "violet",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "amber",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
         "dampened": false
       },
       {
@@ -3699,7 +3645,34 @@
             "locked": false
           },
           {
-            "color": "green",
+            "color": "violet",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "violet",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -3712,6 +3685,34 @@
           },
           {
             "color": "amber",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "red",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -3739,122 +3740,25 @@
       {
         "bands": [
           {
-            "color": "violet",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "cyan",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "green",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "green",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "violet",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "cyan",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "violet",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "amber",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "cyan",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "cyan",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "amber",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "green",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
             "color": "red",
             "amplified": false,
             "noisy": false,
             "locked": false
           },
           {
+            "color": "violet",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
             "color": "amber",
             "amplified": false,
             "noisy": false,
             "locked": false
           },
           {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "green",
+            "color": "cyan",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -3894,6 +3798,102 @@
       {
         "bands": [],
         "dampened": true
+      },
+      {
+        "bands": [
+          {
+            "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "violet",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "amber",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "amber",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "violet",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
       },
       {
         "bands": [],
@@ -3919,7 +3919,25 @@
       {
         "bands": [
           {
+            "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
             "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "amber",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -3929,9 +3947,37 @@
             "amplified": false,
             "noisy": false,
             "locked": false
-          },
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
           {
             "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "violet",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "red",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -3944,19 +3990,11 @@
         "dampened": true
       },
       {
+        "bands": [],
+        "dampened": false
+      },
+      {
         "bands": [
-          {
-            "color": "green",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "green",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
           {
             "color": "green",
             "amplified": false,
@@ -3968,18 +4006,18 @@
             "amplified": false,
             "noisy": false,
             "locked": false
+          },
+          {
+            "color": "violet",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
           }
         ],
         "dampened": false
       },
       {
         "bands": [
-          {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
           {
             "color": "amber",
             "amplified": false,
@@ -3991,66 +4029,7 @@
             "amplified": false,
             "noisy": false,
             "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
           },
-          {
-            "color": "amber",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "violet",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [],
-        "dampened": false
-      },
-      {
-        "bands": [],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "violet",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "violet",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "violet",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
           {
             "color": "cyan",
             "amplified": false,
@@ -4062,13 +4041,35 @@
             "amplified": false,
             "noisy": false,
             "locked": false
-          },
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
           {
-            "color": "red",
+            "color": "violet",
             "amplified": false,
             "noisy": false,
             "locked": false
           },
+          {
+            "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "violet",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
           {
             "color": "amber",
             "amplified": false,
@@ -4099,154 +4100,30 @@
       {
         "bands": [
           {
-            "color": "amber",
+            "color": "white",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "violet",
             "amplified": false,
             "noisy": false,
             "locked": false
           },
           {
-            "color": "red",
+            "color": "violet",
             "amplified": false,
             "noisy": false,
             "locked": false
           },
           {
             "color": "green",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "white",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "cyan",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "green",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "amber",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "cyan",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "amber",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "cyan",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "white",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "violet",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "violet",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "violet",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "violet",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "white",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "white",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -4267,7 +4144,59 @@
             "locked": false
           },
           {
+            "color": "amber",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "white",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
             "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "amber",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -4279,6 +4208,80 @@
         "bands": [
           {
             "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "amber",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "violet",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "white",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "violet",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "white",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "red",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -4313,7 +4316,19 @@
       {
         "bands": [
           {
-            "color": "amber",
+            "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "violet",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "red",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -4328,13 +4343,13 @@
       {
         "bands": [
           {
-            "color": "green",
+            "color": "violet",
             "amplified": false,
             "noisy": false,
             "locked": false
           },
           {
-            "color": "violet",
+            "color": "cyan",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -4345,42 +4360,13 @@
       {
         "bands": [
           {
-            "color": "violet",
+            "color": "white",
             "amplified": false,
             "noisy": false,
             "locked": false
           },
           {
-            "color": "green",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "red",
+            "color": "white",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -4397,7 +4383,42 @@
       {
         "bands": [
           {
+            "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
             "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "white",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "amber",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -4413,65 +4434,41 @@
             "amplified": false,
             "noisy": false,
             "locked": false
+          },
+          {
+            "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
           }
         ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [],
         "dampened": false
       },
       {
         "bands": [
           {
             "color": "white",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "violet",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "cyan",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "cyan",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "cyan",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "white",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "violet",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -4483,19 +4480,24 @@
             "locked": false
           },
           {
-            "color": "white",
+            "color": "violet",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "red",
             "amplified": false,
             "noisy": false,
             "locked": false
           },
           {
-            "color": "cyan",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "white",
+            "color": "violet",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -4526,48 +4528,9 @@
     ],
     "towers": [
       {
-        "bands": [],
-        "dampened": false
-      },
-      {
         "bands": [
           {
             "color": "amber",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "amber",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "amber",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "violet",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "red",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -4577,99 +4540,12 @@
             "amplified": false,
             "noisy": false,
             "locked": false
-          },
-          {
-            "color": "violet",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
           }
         ],
         "dampened": false
       },
       {
         "bands": [
-          {
-            "color": "cyan",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "cyan",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "cyan",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "cyan",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "violet",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "white",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "white",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "amber",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "violet",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "green",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
           {
             "color": "white",
             "amplified": false,
@@ -4686,7 +4562,46 @@
       {
         "bands": [
           {
-            "color": "green",
+            "color": "white",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "violet",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "red",
             "amplified": false,
             "noisy": false,
             "locked": true
@@ -4698,6 +4613,17 @@
             "locked": false
           },
           {
+            "color": "white",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
             "color": "red",
             "amplified": false,
             "noisy": false,
@@ -4713,11 +4639,90 @@
         "dampened": false
       },
       {
-        "bands": [],
+        "bands": [
+          {
+            "color": "violet",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "amber",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "violet",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
         "dampened": false
       },
       {
-        "bands": [],
+        "bands": [
+          {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "amber",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "amber",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "violet",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
         "dampened": false
       }
     ],
@@ -4741,16 +4746,17 @@
       {
         "bands": [
           {
-            "color": "white",
+            "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": true
+          },
+          {
+            "color": "red",
             "amplified": false,
             "noisy": false,
             "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
+          },
           {
             "color": "cyan",
             "amplified": false,
@@ -4762,6 +4768,30 @@
       },
       {
         "bands": [
+          {
+            "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "white",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
           {
             "color": "amber",
             "amplified": false,
@@ -4774,63 +4804,24 @@
       {
         "bands": [
           {
-            "color": "violet",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "cyan",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
             "color": "white",
             "amplified": false,
             "noisy": false,
             "locked": false
           },
           {
+            "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "amber",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
             "color": "violet",
             "amplified": false,
             "noisy": false,
@@ -4848,7 +4839,38 @@
             "locked": false
           },
           {
-            "color": "violet",
+            "color": "amber",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [],
+        "dampened": false
+      },
+      {
+        "bands": [],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "amber",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "green",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -4858,9 +4880,20 @@
             "amplified": false,
             "noisy": false,
             "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "violet",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
           },
           {
-            "color": "cyan",
+            "color": "red",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -4884,39 +4917,10 @@
             "color": "green",
             "amplified": false,
             "noisy": false,
-            "locked": true
-          },
-          {
-            "color": "green",
-            "amplified": false,
-            "noisy": false,
             "locked": false
           },
           {
-            "color": "green",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "green",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "amber",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "amber",
+            "color": "violet",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -4926,14 +4930,12 @@
             "amplified": false,
             "noisy": false,
             "locked": false
-          },
-          {
-            "color": "amber",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
           }
         ],
+        "dampened": false
+      },
+      {
+        "bands": [],
         "dampened": false
       }
     ],
@@ -5816,13 +5818,7 @@
       {
         "bands": [
           {
-            "color": "green",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "red",
+            "color": "violet",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -5833,13 +5829,7 @@
       {
         "bands": [
           {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "green",
+            "color": "white",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -5851,13 +5841,36 @@
             "locked": false
           },
           {
-            "color": "cyan",
+            "color": "violet",
             "amplified": false,
             "noisy": false,
             "locked": false
           },
           {
-            "color": "violet",
+            "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "white",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "white",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -5874,24 +5887,7 @@
             "locked": false
           },
           {
-            "color": "green",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "white",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "white",
+            "color": "cyan",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -5901,46 +5897,6 @@
             "amplified": false,
             "noisy": false,
             "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "cyan",
-            "amplified": false,
-            "noisy": false,
-            "locked": true
-          },
-          {
-            "color": "cyan",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "cyan",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "violet",
-            "amplified": false,
-            "noisy": false,
-            "locked": true
-          },
-          {
-            "color": "amber",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
           },
           {
             "color": "green",
@@ -5954,13 +5910,29 @@
       {
         "bands": [
           {
-            "color": "violet",
+            "color": "amber",
             "amplified": false,
             "noisy": false,
             "locked": false
-          },
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
           {
-            "color": "white",
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "violet",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -5981,7 +5953,25 @@
             "locked": false
           },
           {
+            "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
             "color": "amber",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "green",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -5990,16 +5980,29 @@
         "dampened": false
       },
       {
-        "bands": [],
-        "dampened": false
-      },
-      {
         "bands": [
           {
             "color": "amber",
             "amplified": false,
             "noisy": false,
+            "locked": true
+          },
+          {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
             "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": true
           },
           {
             "color": "red",
@@ -6031,11 +6034,22 @@
       {
         "bands": [
           {
-            "color": "amber",
+            "color": "violet",
             "amplified": false,
             "noisy": false,
             "locked": false
           },
+          {
+            "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
           {
             "color": "amber",
             "amplified": false,
@@ -6053,6 +6067,63 @@
             "amplified": false,
             "noisy": false,
             "locked": false
+          },
+          {
+            "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "white",
+            "amplified": false,
+            "noisy": false,
+            "locked": true
+          },
+          {
+            "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "red",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "violet",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "green",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
+          {
+            "color": "white",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
           }
         ],
         "dampened": false
@@ -6066,13 +6137,19 @@
             "locked": false
           },
           {
-            "color": "green",
+            "color": "amber",
             "amplified": false,
             "noisy": false,
             "locked": false
           },
           {
             "color": "cyan",
+            "amplified": false,
+            "noisy": false,
+            "locked": false
+          },
+          {
+            "color": "amber",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -6083,22 +6160,12 @@
       {
         "bands": [
           {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "cyan",
+            "color": "green",
             "amplified": false,
             "noisy": false,
             "locked": false
           }
         ],
-        "dampened": false
-      },
-      {
-        "bands": [],
         "dampened": false
       },
       {
@@ -6114,9 +6181,14 @@
             "amplified": false,
             "noisy": false,
             "locked": false
-          },
+          }
+        ],
+        "dampened": false
+      },
+      {
+        "bands": [
           {
-            "color": "violet",
+            "color": "red",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -6126,20 +6198,9 @@
             "amplified": false,
             "noisy": false,
             "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "green",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
           },
           {
-            "color": "green",
+            "color": "red",
             "amplified": false,
             "noisy": false,
             "locked": false
@@ -6153,63 +6214,6 @@
       },
       {
         "bands": [
-          {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "white",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "green",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "violet",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "amber",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          },
-          {
-            "color": "white",
-            "amplified": false,
-            "noisy": false,
-            "locked": false
-          }
-        ],
-        "dampened": false
-      },
-      {
-        "bands": [
-          {
-            "color": "red",
-            "amplified": false,
-            "noisy": false,
-            "locked": true
-          },
           {
             "color": "white",
             "amplified": false,

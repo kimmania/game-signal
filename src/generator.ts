@@ -191,6 +191,29 @@ function isTrivial(towers: Tower[]): boolean {
 function hasCompleteTower(towers: Tower[], capacity: number): boolean {
   return towers.some((t) => t.bands.length === capacity && t.bands.every((b, _, arr) => b.color === arr[0].color));
 }
+
+/** Reject boards where an entire tower is already one color — that's too close to solved. */
+function hasMonochromaticTower(towers: Tower[]): boolean {
+  return towers.some((t) => t.bands.length > 1 && t.bands.every((b) => b.color === t.bands[0].color));
+}
+
+/** Longest contiguous run of one color in any tower. */
+function longestSameColorRun(towers: Tower[]): number {
+  let max = 1;
+  for (const t of towers) {
+    if (t.bands.length < 2) continue;
+    let run = 1;
+    for (let i = 1; i < t.bands.length; i++) {
+      if (t.bands[i].color === t.bands[i - 1].color) {
+        run++;
+        max = Math.max(max, run);
+      } else {
+        run = 1;
+      }
+    }
+  }
+  return max;
+}
 /** Lock band(s) that are safe to lock: bottom of a mixed tower, never the top band,
  *  never two locks in one tower, only colors with 2+ other free bands in play,
  *  and only towers with headroom above the lock for staging unlock moves. */
@@ -242,17 +265,26 @@ export function generateLevel(tier: Tier, index: number, baseSeed: number): Leve
     if (hasCompleteTower(towers, spec.capacity)) continue;
     // Always keep at least one empty staging tower; dampened towers need extra space.
     if (towers.filter((t) => t.bands.length === 0).length < 1 + shape.dampenedTowers) continue;
+    // No initially solved monochromatic towers and, ideally, no same-color runs larger than 2.
+    if (hasMonochromaticTower(towers)) continue;
 
     // Scramble which physical tower each cluster lives in.
-    const nonEmpty = towers.filter((t) => t.bands.length > 0).map(cloneTower);
-    const empty = towers.filter((t) => t.bands.length === 0).map(cloneTower);
-    const shuffledNonEmpty = shuffle(nonEmpty, rng);
-    const newTowers: Tower[] = Array.from({ length: towers.length }, () => ({ bands: [], dampened: false }));
-    let nonEmptyIdx = 0;
-    let emptyIdx = 0;
-    for (let i = 0; i < towers.length; i++) {
-      newTowers[i] = towers[i].bands.length > 0 ? shuffledNonEmpty[nonEmptyIdx++] : empty[emptyIdx++];
-    }
+    let newTowers: Tower[];
+    let retry = 0;
+    do {
+      retry++;
+      const nonEmpty = towers.filter((t) => t.bands.length > 0).map(cloneTower);
+      const empty = towers.filter((t) => t.bands.length === 0).map(cloneTower);
+      const shuffledNonEmpty = shuffle(nonEmpty, rng);
+      newTowers = Array.from({ length: towers.length }, () => ({ bands: [], dampened: false }));
+      let nonEmptyIdx = 0;
+      let emptyIdx = 0;
+      for (let i = 0; i < towers.length; i++) {
+        newTowers[i] = towers[i].bands.length > 0 ? shuffledNonEmpty[nonEmptyIdx++] : empty[emptyIdx++];
+      }
+    } while (retry < 30 && (hasMonochromaticTower(newTowers) || longestSameColorRun(newTowers) > 2));
+
+    if (hasMonochromaticTower(newTowers) || longestSameColorRun(newTowers) > 2) continue;
 
     // Strip the scramble-only amplified flags; boards start with plain bands.
     for (const t of newTowers) {
