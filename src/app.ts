@@ -32,25 +32,28 @@ export async function bootstrap(): Promise<void> {
   sound.setMuted(!save.settings.sound);
 
   function startLevel(level: LevelData): void {
-    ensureUnlocked(level.id);
+    if (!isUnlocked(level.id)) {
+      sound.playInvalid();
+      ui.announce('Complete earlier levels to unlock');
+      return;
+    }
     state = createGameState(level.id, level.era, level.capacity, level.towers, level.clearCharges, level.targetMoves, level.colors);
     currentLevelIndex = levels.findIndex((l) => l.id === level.id);
     ui.setScreen('game');
     renderGame();
   }
 
-  function ensureUnlocked(id: string): void {
-    const set = new Set(save.unlocked);
-    set.add(id);
-    save.unlocked = Array.from(set);
-    saveGame(save);
+  function isUnlocked(id: string): boolean {
+    // First level of every tier is always available for challenge/practice
+    if (id.match(/^(dish|array|dsn|hunter)1$/)) return true;
+    return save.unlocked.includes(id);
   }
 
   function showMap(): void {
     ui.setScreen('map');
     ui.renderMap(
       eras,
-      (id) => save.unlocked.includes(id),
+      (id) => isUnlocked(id),
       (id) => save.progress[id],
       (level) => startLevel(level),
       () => showSettings(),
