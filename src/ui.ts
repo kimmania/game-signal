@@ -248,22 +248,31 @@ export class UI {
 
   showHelp(onClose: () => void): void {
     this.showModal('How to Play', `
-      <p><strong>Signal</strong> is a spectrum-sorting puzzle. Tap a tower to select it, then tap another tower to transfer the top bands.</p>
+      <p><strong>Signal</strong> is a spectrum-sorting puzzle. Tap a tower to select it, then tap another tower to move the top block.</p>
 
-      <p class="help-caption">Move all bands of the same color onto one tower to amplify and save space.</p>
-      <div class="help-example">
+      <p class="help-caption">Move matching colors together and they compress into one amplified band, saving space.</p>
+      <div class="help-example" aria-label="Matching red bands compress">
         <div class="mini-tower"><div class="mini-band red"></div></div>
         <div class="mini-tower"><div class="mini-band red"></div><div class="mini-band red"></div></div>
         <div class="mini-tower"><div class="mini-band amber"></div></div>
       </div>
 
-      <p class="help-caption">Mismatched colors cause <strong>interference</strong> (two bands of static). Resolve it by placing a matching color on top, or spend a <strong>Clear Signal</strong> charge.</p>
-      <div class="help-example">
-        <div class="mini-tower"><div class="mini-band" style="background:var(--noise)"></div></div>
-        <div class="mini-tower" style="height:80px"><div class="mini-band red"></div><div class="mini-band" style="background:var(--noise)"></div><div class="mini-band red"></div></div>
+      <p class="help-caption">Placing a different color on top creates <strong>interference</strong> (two noisy static bands). Resolve it by placing either matching color on top, or tap <strong>Clear</strong> to spend a charge.</p>
+      <div class="help-example" aria-label="Interference resolved by matching color">
+        <div class="mini-tower"><div class="mini-band red"></div><div class="mini-band" style="background:var(--noise)"></div></div>
+        <div class="mini-tower" style="height:88px"><div class="mini-band red"></div><div class="mini-band" style="background:var(--noise)"></div><div class="mini-band red"></div></div>
+        <div class="mini-arrow">→</div>
+        <div class="mini-tower" style="height:88px"><div class="mini-band red"></div><div class="mini-band red"></div></div>
       </div>
 
-      <p>Every level has a <strong>target move count</strong>. Finish within target moves with <strong>no interference</strong> created to earn 3 stars.</p>
+      <ul class="help-list">
+        <li>Only the top stretch of matching color is picked up.</li>
+        <li>You can place a band onto a noisy interference pair.</li>
+        <li>When two or more towers have interference, tap <strong>Clear</strong> first, then tap the tower you want to clear.</li>
+        <li>Empty towers are shown with an <strong>Empty</strong> label.</li>
+      </ul>
+
+      <p>Every level has a <strong>target move count</strong>. Beat it without creating interference for 3 stars.</p>
 
       <div class="modal-actions">
         <button id="close-help" class="btn btn-primary">Got it</button>
