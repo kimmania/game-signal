@@ -107,9 +107,9 @@ export function transferBands(
   }
 
   dst.bands.push(...moving);
-  // Capture whether this landing created a 2+ clean stack, which generates
+  // Capture whether this landing created a 2+ clean same-color stack, which generates
   // resonance charge even if compression or dampening changes the board afterwards.
-  const charge = topCleanRunLength(dst) >= 2;
+  const charge = topSignalRunLength(dst) >= 2;
 
   recomputeAfterMove(src);
   const event = recomputeAfterMove(dst, true);
@@ -168,14 +168,14 @@ function recomputeAfterMove(tower: Tower, justLanded = false): MoveEvent {
   return null;
 }
 
-function topCleanRunLength(tower: Tower): number {
+function topSignalRunLength(tower: Tower): number {
   if (tower.bands.length === 0) return 0;
   const top = tower.bands[tower.bands.length - 1];
-  if (top.noisy || top.locked) return 0;
+  if (top.noisy) return 0;
   let count = 1;
   for (let i = tower.bands.length - 2; i >= 0; i--) {
     const b = tower.bands[i];
-    if (b.noisy || b.locked || b.color !== top.color) break;
+    if (b.noisy || b.color !== top.color) break;
     count++;
   }
   return count;
@@ -214,7 +214,7 @@ export function canClearPair(tower: Tower): boolean {
   return top.noisy && second.noisy && !top.locked;
 }
 
-export function clearPair(tower: Tower): { resolvedColor: BandColor } | null {
+export function clearPair(tower: Tower): { resolvedColor: BandColor; charge: boolean } | null {
   if (!canClearPair(tower)) return null;
   const second = tower.bands[tower.bands.length - 2];
   const resolvedColor = second.color;
@@ -224,8 +224,10 @@ export function clearPair(tower: Tower): { resolvedColor: BandColor } | null {
     noisy: false,
     locked: false
   });
-  recomputeAfterMove(tower, false);
-  return { resolvedColor };
+  const charge = topSignalRunLength(tower) >= 2;
+  // Allow the newly resolved clean band to release locks or compress just like a moved band.
+  recomputeAfterMove(tower, true);
+  return { resolvedColor, charge };
 }
 
 export function isWin(towers: Tower[]): boolean {

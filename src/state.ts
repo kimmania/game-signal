@@ -163,9 +163,14 @@ export function useClearSignal(state: GameState): boolean {
   if (index === null || !canClearPair(state.towers[index])) return false;
   state.clearSelectedTower = null;
   pushUndo(state);
-  clearPair(state.towers[index]);
+  const clearResult = clearPair(state.towers[index]);
+  if (!clearResult) return false;
   state.clearChargesRemaining--;
   state.moves++;
+  if (clearResult.charge && state.resonanceCharge < RESONANCE_STACKS_REQUIRED && !state.resonancePulseUsed) {
+    state.resonanceCharge++;
+  }
+  updateResonancePulse(state);
   state.lastMoveTarget = index;
   state.lastMoveEvent = 'resolved';
   state.completed = isWin(state.towers);
