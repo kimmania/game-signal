@@ -142,6 +142,10 @@ export function selectTower(state: GameState, index: number): MoveOutcome {
   if (result.charge && state.resonanceCharge < RESONANCE_STACKS_REQUIRED && !state.resonancePulseUsed) {
     state.resonanceCharge = Math.min(RESONANCE_STACKS_REQUIRED, state.resonanceCharge + result.charge);
   }
+  // Matching clean signals sometimes restores a Clear Signal charge (up to the level max).
+  if (result.charge && Math.random() < 0.5 && state.clearChargesRemaining < state.clearChargesTotal) {
+    state.clearChargesRemaining++;
+  }
   updateResonancePulse(state);
   state.selectedTower = null;
   state.lastMoveTarget = index;
@@ -169,6 +173,10 @@ export function useClearSignal(state: GameState): boolean {
   state.moves++;
   if (clearResult.charge && state.resonanceCharge < RESONANCE_STACKS_REQUIRED && !state.resonancePulseUsed) {
     state.resonanceCharge = Math.min(RESONANCE_STACKS_REQUIRED, state.resonanceCharge + clearResult.charge);
+  }
+  // A resolved interference pair that also forms a 2-stack can restore a Clear Signal charge.
+  if (clearResult.charge && Math.random() < 0.5 && state.clearChargesRemaining < state.clearChargesTotal) {
+    state.clearChargesRemaining++;
   }
   updateResonancePulse(state);
   state.lastMoveTarget = index;
