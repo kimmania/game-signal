@@ -140,7 +140,7 @@ export function selectTower(state: GameState, index: number): MoveOutcome {
     state.interferenceCreated++;
   }
   if (result.charge && state.resonanceCharge < RESONANCE_STACKS_REQUIRED && !state.resonancePulseUsed) {
-    state.resonanceCharge++;
+    state.resonanceCharge = Math.min(RESONANCE_STACKS_REQUIRED, state.resonanceCharge + result.charge);
   }
   updateResonancePulse(state);
   state.selectedTower = null;
@@ -168,7 +168,7 @@ export function useClearSignal(state: GameState): boolean {
   state.clearChargesRemaining--;
   state.moves++;
   if (clearResult.charge && state.resonanceCharge < RESONANCE_STACKS_REQUIRED && !state.resonancePulseUsed) {
-    state.resonanceCharge++;
+    state.resonanceCharge = Math.min(RESONANCE_STACKS_REQUIRED, state.resonanceCharge + clearResult.charge);
   }
   updateResonancePulse(state);
   state.lastMoveTarget = index;

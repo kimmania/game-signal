@@ -8,7 +8,7 @@ export interface TransferResult {
   moved: number;
   interference: boolean;
   event: MoveEvent;
-  charge: boolean;
+  charge: number;
 }
 
 export function cloneTower(t: Tower): Tower {
@@ -93,11 +93,11 @@ export function transferBands(
   dst: Tower,
   dstCapacity: number
 ): TransferResult {
-  if (!canTransfer(src, dst, dstCapacity)) return { moved: 0, interference: false, event: null, charge: false };
+  if (!canTransfer(src, dst, dstCapacity)) return { moved: 0, interference: false, event: null, charge: 0 };
   const blockLen = topBlockLength(src);
   const room = dstCapacity - dst.bands.length;
   const count = Math.min(blockLen, room);
-  if (count <= 0) return { moved: 0, interference: false, event: null, charge: false };
+  if (count <= 0) return { moved: 0, interference: false, event: null, charge: 0 };
   const moving = src.bands.splice(src.bands.length - count, count);
   const dstTop = dst.bands[dst.bands.length - 1];
   const interference = dst.bands.length > 0 && !dst.dampened && !dstTop.noisy && !dstTop.locked && dstTop.color !== moving[0].color;
@@ -107,10 +107,10 @@ export function transferBands(
   }
 
   dst.bands.push(...moving);
-  // Capture whether either side now ends with a 2+ clean same-color run before
+  // Award one charge for each side that ends with a 2+ clean same-color run before
   // compression/unlocking changes the towers. A run that includes a same-color
   // encrypted band below counts because the landing clean band unlocks it.
-  const charge = topSignalRunLength(src) >= 2 || topSignalRunLength(dst) >= 2;
+  const charge = (topSignalRunLength(src) >= 2 ? 1 : 0) + (topSignalRunLength(dst) >= 2 ? 1 : 0);
 
   recomputeAfterMove(src);
   const event = recomputeAfterMove(dst, true);
@@ -215,7 +215,7 @@ export function canClearPair(tower: Tower): boolean {
   return top.noisy && second.noisy && !top.locked;
 }
 
-export function clearPair(tower: Tower): { resolvedColor: BandColor; charge: boolean } | null {
+export function clearPair(tower: Tower): { resolvedColor: BandColor; charge: number } | null {
   if (!canClearPair(tower)) return null;
   const second = tower.bands[tower.bands.length - 2];
   const resolvedColor = second.color;
@@ -225,11 +225,11 @@ export function clearPair(tower: Tower): { resolvedColor: BandColor; charge: boo
     noisy: false,
     locked: false
   });
-  const charge = topSignalRunLength(tower) >= 2;
-  // Allow the newly resolved clean band to release locks or compress just like a moved band.
+  const charge = topSignalRunLength(tower) >= 2 ? 1 : 0;
   recomputeAfterMove(tower, true);
   return { resolvedColor, charge };
 }
+
 
 export function isWin(towers: Tower[]): boolean {
   for (const tower of towers) {
