@@ -15,3 +15,4 @@ dev-dist
 # misc
 .DS_Store
 *.log
+.hermes
