@@ -112,14 +112,13 @@ export function transferBands(
   recomputeAfterMove(src);
   let event = recomputeAfterMove(dst, true);
 
-  // Resonance unlock: whenever a move lands 2+ matching clean bands of color X,
-  // all locked bands of color X anywhere unlock.
+  // Resonance unlock: whenever a move lands 2+ matching clean bands,
+  // all locked bands anywhere unlock.
   if (allTowers && landingRunLength >= 2) {
-    const color = moving[0].color;
     let unlockedAny = false;
     for (const tower of allTowers) {
       for (const b of tower.bands) {
-        if (b.locked && b.color === color) {
+        if (b.locked) {
           b.locked = false;
           unlockedAny = true;
         }

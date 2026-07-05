@@ -89,6 +89,11 @@ export function undo(state: GameState): boolean {
   return true;
 }
 
+export function resetSelection(state: GameState): void {
+  state.selectedTower = null;
+  state.clearSelectedTower = null;
+}
+
 export function selectTower(state: GameState, index: number): MoveOutcome {
   if (state.completed) return { kind: 'rejected' };
   if (state.selectedTower === null) {
