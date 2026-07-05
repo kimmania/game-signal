@@ -107,9 +107,10 @@ export function transferBands(
   }
 
   dst.bands.push(...moving);
-  // Capture whether this landing created a 2+ clean same-color stack, which generates
-  // resonance charge even if compression or dampening changes the board afterwards.
-  const charge = topSignalRunLength(dst) >= 2;
+  // Capture whether either side now ends with a 2+ clean same-color run before
+  // compression/unlocking changes the towers. A run that includes a same-color
+  // encrypted band below counts because the landing clean band unlocks it.
+  const charge = topSignalRunLength(src) >= 2 || topSignalRunLength(dst) >= 2;
 
   recomputeAfterMove(src);
   const event = recomputeAfterMove(dst, true);
@@ -171,7 +172,7 @@ function recomputeAfterMove(tower: Tower, justLanded = false): MoveEvent {
 function topSignalRunLength(tower: Tower): number {
   if (tower.bands.length === 0) return 0;
   const top = tower.bands[tower.bands.length - 1];
-  if (top.noisy) return 0;
+  if (top.noisy || top.locked) return 0;
   let count = 1;
   for (let i = tower.bands.length - 2; i >= 0; i--) {
     const b = tower.bands[i];
