@@ -279,55 +279,57 @@ button {
 }
 
 .tower {
+  --band-h: 28px;
+  --band-gap: 3px;
   display: flex;
   flex-direction: column-reverse;
   align-items: center;
   position: relative;
-  width: clamp(52px, 13vw, 72px);
+  width: clamp(46px, 11vw, 62px);
   background:
     repeating-linear-gradient(
       0deg,
       transparent 0px,
-      transparent 18px,
-      rgba(44, 54, 92, 0.35) 18px,
-      rgba(44, 54, 92, 0.35) 19px
+      transparent var(--band-h),
+      rgba(44, 54, 92, 0.35) var(--band-h),
+      rgba(44, 54, 92, 0.35) calc(var(--band-h) + 1px)
     );
   border-left: 2px solid var(--bezel);
   border-right: 2px solid var(--bezel);
   border-bottom: 3px solid var(--bezel);
-  border-radius: 0 0 6px 6px;
+  border-radius: 0 0 10px 10px;
   padding: 2px 3px 0;
-  min-height: 132px;
-  height: calc(var(--tower-cap) * 30px + 6px);
+  min-height: 128px;
+  height: calc(var(--tower-cap) * var(--band-h) + (var(--tower-cap) - 1) * var(--band-gap) + 8px);
   transition: border-color 0.15s ease, box-shadow 0.15s ease;
 }
 
-/* Dish silhouette (kept intact in all tower states — badges are child elements). */
+/* Curved dish receiver bowl behind each tower. */
 .tower::after {
   content: '';
   position: absolute;
   left: 50%;
-  bottom: -12px;
+  bottom: -10px;
   transform: translateX(-50%);
-  width: 150%;
-  height: 18px;
+  width: 170%;
+  height: 70%;
   border-radius: 50% 50% 0 0;
-  border-top: 3px solid var(--bezel);
-  border-left: 3px solid var(--bezel);
-  border-right: 3px solid var(--bezel);
+  border: 2px solid var(--bezel);
   border-bottom: none;
+  background: radial-gradient(ellipse at center bottom, rgba(30, 40, 70, 0.55) 0%, transparent 70%);
   pointer-events: none;
-  opacity: 0.85;
+  opacity: 0.7;
+  z-index: -1;
 }
 
 .tower::before {
   content: '';
   position: absolute;
   left: 50%;
-  top: -10px;
+  top: -8px;
   transform: translateX(-50%);
-  width: 8px;
-  height: 10px;
+  width: 6px;
+  height: 8px;
   background: var(--bezel);
   border-radius: 2px 2px 0 0;
   pointer-events: none;
@@ -371,7 +373,7 @@ button {
   border-right-style: dashed;
 }
 
-/* Status badges — real child elements so the dish ::before/::after silhouette persists. */
+/* Status badges — real child elements so the dish bowl persists. */
 .tower-badge {
   position: absolute;
   left: 0;
@@ -381,18 +383,50 @@ button {
 }
 
 .badge-dampened {
-  top: -26px;
+  top: -22px;
   font-size: 0.75rem;
   color: var(--warning);
   text-shadow: 0 0 6px rgba(255, 199, 0, 0.45);
 }
 
 .badge-clear {
-  top: -24px;
+  top: -20px;
   font-size: 0.65rem;
   color: var(--cyan);
   text-transform: uppercase;
   letter-spacing: 0.05em;
+}
+
+/* State LEDs on the tower frame. */
+.tower-led {
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  box-shadow: 0 0 6px currentColor;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.tower-led.dampened {
+  top: -5px;
+  right: -5px;
+  background: var(--warning);
+  color: var(--warning);
+}
+
+.tower-led.clearable {
+  top: -5px;
+  left: -5px;
+  background: var(--cyan);
+  color: var(--cyan);
+}
+
+.tower-led.full {
+  bottom: 4px;
+  right: -5px;
+  background: var(--danger);
+  color: var(--danger);
 }
 
 .tower-empty-label {
@@ -404,13 +438,16 @@ button {
 }
 
 .band {
-  width: 100%;
-  height: 26px;
-  border-radius: 3px;
-  margin-top: 2px;
+  width: 94%;
+  height: var(--band-h);
+  border-radius: 4px;
+  margin-top: var(--band-gap);
   position: relative;
   overflow: hidden;
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.15), inset 0 -1px 0 rgba(0,0,0,0.3);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.18),
+    inset 0 -1px 0 rgba(0,0,0,0.35);
+  border: 1px solid rgba(0,0,0,0.25);
   transition: transform 0.15s ease;
 }
 

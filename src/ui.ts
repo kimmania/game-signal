@@ -249,6 +249,26 @@ export class UI {
         t.appendChild(badge);
       }
 
+      // State LEDs on the tower frame: dampened, clearable, full.
+      if (tower.dampened) {
+        const led = document.createElement('span');
+        led.className = 'tower-led dampened';
+        led.title = 'Shielded';
+        t.appendChild(led);
+      }
+      if (canClearPair(tower)) {
+        const led = document.createElement('span');
+        led.className = 'tower-led clearable';
+        led.title = 'Interference pair can be cleared';
+        t.appendChild(led);
+      }
+      if (tower.bands.length >= state.capacity) {
+        const led = document.createElement('span');
+        led.className = 'tower-led full';
+        led.title = 'Tower at capacity';
+        t.appendChild(led);
+      }
+
       t.addEventListener('click', () => onTowerTap(i));
       board.appendChild(t);
     });
