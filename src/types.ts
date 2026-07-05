@@ -51,6 +51,8 @@ export interface GameStateSnapshot {
   clearChargesRemaining: number;
   moves: number;
   interferenceCreated: number;
+  resonanceCharge: number;
+  resonancePulseUsed: boolean;
 }
 
 export const SAVE_VERSION = 1;

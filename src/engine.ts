@@ -2,10 +2,13 @@ import type { Band, BandColor, Tower } from './types.ts';
 
 export type MoveEvent = 'amplified' | 'interference' | 'resolved' | 'unlocked' | 'resonance' | null;
 
+export const RESONANCE_STACKS_REQUIRED = 3;
+
 export interface TransferResult {
   moved: number;
   interference: boolean;
   event: MoveEvent;
+  charge: boolean;
 }
 
 export function cloneTower(t: Tower): Tower {
@@ -88,14 +91,13 @@ export function destinationHint(src: Tower, dst: Tower, dstCapacity: number): De
 export function transferBands(
   src: Tower,
   dst: Tower,
-  dstCapacity: number,
-  allTowers?: Tower[]
+  dstCapacity: number
 ): TransferResult {
-  if (!canTransfer(src, dst, dstCapacity)) return { moved: 0, interference: false, event: null };
+  if (!canTransfer(src, dst, dstCapacity)) return { moved: 0, interference: false, event: null, charge: false };
   const blockLen = topBlockLength(src);
   const room = dstCapacity - dst.bands.length;
   const count = Math.min(blockLen, room);
-  if (count <= 0) return { moved: 0, interference: false, event: null };
+  if (count <= 0) return { moved: 0, interference: false, event: null, charge: false };
   const moving = src.bands.splice(src.bands.length - count, count);
   const dstTop = dst.bands[dst.bands.length - 1];
   const interference = dst.bands.length > 0 && !dst.dampened && !dstTop.noisy && !dstTop.locked && dstTop.color !== moving[0].color;
@@ -105,31 +107,14 @@ export function transferBands(
   }
 
   dst.bands.push(...moving);
-  // Capture whether this landing created a 2+ clean stack before compression happens,
-  // so the resonance unlock below can trigger on that color.
-  const landingRunLength = topCleanRunLength(dst, moving[0].color);
+  // Capture whether this landing created a 2+ clean stack, which generates
+  // resonance charge even if compression or dampening changes the board afterwards.
+  const charge = topCleanRunLength(dst) >= 2;
 
   recomputeAfterMove(src);
-  let event = recomputeAfterMove(dst, true);
+  const event = recomputeAfterMove(dst, true);
 
-  // Resonance unlock: whenever a move lands 2+ matching clean bands,
-  // all locked bands anywhere unlock.
-  if (allTowers && landingRunLength >= 2) {
-    let unlockedAny = false;
-    for (const tower of allTowers) {
-      for (const b of tower.bands) {
-        if (b.locked) {
-          b.locked = false;
-          unlockedAny = true;
-        }
-      }
-    }
-    if (unlockedAny) {
-      event = 'resonance';
-    }
-  }
-
-  return { moved: count, interference, event };
+  return { moved: count, interference, event, charge };
 }
 
 export function createNoisyPair(topColor: BandColor, bottomColor: BandColor): Band[] {
@@ -183,17 +168,21 @@ function recomputeAfterMove(tower: Tower, justLanded = false): MoveEvent {
   return null;
 }
 
-function topCleanRunLength(tower: Tower, color: BandColor): number {
+function topCleanRunLength(tower: Tower): number {
   if (tower.bands.length === 0) return 0;
   const top = tower.bands[tower.bands.length - 1];
-  if (top.noisy || top.locked || top.color !== color) return 0;
+  if (top.noisy || top.locked) return 0;
   let count = 1;
   for (let i = tower.bands.length - 2; i >= 0; i--) {
     const b = tower.bands[i];
-    if (b.noisy || b.locked || b.color !== color) break;
+    if (b.noisy || b.locked || b.color !== top.color) break;
     count++;
   }
   return count;
+}
+
+export function hasAnyLocked(towers: Tower[]): boolean {
+  return towers.some((t) => t.bands.some((b) => b.locked));
 }
 
 function compressSameColorTop(tower: Tower): boolean {
@@ -245,7 +234,7 @@ export function isWin(towers: Tower[]): boolean {
     const first = tower.bands[0];
     if (first.noisy) return false;
     for (const b of tower.bands) {
-      if (b.noisy || b.color !== first.color) return false;
+      if (b.noisy || b.locked || b.color !== first.color) return false;
     }
   }
   return true;

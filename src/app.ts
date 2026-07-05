@@ -1,8 +1,8 @@
 import type { LevelData } from './types.ts';
 import { COLORS } from './types.ts';
-import { createGameState, calculateStars, selectTower, useClearSignal, undo, resetGame, hasAnyClearablePair } from './state.ts';
+import { createGameState, calculateStars, selectTower, useClearSignal, useResonancePulse, canTriggerResonancePulse, undo, resetGame, hasAnyClearablePair } from './state.ts';
 import type { GameState } from './state.ts';
-import { cloneTowers, canClearPair } from './engine.ts';
+import { cloneTowers, canClearPair, RESONANCE_STACKS_REQUIRED } from './engine.ts';
 import { loadSave, saveGame, resetSave, recordProgress, unlockNext } from './storage.ts';
 import { UI } from './ui.ts';
 import * as sound from './sound.ts';
@@ -146,6 +146,7 @@ export async function bootstrap(): Promise<void> {
       () => handleUndo(),
       () => handleReset(),
       () => handleClear(),
+      () => handleResonancePulse(),
       () => showMap(),
       () => showHelp(),
       () => showSettings()
@@ -235,6 +236,26 @@ export async function bootstrap(): Promise<void> {
     }
 
     renderGame();
+  }
+
+  function handleResonancePulse(): void {
+    if (!state) return;
+    if (!canTriggerResonancePulse(state)) {
+      sound.playInvalid();
+      if (state.resonancePulseUsed) {
+        ui.announce('Resonance pulse already expended');
+      } else if (state.resonanceCharge < RESONANCE_STACKS_REQUIRED) {
+        ui.announce(`Resonance needs ${RESONANCE_STACKS_REQUIRED} clean stacks`);
+      } else {
+        ui.announce('No encrypted bands to unlock');
+      }
+      return;
+    }
+    if (useResonancePulse(state)) {
+      sound.playResonance();
+      ui.announce('Resonance pulse unlocked all encrypted bands');
+      renderGame();
+    }
   }
 
   function handleClear(): void {

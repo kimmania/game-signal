@@ -1,8 +1,8 @@
 import type { BandColor, LevelData, LevelProgress } from './types.ts';
 import { COLOR_NAMES } from './types.ts';
 import type { GameState } from './state.ts';
-import { canClearPair, destinationHint } from './engine.ts';
-import { canUndo } from './state.ts';
+import { canClearPair, destinationHint, RESONANCE_STACKS_REQUIRED } from './engine.ts';
+import { canUndo, canTriggerResonancePulse } from './state.ts';
 
 export type ScreenName = 'story' | 'map' | 'game' | 'help' | 'settings';
 
@@ -151,16 +151,16 @@ export class UI {
   renderGame(
     state: GameState,
     showHints: boolean,
-    onTowerTap: (index: number) => void,
+    onTowerTap: (i: number) => void,
     onUndo: () => void,
     onReset: () => void,
     onClear: () => void,
+    onResonance: () => void,
     onMap: () => void,
     onHelp: () => void,
     onSettings: () => void
   ): void {
     this.clear();
-
     const wrap = document.createElement('div');
     wrap.id = 'game-screen';
 
@@ -227,6 +227,9 @@ export class UI {
             if (state.lastMoveEvent === 'amplified') b.classList.add('just-amplified');
             if (state.lastMoveEvent === 'resonance') b.classList.add('just-resonance');
           }
+          if (state.lastMoveEvent === 'resonance') {
+            b.classList.add('just-resonance');
+          }
           t.appendChild(b);
         });
       }
@@ -257,11 +260,18 @@ export class UI {
     const hasClearable = state.towers.some((t) => canClearPair(t));
     const clearSelectable = state.clearChargesRemaining > 0 && hasClearable;
     const undoable = canUndo(state);
+    const resonanceReady = canTriggerResonancePulse(state);
+    const resonanceLabel = resonanceReady
+      ? '⚡ Resonance Ready'
+      : `⚡ Resonance ${state.resonanceCharge}/${RESONANCE_STACKS_REQUIRED}`;
 
     controls.innerHTML = `
       <button id="undo-btn" class="icon-btn" aria-label="Undo" ${undoable ? '' : 'disabled'}>↶ Undo</button>
       <button id="clear-btn" class="icon-btn ${clearSelectable ? 'active' : 'inactive'}" aria-label="Clear interference" ${clearSelectable ? '' : 'disabled'}>
         ⌁ Clear ${state.clearChargesRemaining}/${state.clearChargesTotal}
+      </button>
+      <button id="resonance-btn" class="icon-btn ${resonanceReady ? 'active' : 'inactive'}" aria-label="Resonance pulse" ${resonanceReady ? '' : 'disabled'}>
+        ${resonanceLabel}
       </button>
       <button id="reset-btn" class="icon-btn" aria-label="Reset">↻ Reset</button>
     `;
@@ -275,6 +285,7 @@ export class UI {
     document.getElementById('help-btn')?.addEventListener('click', onHelp);
     document.getElementById('settings-btn')?.addEventListener('click', onSettings);
     document.getElementById('clear-btn')?.addEventListener('click', onClear);
+    document.getElementById('resonance-btn')?.addEventListener('click', onResonance);
   }
 
   showVictory(
@@ -362,7 +373,7 @@ export class UI {
         <li>Empty towers show an <strong>Empty</strong> label — useful staging areas.</li>
         <li><strong>⛨ Shielded</strong> towers (Deep Space Network / Pulsar Core) never merge or interfere — pure staging space.</li>
         <li><strong>🔒 Encrypted</strong> bands (Exoplanet Hunter / Pulsar Core) can't be picked up until you stack their matching color on top.</li>
-        <li><strong>⚡ Resonance</strong>: any tower ending with 2 matching clean bands emits a signal pulse that instantly unlocks <em>every</em> encrypted band on the board.</li>
+        <li><strong>⚡ Resonance</strong>: build charge by landing 2 matching clean bands (3 charges). Once charged, tap the Resonance button to unlock every encrypted band on the board — one pulse per level.</li>
       </ul>
 
       <p>Each level has a <strong>target move count</strong>. Hit it without creating any interference for 3 stars.</p>

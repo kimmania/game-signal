@@ -39,7 +39,7 @@ Only the top run of matching color is picked up as a single block.
 - **Interference** — Drop a band on a different color and both turn into noisy static. Drop either matching color on top to resolve the pair back into one amplified band.
 - **Shielded towers** — Bands never merge or interfere here. Useful as pure staging space.
 - **Encrypted bands** — Locked bands can't be picked up until their matching color is stacked on top.
-- **Resonance** — When any tower ends with **2 matching clean bands**, it emits a signal pulse that unlocks every encrypted band on the whole board, regardless of color.
+- **Resonance** — Build charge by landing **2 matching clean bands** (3 charges). Once charged, tap the Resonance button to unlock every encrypted band on the board — one pulse per level.
 
 ## Era progression
 

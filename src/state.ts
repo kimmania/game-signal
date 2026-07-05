@@ -1,6 +1,6 @@
 import type { BandColor, GameStateSnapshot, Tower } from './types.ts';
 import type { MoveEvent } from './engine.ts';
-import { isWin, canClearPair, clearPair, canTransfer, transferBands, cloneTowers } from './engine.ts';
+import { isWin, canClearPair, clearPair, canTransfer, transferBands, cloneTowers, hasAnyLocked, RESONANCE_STACKS_REQUIRED } from './engine.ts';
 
 export interface GameState {
   levelId: string;
@@ -19,6 +19,9 @@ export interface GameState {
   lastMoveEvent: MoveEvent;
   completed: boolean;
   colors: BandColor[];
+  resonanceCharge: number;
+  resonancePulseUsed: boolean;
+  resonancePulseReady: boolean;
 }
 
 export type MoveOutcome =
@@ -52,7 +55,10 @@ export function createGameState(
     lastMoveTarget: null,
     lastMoveEvent: null,
     completed: false,
-    colors
+    colors,
+    resonanceCharge: 0,
+    resonancePulseUsed: false,
+    resonancePulseReady: false
   };
 }
 
@@ -61,7 +67,9 @@ export function snapshot(state: GameState): GameStateSnapshot {
     towers: cloneTowers(state.towers),
     clearChargesRemaining: state.clearChargesRemaining,
     moves: state.moves,
-    interferenceCreated: state.interferenceCreated
+    interferenceCreated: state.interferenceCreated,
+    resonanceCharge: state.resonanceCharge,
+    resonancePulseUsed: state.resonancePulseUsed
   };
 }
 
@@ -81,6 +89,9 @@ export function undo(state: GameState): boolean {
   state.clearChargesRemaining = prev.clearChargesRemaining;
   state.moves = prev.moves;
   state.interferenceCreated = prev.interferenceCreated;
+  state.resonanceCharge = prev.resonanceCharge;
+  state.resonancePulseUsed = prev.resonancePulseUsed;
+  updateResonancePulse(state);
   state.selectedTower = null;
   state.clearSelectedTower = null;
   state.lastMoveTarget = null;
@@ -117,7 +128,7 @@ export function selectTower(state: GameState, index: number): MoveOutcome {
   }
 
   pushUndo(state);
-  const result = transferBands(src, dst, state.capacity, state.towers);
+  const result = transferBands(src, dst, state.capacity);
   if (result.moved === 0) {
     // Should not happen after canTransfer, but never count a non-move.
     state.undoStack.pop();
@@ -128,6 +139,10 @@ export function selectTower(state: GameState, index: number): MoveOutcome {
   if (result.interference) {
     state.interferenceCreated++;
   }
+  if (result.charge && state.resonanceCharge < RESONANCE_STACKS_REQUIRED && !state.resonancePulseUsed) {
+    state.resonanceCharge++;
+  }
+  updateResonancePulse(state);
   state.selectedTower = null;
   state.lastMoveTarget = index;
   state.lastMoveEvent = result.event;
@@ -162,6 +177,9 @@ export function resetGame(state: GameState, initialTowers: Tower[]): void {
   state.clearChargesRemaining = state.clearChargesTotal;
   state.moves = 0;
   state.interferenceCreated = 0;
+  state.resonanceCharge = 0;
+  state.resonancePulseUsed = false;
+  state.resonancePulseReady = false;
   state.undoStack = [];
   state.selectedTower = null;
   state.clearSelectedTower = null;
@@ -172,6 +190,39 @@ export function resetGame(state: GameState, initialTowers: Tower[]): void {
 
 export function hasAnyClearablePair(state: GameState): boolean {
   return state.towers.some((t) => canClearPair(t));
+}
+
+function updateResonancePulse(state: GameState): void {
+  state.resonancePulseReady =
+    state.resonanceCharge >= RESONANCE_STACKS_REQUIRED &&
+    !state.resonancePulseUsed &&
+    hasAnyLocked(state.towers);
+}
+
+export function canTriggerResonancePulse(state: GameState): boolean {
+  updateResonancePulse(state);
+  return state.resonancePulseReady;
+}
+
+export function useResonancePulse(state: GameState): boolean {
+  if (!canTriggerResonancePulse(state)) return false;
+  let unlockedAny = false;
+  for (const tower of state.towers) {
+    for (const b of tower.bands) {
+      if (b.locked) {
+        b.locked = false;
+        unlockedAny = true;
+      }
+    }
+  }
+  if (!unlockedAny) return false;
+  pushUndo(state);
+  state.resonancePulseUsed = true;
+  state.lastMoveTarget = null;
+  state.lastMoveEvent = 'resonance';
+  updateResonancePulse(state);
+  state.completed = isWin(state.towers);
+  return true;
 }
 
 export function calculateStars(state: GameState): number {
